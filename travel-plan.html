@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แผนทริป (ฉบับร่าง) · 2 วัน 1 คืน &amp; 3 วัน 2 คืน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#faf6ef;--card:#fff;--ink:#1f2937;--muted:#6b7280;
+  --teal:#0f766e;--teal-soft:#e6f4f1;--coral:#f97316;--coral-soft:#fff2e8;
+  --line:#e5e7eb;--gold:#f59e0b;--shadow:0 6px 24px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Segoe UI",system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#0f766e 0%,#0e7490 45%,#0891b2 100%);color:#fff;padding:34px 20px 30px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;bottom:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero h1{margin:0 0 6px;font-size:clamp(23px,4vw,34px);line-height:1.28}
+.hero p{margin:0;opacity:.93;max-width:760px;font-size:14.5px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;font-size:13px}
+.draft-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);border:1px dashed rgba(255,255,255,.6);padding:4px 13px;border-radius:999px;font-size:12.5px;margin-bottom:13px;font-weight:600;letter-spacing:.02em}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:60;background:rgba(250,246,239,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabs .inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs .inner::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-size:13.5px;cursor:pointer;white-space:nowrap;font-family:inherit;color:var(--ink);transition:.15s;flex:0 0 auto}
+.tab:hover{border-color:var(--teal);color:var(--teal)}
+.tab.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+
+/* panels */
+.panel{display:none;padding-bottom:20px}
+.panel.active{display:block}
+section{margin:26px 0}
+h2{font-size:clamp(20px,2.6vw,25px);margin:0 0 8px}
+h3{font-size:17px;margin:22px 0 8px}
+h4{font-size:15px;margin:16px 0 6px;color:var(--teal)}
+.lead{color:var(--muted);margin:0 0 14px;font-size:14.5px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 20px;margin:14px 0}
+.card h3:first-child{margin-top:0}
+
+/* day timeline */
+.day{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin:16px 0;break-inside:avoid}
+.day-head{padding:11px 18px;background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;font-weight:700;font-size:14.5px}
+.tl{padding:6px 18px 12px}
+.tl-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tl-item:last-child{border-bottom:0}
+.tl-time{font-weight:700;color:var(--teal);font-size:13.5px;padding-top:2px}
+.tl-body b{display:block;font-size:14.5px;line-height:1.45}
+.tl-body p{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.55}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f9fafb;font-size:12.5px;color:var(--muted);font-weight:600}
+td.num{text-align:right;white-space:nowrap;font-weight:600}
+tr.total td{background:var(--teal-soft);font-weight:700;color:#0f766e;border-bottom:0}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.table-scroll table{min-width:520px}
+.table-scroll th,.table-scroll td{padding:9px 11px}
+
+/* villa highlight */
+.villa{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:linear-gradient(135deg,#fff,#f5fbfa);border:1px solid #cfe6e1;border-radius:16px;padding:15px 18px;margin:12px 0;box-shadow:var(--shadow)}
+.villa h3{margin:0 0 4px;font-size:16.5px}
+.villa p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+.villa .btn{align-self:center}
+
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{background:#0b5f59;color:#fff}
+
+/* pills */
+.price-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.pill{background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:#334155}
+.pill b{color:var(--teal)}
+
+/* callouts */
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0;line-height:1.65}
+.note b{color:#92400e}
+.tip{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0;line-height:1.65}
+.tip b{color:#1d4ed8}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0}
+.good b{color:#15803d}
+ul.tight{margin:6px 0 0;padding-left:20px}
+ul.tight li{margin:3px 0;font-size:14px}
+
+/* grid */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.mini h4{margin:0 0 6px;font-size:14.5px;color:var(--teal)}
+.mini ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+.mini li{margin:3px 0}
+
+/* checklist */
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:8px 0;font-size:14px;cursor:pointer;transition:.15s}
+.chk:hover{border-color:#cfe6e1}
+.chk input{margin:4px 0 0;width:17px;height:17px;accent-color:#0f766e;flex:0 0 auto;cursor:pointer}
+.chk.done{background:#f0fdf4;border-color:#bbf7d0}
+.chk.done span{text-decoration:line-through;color:var(--muted)}
+.chk-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px;align-items:center}
+.chk-progress{font-size:13px;color:var(--muted)}
+
+/* footer */
+footer{background:#0f172a;color:#cbd5e1;padding:26px 20px;margin-top:36px;font-size:13px}
+footer .wrap{display:grid;gap:6px}
+footer a{color:#5eead4}
+
+/* place cards */
+.places{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:14px;margin:14px 0}
+.place{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.place:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.14)}
+.place-media{position:relative;aspect-ratio:4/3;background:#e8eeec;overflow:hidden}
+.place-media img{width:100%;height:100%;object-fit:cover;display:block}
+.place-badge{position:absolute;top:8px;left:8px;background:rgba(15,23,42,.68);color:#fff;font-size:11px;padding:2px 9px;border-radius:999px;backdrop-filter:blur(3px)}
+.place-ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;text-align:center;padding:14px;font-size:12.5px;line-height:1.5}
+.place-ph span{display:block;font-size:32px;margin-bottom:4px}
+.place-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px;flex:1}
+.place-body b{font-size:15px;line-height:1.4}
+.place-body p{margin:0;font-size:12.8px;color:var(--muted);line-height:1.55;flex:1}
+.place-links{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;margin-top:4px}
+.place-links a{font-weight:700}
+.place-links a.credit{color:var(--muted);font-weight:500;font-size:11.5px}
+.place-links a.credit:hover{color:var(--teal)}
+
+@media(max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  .villa{grid-template-columns:1fr}
+  .villa .btn{justify-self:start}
+  .tl-item{grid-template-columns:56px 1fr;gap:10px}
+  .card{padding:14px 16px}
+  .day-head{font-size:13.5px}
+  .places{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .place-body{padding:10px 11px 12px}
+  .place-body b{font-size:13.5px}
+  .place-body p{font-size:12px}
+}
+@media print{
+  .tabs,.no-print,footer .no-print{display:none!important}
+  .panel{display:block!important;page-break-before:auto}
+  body{background:#fff}
+  .hero{background:#0f766e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.day,.mini,.villa{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="draft-badge">📝 ฉบับร่าง (Draft) · ยังไม่ยืนยันวันจริง</div>
+    <h1>แผนทริปทะเลตะวันออก</h1>
+    <p>2 วัน 1 คืน (ระยอง) และ 3 วัน 2 คืน (จันทบุรี) — ครอบครัว 6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าสะดวก) เดินทางด้วยรถส่วนตัว 2 คัน เน้นปูราคาถูกและพูลวิลล่ามีโต๊ะพูล</p>
+    <div class="meta">
+      <span>👨‍👩‍👧 6 ผู้ใหญ่ + เด็ก 2 ขวบ</span>
+      <span>🐶 หมา 1 ตัว (ถ้าสะดวก)</span>
+      <span>🚗 รถยนต์ส่วนตัว 2 คัน</span>
+      <span>🗓️ พ.ย.–ธ.ค. 2569</span>
+      <span>🦀 เน้นปูราคาถูก</span>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap" class="no-print">
+      <a class="btn primary" href="accommodation-comparison.html">🏠 ดูที่พักทั้ง 13 หลัง</a>
+      <button class="btn" onclick="window.print()">🖨️ พิมพ์ / บันทึก PDF</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs no-print">
+  <div class="inner">
+    <button class="tab active" data-tab="sum">📋 ภาพรวม</button>
+    <button class="tab" data-tab="d2">1️⃣ 2 วัน 1 คืน · ระยอง</button>
+    <button class="tab" data-tab="d3">2️⃣ 3 วัน 2 คืน · จันทบุรี</button>
+    <button class="tab" data-tab="crab">🦀 คู่มือซื้อปู</button>
+    <button class="tab" data-tab="tips">🎒 เคล็ดลับ &amp; Checklist</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="note">
+  <b>อ่านก่อนใช้แผนนี้:</b> ราคาทั้งหมดรวบรวมจากเว็บไซต์/เพจที่พักและร้านอาหารช่วง พ.ย. 2569 ยังไม่ใช่ราคาวันที่เราไปจริง — พ.ย.–ธ.ค. เป็นไฮซีซัน ต้องโทรหรือทักแชทยืนยันวันว่างและราคารวมสุทธิก่อนโอนทุกครั้ง
+</div>
+
+<!-- ============ ภาพรวม ============ -->
+<div class="panel active" id="panel-sum">
+  <section>
+    <h2>สรุปแผนที่แนะนำ</h2>
+    <p class="lead">เลือก 2 จุดหมายที่ขับไม่เกิน 4 ชั่วโมงจากกรุงเทพฯ และมีตลาดปูราคาถูกใกล้ที่พัก</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>แผน</th><th>จุดหมาย</th><th>ที่พักหลัก</th><th>ราคา/คืน</th><th>จุดเด่น</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>2 วัน 1 คืน</b></td>
+            <td>ระยอง<br><small>บ้านเพ–หาดแม่รำพึง</small></td>
+            <td>Level Up Pool Villa Rayong</td>
+            <td>8,900 (อา.–พฤ.)<br>10,900 (ส.)</td>
+            <td>ขับใกล้สุด, โต๊ะพูล, รับหมา, ใกล้ตลาดปู</td>
+          </tr>
+          <tr>
+            <td><b>3 วัน 2 คืน</b></td>
+            <td>จันทบุรี<br><small>แหลมสิงห์–เจ้าหลาว</small></td>
+            <td>วัชระ &amp; ภัทรมน พูลวิลล่า</td>
+            <td>7,000 (จ.–พฤ.)<br>8,000 (ศ.–อา.)</td>
+            <td>5 ห้องนอน, โต๊ะพูล, รับหมา, ใกล้ทั้ง 2 หาด + ตลาดปู</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>ทำไมเลือก 2 จุดนี้</h3>
+    <ul class="tight">
+      <li><b>ระยอง</b> ขับจากกรุงเทพฯ ประมาณ 2.5–3 ชั่วโมง เหมาะกับทริปสั้นและมีเด็กเล็ก/ผู้สูงอายุ</li>
+      <li><b>จันทบุรี</b> เป็นแหล่งปูทะเลและปูม้าจากเรือประมงโดยตรง ราคาตลาดถูกกว่ากรุงเทพฯ ชัดเจน</li>
+      <li>พูลวิลล่าทั้ง 2 แห่งมีโต๊ะพูลตามโจทย์ และราคาอยู่ในงบ (ยกเว้นคืนวันเสาร์ของระยองที่เกินไปเล็กน้อย)</li>
+      <li>ทั้ง 2 แห่งรับสัตว์เลี้ยง จึงพาหมาไปได้ถ้าต้องการ</li>
+    </ul>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="mini">
+        <h4>💡 ถ้าอยากคุมงบให้ต่ำกว่า 10,000/คืนทุกคืน</h4>
+        <ul>
+          <li>ระยอง → <b>Mountain View Pool Villa</b> 4,900–6,500 (ไม่รับหมา)</li>
+          <li>จันทบุรี → <b>Jan-Ja 1</b> 6,500–7,500 (ต้องถามเรื่องหมา)</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>📅 วันที่คุ้มที่สุด</h4>
+        <ul>
+          <li>ไป <b>อาทิตย์–จันทร์</b> หรือ <b>จันทร์–พฤหัสบดี</b> ราคาถูกที่สุดและคนน้อย</li>
+          <li>เลี่ยงเสาร์–อาทิตย์และวันหยุดยาว ราคาบวก 1,000–3,000 บาท/คืน</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:16px">
+      <b>หมายเหตุ:</b> หน้านี้เป็น <b>ฉบับร่าง</b> — เมื่อได้วันเดินทางจริงและตัดสินใจเรื่องหมาแล้ว จะอัปเดตราคาเป็นราคาจริงและเช็กวันว่างให้อีกครั้ง
+    </div>
+  </section>
+</div>
+<!-- ============ 2 วัน 1 คืน ============ -->
+<div class="panel" id="panel-d2">
+  <section>
+    <h2>1️⃣ 2 วัน 1 คืน · ระยอง (บ้านเพ / หาดแม่รำพึง)</h2>
+
+    <div class="villa">
+      <div>
+        <h3>⭐ Level Up Pool Villa Rayong <span style="font-weight:400;font-size:14px;color:#6b7280">· 8.6/10 (Trip.com)</span></h3>
+        <p>4 นอน / 3 น้ำ · สระ 15×6 ม. · <b>โต๊ะพูล</b> · รับหมา +500 · จอดในบ้าน 2 คัน · ห่างหาดแม่รำพึง 1.2 กม.</p>
+        <p style="margin-top:4px">โทร 094-554-2463 (คุณปุ๋ย) · 064-564-6514 (คุณบอย) · Line <code>level_up_pool_villa</code></p>
+      </div>
+      <a class="btn primary" href="accommodation-comparison.html#levelup">ดูรายละเอียดที่พัก →</a>
+    </div>
+
+    <div class="price-row">
+      <span class="pill">อา.–พฤ. <b>8,900</b></span>
+      <span class="pill">ศุกร์ <b>9,900</b></span>
+      <span class="pill">เสาร์ <b>10,900</b></span>
+      <span class="pill">นักขัตฤกษ์ <b>12,500–14,900</b></span>
+      <span class="pill">ประกัน <b>3,000</b> (คืนวันเช็คเอาท์)</span>
+    </div>
+
+    <div class="note">
+      <b>คืนวันเสาร์ 10,900 บาท เกินงบ 10,000 เล็กน้อย</b> — ถ้าอยากคุมงบให้อยู่หมัด แนะนำไป <b>วันอาทิตย์–จันทร์</b> (8,900) หรือเปลี่ยนเป็น Mountain View Pool Villa (4,900–6,500 แต่ไม่รับหมา)
+    </div>
+
+    <h3>📍 สถานที่ที่จะไป (กดดูรายละเอียด/แผนที่ได้)</h3>
+    <div class="places">
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/suanson.jpg" alt="ตลาดประมงพื้นบ้านสวนสน" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>ตลาดประมงพื้นบ้านสวนสน</b>
+          <p>จุดซื้อปู/กุ้ง/หมึกจากเรือประมง ถูกที่สุดของทริป มีบริการนึ่ง–ย่าง คิดเพิ่ม 20–30 บาท/กก.</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดประมงพื้นบ้านสวนสน+ระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://www.flickr.com/photo.gne?id=22283087073" target="_blank" rel="noopener">📷 tord_remme / Flickr (CC)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/maeramphueng.jpg" alt="หาดแม่รำพึง" loading="lazy">
+          <span class="place-badge">ภาพประกอบ</span>
+        </div>
+        <div class="place-body">
+          <b>หาดแม่รำพึง</b>
+          <p>หาดทรายยาว เงียบ ไม่พลุกพล่าน เดินเล่นยามเย็นชมพระอาทิตย์ตก เหมาะกับเด็กและผู้สูงอายุ</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=หาดแม่รำพึง+ระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://www.flickr.com/photo.gne?id=408405884" target="_blank" rel="noopener">📷 kar_jirayu / Flickr (CC)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/aquarium.jpg" alt="พิพิธภัณฑ์สัตว์น้ำระยอง" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>พิพิธภัณฑ์สัตว์น้ำระยอง</b>
+          <p>กิจกรรมในร่ม กันแดด กันฝน เหมาะกับเด็ก 2 ขวบ มีอุโมงค์ปลาและตู้แสดงพันธุ์สัตว์น้ำ</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=พิพิธภัณฑ์สัตว์น้ำระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://www.flickr.com/photo.gne?id=1855059478" target="_blank" rel="noopener">📷 Jeanne La Banane / Flickr (CC)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/banphe.jpg" alt="ตลาดบ้านเพ" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>ตลาดโบราณบ้านเพ</b>
+          <p>ตลาดของทะเลและของกินเดินเล่น เปิดเช้าถึงประมาณ 19:00 · สะพานปลาบ้านเพไปเช้า 06:00–08:00 จะได้ของลงเรือใหม่</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดบ้านเพ+ระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:Ban_Phe,_Rayong,_Thailand_(explored)_-_Flickr_-_Thomas_Depenbusch_(Depi).jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/khaolaemya.jpg" alt="จุดชมวิวเขาแหลมหญ้า" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>จุดชมวิวเขาแหลมหญ้า</b>
+          <p>มองเห็นอ่าวและเกาะเสม็ด ขึ้นรถถึงจุดชมวิว ไม่ต้องเดินไกล เหมาะกับผู้สูงอายุ</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=จุดชมวิวเขาแหลมหญ้า+ระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:1034-พระอาทิตย์ตกดินที่เขาแหลมหญ้า.jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>🗓️ กำหนดการ 2 วัน 1 คืน <span style="font-weight:400;font-size:13.5px;color:#6b7280">(ฉบับเสาร์–อาทิตย์)</span></h3>
+
+    <div class="day">
+      <div class="day-head">วันที่ 1 · กรุงเทพฯ → บ้านเพ → พูลวิลล่า</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><b>ออกเดินทางจากกรุงเทพฯ 2 คัน</b><p>ใช้บางนา–ตราด/มอเตอร์เวย์ แวะปั๊มทุก 1.5–2 ชม.</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-body"><b>ถึงตลาดประมงพื้นบ้านสวนสน</b><p>ซื้อปู/กุ้ง/หมึกจากเรือประมง — ถูกที่สุดของทริป</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-body"><b>ส่งของสดเข้าที่พัก / แวะฝากน้ำแข็ง</b><p>ให้ร้านนึ่งย่าง หรือซื้อกลับไป BBQ ที่วิลล่า</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><b>มื้อเที่ยง ร้านเฮียหมู อาหารพื้นบ้าน</b><p>กรรเชียงปู 350 บาท, หมึกไข่คั่วหวาน, ข้าวผัดปู · <b>หยุดวันพุธ</b></p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>พิพิธภัณฑ์สัตว์น้ำระยอง หรือคาเฟ่ใกล้หาด</b><p>กิจกรรมในร่มสำหรับเด็ก 2 ขวบ กันแดด</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><b>เช็คอิน Level Up Pool Villa</b><p>ให้เด็กเล่นน้ำ/เล่นโต๊ะพูล ผู้ใหญ่เตรียม BBQ</p></div></div>
+        <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-body"><b>เดินเล่นหาดแม่รำพึง</b><p>ถ่ายรูปพระอาทิตย์ตก ไม่ต้องเดินไกล</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><b>บุฟเฟต์ซีฟู้ดปิ้งย่างที่วิลล่า</b><p>ปูม้า, กุ้งแชบ้วย, หมึกไข่, หอยตลับ, ผัก/ข้าว</p></div></div>
+        <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-body"><b>พักผ่อน / คาราโอเกะเบา ๆ</b><p>งดเสียงดังหลัง 22:00 ตามกฎวิลล่า</p></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">วันที่ 2 · หาดแม่รำพึง → กรุงเทพฯ</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><b>ตื่นเช้า เดินหาด/ว่ายน้ำ</b><p>ช่วงเช้าแดดอ่อน เหมาะกับเด็กและผู้สูงอายุ</p></div></div>
+        <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><b>อาหารเช้าที่วิลล่า</b><p>เตรียมขนมปัง/ไข่/กาแฟ/ผลไม้มาเอง</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-body"><b>จุดชมวิวเขาแหลมหญ้า</b><p>หรือพิพิธภัณฑ์สัตว์น้ำ ถ้ายังไม่ได้ไป</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><b>เช็คเอาท์</b><p>เก็บของ/เช็คของใช้เด็กให้ครบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-body"><b>มื้อเที่ยง เจ๊ต่าย ปูเป็น สาขาบ้านเพ</b><p>ปูม้านึ่ง, ห่อหมกเนื้อปูย่าง, ปลากะพงทอดน้ำปลา</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-body"><b>ซื้อปู/ของฝากที่ตลาดสวนสน</b><p>ขอถุงน้ำแข็ง + กล่องโฟมสำหรับเดินทางกลับ</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-body"><b>ออกเดินทางกลับกรุงเทพฯ</b><p>เผื่อรถติดช่วงเย็น</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-body"><b>ถึงกรุงเทพฯ โดยประมาณ</b></div></div>
+      </div>
+    </div>
+
+    <h3>💰 งบประมาณ 2 วัน 1 คืน <span style="font-weight:400;font-size:13.5px;color:#6b7280">(6 ผู้ใหญ่ + เด็ก 2 ขวบ)</span></h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th style="text-align:right">ประมาณการ (บาท)</th></tr></thead>
+        <tbody>
+          <tr><td>พูลวิลล่า 1 คืน</td><td class="num">8,900–10,900</td></tr>
+          <tr><td>ค่าสัตว์เลี้ยง (ถ้าพาไป)</td><td class="num">0–500</td></tr>
+          <tr><td>น้ำมัน + ทางด่วน 2 คัน</td><td class="num">2,400–3,000</td></tr>
+          <tr><td>อาหารทะเลมื้อเย็น BBQ + เครื่องดื่ม</td><td class="num">3,000–4,000</td></tr>
+          <tr><td>มื้อเที่ยง 2 วัน + อาหารเช้า</td><td class="num">3,000–4,000</td></tr>
+          <tr><td>ค่าเข้าพิพิธภัณฑ์/กิจกรรม</td><td class="num">500–1,000</td></tr>
+          <tr><td>สำรอง/ของฝาก</td><td class="num">1,000</td></tr>
+          <tr class="total"><td>รวมทั้งทริป</td><td class="num">18,800–24,400</td></tr>
+          <tr><td>เฉลี่ยต่อผู้ใหญ่ 1 คน</td><td class="num">3,100–4,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px">เด็ก 2 ขวบส่วนใหญ่พักฟรีและไม่คิดค่าอาหารเต็มที่</p>
+  </section>
+</div>
+<!-- ============ 3 วัน 2 คืน ============ -->
+<div class="panel" id="panel-d3">
+  <section>
+    <h2>2️⃣ 3 วัน 2 คืน · จันทบุรี (แหลมสิงห์ / เจ้าหลาว)</h2>
+
+    <div class="villa">
+      <div>
+        <h3>⭐ วัชระ &amp; ภัทรมน พูลวิลล่า รีสอร์ท <span style="font-weight:400;font-size:14px;color:#6b7280">· 4.7/5 (26 รีวิว)</span></h3>
+        <p>4–5 นอน / 5 น้ำ · สระเกลือ + สระเด็ก · <b>โต๊ะพูล</b> · รับหมา +300 · ต.บางกะไชย ระหว่างแหลมสิงห์–เจ้าหลาว</p>
+        <p style="margin-top:4px">โทร 064-352-0637 (หมิว) · 086-081-5691 (เราะ) · ประกัน 2,000 บาท</p>
+      </div>
+      <a class="btn primary" href="accommodation-comparison.html#watchara">ดูรายละเอียดที่พัก →</a>
+    </div>
+
+    <div class="price-row">
+      <span class="pill">จ.–พฤ. <b>7,000</b></span>
+      <span class="pill">ศ.–อา. <b>8,000</b></span>
+      <span class="pill">นักขัตฤกษ์ <b>9,000</b></span>
+      <span class="pill">หยุดยาว/ปีใหม่ <b>11,000–12,000</b></span>
+      <span class="pill">เกิน 12 ท่าน <b>+350/คน</b></span>
+    </div>
+
+    <div class="tip">
+      <b>ระยะทางจากวิลล่า:</b> หาดแหลมสิงห์ 7 กม. · หาดเจ้าหลาว 8 กม. · น้ำตกพลิ้ว 18 กม. · ตัวเมืองจันทบุรี 14 กม. · ครัวณอาภา 2.6 กม. — ต้องขับรถไปทุกจุด แต่กระจายรอบทิศ เดินทางสะดวก
+    </div>
+
+    <h3>📍 สถานที่ที่จะไป (กดดูรายละเอียด/แผนที่ได้)</h3>
+    <div class="places">
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/laemsing.jpg" alt="หาดแหลมสิงห์" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>หาดแหลมสิงห์</b>
+          <p>หาดเรียบสงบ ริมปากแม่น้ำจันทบุรี วิวพระอาทิตย์ตกสวย ถ่ายรูปครอบครัวยามเย็น</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=หาดแหลมสิงห์+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:Lam_Sing_beach_01.JPG" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/chaolao.jpg" alt="หาดเจ้าหลาว" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>หาดเจ้าหลาว</b>
+          <p>หาดยาว คลื่นเบา น้ำตื้น เด็กเล่นทรายได้ มีร้านอาหารทะเลและคาเฟ่ริมหาดตลอดแนว</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=หาดเจ้าหลาว+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:หาดเจ้าหลาว_Chao_Lao_Beach_-_Thailand_-_panoramio.jpg" target="_blank" rel="noopener">📷 Charin ninsu / Wikimedia</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <div class="place-ph"><div><span>🐬</span>ยังไม่มีภาพที่ยืนยันได้<br>เปิดลิงก์เพื่อดูรูปจริง</div></div>
+          <span class="place-badge">ไม่มีภาพ</span>
+        </div>
+        <div class="place-body">
+          <b>โอเอซิส ซีเวิลด์</b>
+          <p>สวนน้ำและโชว์โลมา เหมาะกับเด็ก 2 ขวบ — ควรเช็ครอบโชว์และราคาล่วงหน้า</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=โอเอซิส+ซีเวิลด์+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://www.google.com/search?q=โอเอซิส+ซีเวิลด์+จันทบุรี" target="_blank" rel="noopener">🔎 หารูปเพิ่ม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/kungkraben.jpg" alt="อ่าวคุ้งกระเบน" loading="lazy">
+          <span class="place-badge">ภาพประกอบ</span>
+        </div>
+        <div class="place-body">
+          <b>อ่าวคุ้งกระเบน</b>
+          <p>ศูนย์ศึกษาการพัฒนาฯ ป่าชายเลน มีทางเดินธรรมชาติ ลมเย็น เดินไม่ไกล เหมาะช่วงเย็น</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=อ่าวคุ้งกระเบน+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://www.flickr.com/photo.gne?id=16662001185" target="_blank" rel="noopener">📷 Thibaud Saintin / Flickr (CC)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/phlio.jpg" alt="น้ำตกพลิ้ว" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>น้ำตกพลิ้ว</b>
+          <p>เดินทางราบประมาณ 500 ม. ร่มรื่น มีปลาพลวงชมพู เหมาะกับผู้สูงอายุและเด็ก</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=น้ำตกพลิ้ว+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:Plew_Waterfall_National_Park_01,_Chantaburi,_Thailand.jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/waterfront.jpg" alt="ชุมชนริมน้ำจันทบูร" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>ชุมชนริมน้ำจันทบูร</b>
+          <p>บ้านไม้เก่าโบราณริมน้ำ เดินเล่น ถ่ายรูป คาเฟ่และของฝาก อยู่ใกล้ตัวเมือง</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=ชุมชนริมน้ำจันทบูร" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:011-เมืองจันทบุรี(เก่า).jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/cathedral.jpg" alt="อาสนวิหารพระนางมารีอาปฏิสนธินิรมล" loading="lazy">
+        </div>
+        <div class="place-body">
+          <b>อาสนวิหารพระนางมารีฯ</b>
+          <p>โบสถ์คริสต์สถาปัตยกรรมโกธิกที่ใหญ่ที่สุดในไทย อยู่ติดชุมชนริมน้ำ เดินถึงกันได้</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=อาสนวิหารพระนางมารีอาปฏิสนธินิรมล+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:Cathedral_of_Immaculate_Conception,_Chantaburi_20241230.jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="place">
+        <div class="place-media">
+          <img src="images/places/papui.jpg" alt="ตลาดป้าปุ๊ย แหลมสิงห์" loading="lazy">
+          <span class="place-badge">ภาพประกอบ</span>
+        </div>
+        <div class="place-body">
+          <b>ตลาดป้าปุ๊ย แหลมสิงห์</b>
+          <p>ตลาดสดใกล้ที่พัก เปิดทุกวัน มีปูม้า/ปูดำ/กุ้ง/หอย ราคาไม่แพง — ไปเช้าจะได้ของดี</p>
+          <div class="place-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดป้าปุ๊ย+แหลมสิงห์+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="credit" href="https://commons.wikimedia.org/wiki/File:Thanin_market_grilled_fish_01.jpg" target="_blank" rel="noopener">📷 Wikimedia Commons</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>🗓️ กำหนดการ 3 วัน 2 คืน <span style="font-weight:400;font-size:13.5px;color:#6b7280">(ฉบับศุกร์–อาทิตย์)</span></h3>
+
+    <div class="day">
+      <div class="day-head">วันที่ 1 · กรุงเทพฯ → ระยอง → จันทบุรี</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><b>ออกเดินทางจากกรุงเทพฯ</b><p>2 คัน ใช้มอเตอร์เวย์–สุขุมวิท</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-body"><b>แวะพักปั๊ม/คาเฟ่แถวระยอง</b><p>ให้เด็กได้เปลี่ยนอิริยาบถ</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><b>มื้อเที่ยง เจ๊ต่าย ปูเป็น บ้านเพ</b><p>อิ่มปูมื้อแรกก่อนเข้าจันทบุรี</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>เดินทางต่อจันทบุรี (ประมาณ 1.5 ชม.)</b><p>ทางหลวงหมายเลข 3</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-body"><b>เช็คอิน วัชระ &amp; ภัทรมน พูลวิลล่า</b><p>ให้เด็กว่ายน้ำ ผู้ใหญ่พักผ่อน</p></div></div>
+        <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-body"><b>หาดแหลมสิงห์ / สะพานแหลมสิงห์</b><p>วิวพระอาทิตย์ตก ถ่ายรูปครอบครัว</p></div></div>
+        <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-body"><b>BBQ ซีฟู้ดที่วิลล่า</b><p>ปรุงปู/กุ้งที่ซื้อมา + สั่งอาหารท้องถิ่นเสริม</p></div></div>
+        <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-body"><b>พักผ่อน</b></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">วันที่ 2 · เจ้าหลาว + อ่าวคุ้งกระเบน</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">06:30</div><div class="tl-body"><b>ตลาดป้าปุ๊ย แหลมสิงห์ หรือสะพานปากน้ำแขมหนู</b><p>ซื้อปูจากเรือประมงช่วงเช้า ราคาดีที่สุด</p></div></div>
+        <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><b>อาหารเช้าที่วิลล่า</b></div></div>
+        <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-body"><b>หาดเจ้าหลาว</b><p>หาดยาว คลื่นเบา เด็กเล่นทรายได้</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><b>มื้อเที่ยง ร้านยายตุ๊ ซีฟู้ด</b><p>ร้านครอบครัว มีบ่อปลาให้เด็กดู</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>โอเอซิส ซีเวิลด์ (โชว์โลมา)</b><p>เช็ครอบโชว์ล่วงหน้า เหมาะกับเด็ก 2 ขวบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-body"><b>กลับวิลล่า พักกลางวัน/ว่ายน้ำ</b><p>ช่วงบ่ายแดดแรง</p></div></div>
+        <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-body"><b>อ่าวคุ้งกระเบน เดินชมป่าชายเลน</b><p>เลือกช่วงเย็น ลมเย็น เดินไม่ไกล</p></div></div>
+        <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-body"><b>มื้อเย็น ครัวณอาภา หรือ BBQ ปูรอบสอง</b><p>ครัวณอาภาอยู่ห่างวิลล่า 2.6 กม.</p></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">วันที่ 3 · น้ำตกพลิ้ว / เมืองจันทบุรี → กรุงเทพฯ</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><b>อาหารเช้า + ว่ายน้ำเก็บตก</b></div></div>
+        <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><b>น้ำตกพลิ้ว</b><p>เดินทางราบประมาณ 500 ม. เหมาะผู้สูงอายุ/เด็ก</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><b>เช็คเอาท์</b></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><b>ชุมชนริมน้ำจันทบูร + อาสนวิหารพระนางมารีฯ</b><p>เดินเล่น ถ่ายรูป ซื้อของฝาก</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-body"><b>มื้อเที่ยงในเมืองจันทบุรี</b><p>อาหารทะเลหรือก๋วยเตี๋ยวปู</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><b>ตลาดป้าปุ๊ย/ตลาดแหลมสิงห์ ซื้อปูกลับบ้าน</b><p>ขอน้ำแข็ง + กล่องโฟม</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-body"><b>ออกเดินทางกลับกรุงเทพฯ</b></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><b>ถึงกรุงเทพฯ โดยประมาณ</b></div></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>แผนสำรองหน้าฝน:</b> สลับวันที่ 2 เป็นพิพิธภัณฑ์สัตว์น้ำระยอง (ขากลับ) หรือพักผ่อนในวิลล่า/คาเฟ่ในเมืองจันทบุรี
+    </div>
+
+    <h3>💰 งบประมาณ 3 วัน 2 คืน <span style="font-weight:400;font-size:13.5px;color:#6b7280">(6 ผู้ใหญ่ + เด็ก 2 ขวบ)</span></h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th style="text-align:right">ประมาณการ (บาท)</th></tr></thead>
+        <tbody>
+          <tr><td>พูลวิลล่า 2 คืน (7,000–8,000/คืน)</td><td class="num">14,000–16,000</td></tr>
+          <tr><td>ค่าสัตว์เลี้ยง (ถ้าพาไป)</td><td class="num">0–600</td></tr>
+          <tr><td>น้ำมัน + ทางด่วน 2 คัน</td><td class="num">3,500–4,500</td></tr>
+          <tr><td>อาหารทะเล 2 มื้อเย็น + BBQ</td><td class="num">6,000–8,000</td></tr>
+          <tr><td>มื้อเที่ยง/อาหารเช้า 3 วัน</td><td class="num">4,000–5,000</td></tr>
+          <tr><td>ค่าเข้าซีเวิลด์/น้ำตก/กิจกรรม</td><td class="num">1,500–2,500</td></tr>
+          <tr><td>สำรอง/ของฝาก</td><td class="num">1,500</td></tr>
+          <tr class="total"><td>รวมทั้งทริป</td><td class="num">30,500–38,100</td></tr>
+          <tr><td>เฉลี่ยต่อผู้ใหญ่ 1 คน</td><td class="num">5,000–6,300</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<!-- ============ คู่มือปู ============ -->
+<div class="panel" id="panel-crab">
+  <section>
+    <h2>🦀 คู่มือซื้อปูให้ถูกที่สุด</h2>
+    <p class="lead">หัวใจของทริปนี้ — ซื้อจากตลาด/เรือประมง แล้วให้ที่พักหรือร้านนึ่งย่าง จะถูกกว่านั่งร้านอาหาร 30–50%</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h4>📍 ระยอง</h4>
+        <ul class="tight">
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดประมงพื้นบ้านสวนสน+ระยอง" target="_blank" rel="noopener">ตลาดประมงพื้นบ้านสวนสน</a> — ของสดจากเรือประมง มีบริการนึ่ง/ย่าง</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดบ้านเพ+ระยอง" target="_blank" rel="noopener">ตลาดโบราณบ้านเพ</a> — เปิดเช้าถึง ~19:00</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=สะพานปลาบ้านเพ+ระยอง" target="_blank" rel="noopener">สะพานปลาบ้านเพ</a> — ไป 06:00–08:00 จะได้ของลงเรือใหม่</li>
+          <li>ร้านอาหาร: <b>เจ๊ต่าย ปูเป็น</b>, <b>เฮียหมู</b> (กรรเชียงปู 350), <b>ครัวป้านิภา</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>📍 จันทบุรี</h4>
+        <ul class="tight">
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดป้าปุ๊ย+แหลมสิงห์+จันทบุรี" target="_blank" rel="noopener">ตลาดป้าปุ๊ย แหลมสิงห์</a> — ตลาดสดใกล้ที่พัก เปิดทุกวัน</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=สะพานปากน้ำแขมหนู+จันทบุรี" target="_blank" rel="noopener">ใต้สะพานปากน้ำแขมหนู</a> — ชาวประมงขายปูม้าตัวเป็น ๆ ราคาโรงงาน</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดเช้าเจ้าหลาว+จันทบุรี" target="_blank" rel="noopener">ตลาดเช้า/สะพานปลาเจ้าหลาว</a> — ไปก่อน 08:00</li>
+          <li>ร้านอาหาร: <b>ยายตุ๊ ซีฟู้ด</b>, <b>ลากูน่า ซีฟู้ด</b>, <b>ครัวมาร์ฮาดบีช</b>, <b>ครัวณอาภา</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>ราคาที่ควรเจรจา <span style="font-weight:400;font-size:13.5px;color:#6b7280">(ช่วง พ.ย.–ธ.ค. 2569)</span></h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>สินค้า</th><th style="text-align:right">ราคาตลาดที่เหมาะสม</th></tr></thead>
+        <tbody>
+          <tr><td>ปูม้า</td><td class="num">350–500 บาท/กก.</td></tr>
+          <tr><td>ปูดำ/ปูทะเล</td><td class="num">450–650 บาท/กก.</td></tr>
+          <tr><td>ปูไข่</td><td class="num">บวกเพิ่ม 100–150 บาท/กก.</td></tr>
+          <tr><td>ค่านึ่ง/ย่าง</td><td class="num">20–30 บาท/กก.</td></tr>
+          <tr><td>ปูม้านึ่งในร้านอาหาร 1 กก.</td><td class="num">500–800 บาท</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>เทคนิคซื้อปู</h3>
+    <div class="grid2">
+      <div class="good">
+        <b>✅ ควรทำ</b>
+        <ul class="tight">
+          <li>ขอ <b>ชั่งน้ำหนักก่อนนึ่ง</b> และดูความแน่นของปู</li>
+          <li>ถามราคาต่อกิโลทุกร้านก่อนสั่ง</li>
+          <li>ซื้อ <b>ปูม้า</b> ช่วงนี้คุ้มกว่าปูดำ เนื้อหวาน ราคาเข้าถึงง่าย</li>
+          <li>ซื้อเช้าตรู่จะถูกกว่าช่วงเที่ยง 20–30%</li>
+          <li>เตรียม <b>กล่องโฟม + น้ำแข็ง</b> ไปเองสำหรับซื้อกลับบ้าน</li>
+        </ul>
+      </div>
+      <div class="note" style="margin-top:0">
+        <b>⚠️ ระวัง</b>
+        <ul class="tight">
+          <li>ถ้าราคาเกิน 700 บาท/กก. ให้เดินดูร้านอื่น</li>
+          <li>ระวังร้านที่คิด “ปูเป็น” แล้วบวกค่าแกะ/ค่านึ่งแยก — ถามให้ครบก่อน</li>
+          <li>ปูที่ตายแล้วราคาถูก แต่เนื้อจะไม่แน่น</li>
+          <li>อย่าซื้อปูใส่ถุงร้อนโดยไม่มีน้ำแข็ง ถ้าเดินทางไกล</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>เมนูที่ควรสั่ง</h3>
+    <div class="grid3">
+      <div class="mini"><h4>เมนูปู</h4><ul><li>ปูม้านึ่งน้ำจิ้มซีฟู้ด</li><li>ปูผัดผงกะหรี่</li><li>ปูไข่ดองน้ำปลา</li><li>กรรเชียงปูนึ่ง/ทอดกระเทียม</li></ul></div>
+      <div class="mini"><h4>อาหารทะเลอื่น</h4><ul><li>หมึกไข่ต้มน้ำดำ</li><li>กุ้งแชบ้วย/กุ้งม้าลายเผา</li><li>หอยตลับผัดโหระพา</li><li>ปลากะพงทอดน้ำปลา</li></ul></div>
+      <div class="mini"><h4>ของแถม</h4><ul><li>ข้าวผัดปู</li><li>น้ำพริกไข่ปู</li><li>ข้าวสวย + ผักสด</li><li>น้ำจิ้มซีฟู้ดทำเอง</li></ul></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ เคล็ดลับ + checklist ============ -->
+<div class="panel" id="panel-tips">
+  <section>
+    <h2>🎒 เคล็ดลับการเดินทาง</h2>
+
+    <div class="grid3">
+      <div class="mini">
+        <h4>👶 เด็ก 2 ขวบ</h4>
+        <ul>
+          <li>เตรียม <b>ห่วงยาง/เสื้อชูชีพเด็ก</b> และกำหนดผู้ใหญ่ 1 คนเฝ้าสระตลอดเวลา</li>
+          <li>ที่พักทั้ง 2 แห่งมีสระส่วนตัวแต่ <b>ไม่มีไลฟ์การ์ด</b></li>
+          <li>พักรถทุก 1.5–2 ชั่วโมง เตรียมของว่าง/ผ้าอ้อม</li>
+          <li>สลับกิจกรรมในร่ม–กลางแจ้ง: พิพิธภัณฑ์สัตว์น้ำ, ซีเวิลด์, คาเฟ่</li>
+          <li>อาหารเด็ก: ข้าวสวย/ไข่/ปลาเนื้อขาว ไม่ปรุงเผ็ด</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>👴 ผู้สูงอายุ 60 ปี</h4>
+        <ul>
+          <li>หลีกเลี่ยงบันไดสูง/เดินไกล: น้ำตกพลิ้วเดินราบ, หาดแม่รำพึงเดินริมถนน</li>
+          <li>เตรียมยาประจำตัว/ยาแก้ปวด/ครีมกันแดด</li>
+          <li>ขอห้องชั้นล่างหรือห้องน้ำในตัว — แจ้งที่พักล่วงหน้า</li>
+          <li>ไม่ควรลงเรือ/กิจกรรมทางน้ำที่กระแทก</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>🐶 หมา 1 ตัว</h4>
+        <ul>
+          <li>ที่พักที่รับหมา: <b>Level Up</b> (500/คืน), <b>วัชระ&amp;ภัทรมน</b> (300/คืน), Sea Sun Lake (300), บ้านบุศราคัม (300, ≤3 กก.)</li>
+          <li>แจ้งจำนวน/น้ำหนัก/พันธุ์ล่วงหน้า และเตรียมสมุดวัคซีน</li>
+          <li>กฎส่วนใหญ่: ห้ามขึ้นเตียง ห้ามลงสระ ห้ามเห่าเสียงดัง</li>
+          <li>เตรียมที่นอน ผ้าเช็ดตัว ชามอาหาร ถุงเก็บอึ สายจูง</li>
+          <li>หาดบางแห่งไม่อนุญาตให้หมาเล่นน้ำ — สอบถามก่อน</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>✅ Checklist ก่อนจองที่พัก</h3>
+    <p class="lead">ติ๊กแล้วระบบจะจำไว้ในเครื่องนี้ (ใช้เตรียมนัดคุยกับที่พัก)</p>
+    <div class="chk-tools">
+      <span class="chk-progress" id="chkProgress">0 / 10</span>
+      <button class="btn" id="chkReset" type="button">ล้างทั้งหมด</button>
+    </div>
+
+    <div id="checklist">
+      <label class="chk"><input type="checkbox" data-k="c1"><span>ยืนยันวันและจำนวนผู้เข้าพัก (6 ผู้ใหญ่ + เด็ก 2 ขวบ)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c2"><span>ถามราคาวันจริง รวมค่าบริการ/ค่าประกัน/ค่าไฟ/ค่าล้างจาน</span></label>
+      <label class="chk"><input type="checkbox" data-k="c3"><span>ยืนยันว่ามี <b>โต๊ะพูล</b> และสภาพใช้งานได้</span></label>
+      <label class="chk"><input type="checkbox" data-k="c4"><span>ยืนยันความลึกสระ + มีสระเด็กหรือไม่ (สำคัญมากกับเด็ก 2 ขวบ)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c5"><span>ยืนยันที่จอดรถ 2 คันในบ้าน</span></label>
+      <label class="chk"><input type="checkbox" data-k="c6"><span>ถามเรื่องสัตว์เลี้ยง (ถ้าพาไป) และค่าธรรมเนียม</span></label>
+      <label class="chk"><input type="checkbox" data-k="c7"><span>ขอรูปห้องนอนจริง/เตียงเสริม (ห้องไหนนอนใคร)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c8"><span>เช็คอิน 14:00 / เช็คเอาท์ 11:00–12:00</span></label>
+      <label class="chk"><input type="checkbox" data-k="c9"><span>สอบถามร้านอาหารใกล้ที่พักที่สั่งเดลิเวอรีได้</span></label>
+      <label class="chk"><input type="checkbox" data-k="c10"><span>จองล่วงหน้า 3–4 สัปดาห์ (พ.ย.–ธ.ค. เป็นไฮซีซัน)</span></label>
+    </div>
+
+    <h3>📞 ข้อมูลติดต่อ</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ที่พัก</th><th>โทร / ช่องทาง</th><th style="text-align:right">ราคาอ้างอิง</th></tr></thead>
+        <tbody>
+          <tr><td>Level Up Pool Villa Rayong</td><td>094-554-2463, 064-564-6514 · Line <code>level_up_pool_villa</code></td><td class="num">8,900–10,900</td></tr>
+          <tr><td>Mountain View Pool Villa Rayong</td><td>090-396-0149 (ยุ้ย)</td><td class="num">4,900–6,500</td></tr>
+          <tr><td>Sea Sun Lake Poolvilla</td><td>ผ่านเพจ banpakpoolvillathailand</td><td class="num">4,000–6,000</td></tr>
+          <tr><td>บ้านบุศราคัม</td><td>081-354-1534</td><td class="num">7,500</td></tr>
+          <tr><td>วัชระ &amp; ภัทรมน พูลวิลล่า</td><td>064-352-0637 (หมิว), 086-081-5691 (เราะ)</td><td class="num">7,000–9,000</td></tr>
+          <tr><td>Jan-Ja 1 Poolvilla</td><td>Line <code>@lby8567n</code></td><td class="num">6,500–7,500</td></tr>
+          <tr><td>บ้านพลอยจันท์ พูลวิลล่า</td><td>089-252-4536</td><td class="num">5,900</td></tr>
+          <tr><td>Vanilla Coco Poolvilla</td><td>ผ่านเพจ vanilla.coco.poolvilla</td><td class="num">7,900</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th>ร้านอาหาร</th><th>โทร</th><th>จุดเด่น</th></tr></thead>
+        <tbody>
+          <tr><td>เฮียหมู อาหารพื้นบ้าน บ้านเพ</td><td>088-203-8192</td><td>กรรเชียงปู 350, หมึกไข่คั่วหวาน · หยุดพุธ</td></tr>
+          <tr><td>เจ๊ต่าย ปูเป็น บ้านเพ</td><td>038-653-555, 094-693-1051</td><td>ปูม้านึ่ง, ห่อหมกปูย่าง</td></tr>
+          <tr><td>ป้าตาล บ้านเพ (สตรีทฟู้ด)</td><td>089-784-6862</td><td>ซีฟู้ดปิ้งย่างไม้ละ 10 บาท · 16:00–20:00</td></tr>
+          <tr><td>ยายตุ๊ ซีฟู้ด (เจ้าหลาว)</td><td>สอบถามหน้าร้าน</td><td>ร้านครอบครัว มีบ่อปลา</td></tr>
+          <tr><td>ลากูน่า ซีฟู้ด เจ้าหลาว</td><td>สอบถามหน้าร้าน</td><td>ปูไข่ต้มข่า, ห่อหมกมะพร้าวอ่อน</td></tr>
+          <tr><td>ครัวณอาภา (แหลมสิงห์)</td><td>สอบถามหน้าร้าน</td><td>ใกล้วิลล่า 2.6 กม.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>📌 ข้อควรรู้เรื่องราคาและฤดูกาล</h3>
+    <ul class="tight">
+      <li><b>พ.ย.–ธ.ค. เป็นไฮซีซัน</b> ราคาที่พักและปูสูงกว่าหน้าฝน ควรจองล่วงหน้าและยืนยันราคาเป็นลายลักษณ์อักษร</li>
+      <li><b>วันเสาร์/นักขัตฤกษ์</b> ราคาที่พักมักเพิ่ม 1,000–3,000 บาท/คืน</li>
+      <li><b>วันอาทิตย์–พฤหัสบดี</b> ถูกที่สุดและคนน้อย เหมาะกับครอบครัวที่มีผู้สูงอายุ/เด็ก</li>
+      <li>ราคาปูเป็นช่วงประมาณการจากตลาด ณ พ.ย. 2569 ไม่ใช่ราคาคงที่</li>
+      <li>ที่พักบางแห่งคิดค่าไฟเพิ่มถ้าใช้แอร์/สระหนัก ควรถามก่อน</li>
+    </ul>
+
+    <div class="good" style="margin-top:18px">
+      <b>สรุปสั้น ๆ</b>
+      <ul class="tight">
+        <li>อยากไปสั้น ๆ ใกล้กรุงเทพฯ → <b>ระยอง 2 วัน 1 คืน</b> ที่ Level Up Pool Villa (มีโต๊ะพูล รับหมา)</li>
+        <li>อยากกินปูถูก ๆ แบบจัดเต็ม → <b>จันทบุรี 3 วัน 2 คืน</b> ที่วัชระ &amp; ภัทรมน (มีโต๊ะพูล รับหมา 7,000–8,000/คืน)</li>
+        <li>ถ้าคุมงบต่ำกว่า 10,000/คืนทุกคืน → Mountain View (ระยอง) และ Jan-Ja 1 (จันทบุรี)</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+</div><!-- /wrap -->
+<footer>
+  <div class="wrap">
+    <div><b>ทริปทะเลตะวันออก · 6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าสะดวก) · รถส่วนตัว 2 คัน</b></div>
+    <div>แผนนี้เป็น <b>ฉบับร่าง</b> — ราคาและกำหนดการยังไม่ยืนยันกับที่พัก/ร้านอาหาร</div>
+    <div>รูปสถานที่จาก Wikimedia Commons และ Flickr (CC) — ลิงก์แหล่งที่มาอยู่ใต้การ์ดแต่ละสถานที่</div>
+    <div class="no-print"><a href="accommodation-comparison.html">← กลับไปหน้าตัวเลือกที่พัก 13 หลัง</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- tabs ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+  function show(id, push){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === id); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + id); });
+    if(push){
+      try { history.replaceState(null, '', '#' + id); } catch(e){}
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ show(t.dataset.tab, true); });
+  });
+
+  var initial = (location.hash || '').replace('#', '');
+  if(initial && document.getElementById('panel-' + initial)){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === initial); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + initial); });
+  }
+
+  window.addEventListener('hashchange', function(){
+    var id = (location.hash || '').replace('#', '');
+    if(id && document.getElementById('panel-' + id)) show(id, false);
+  });
+
+  /* ---------- checklist ---------- */
+  var KEY = 'tripChecklist_v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#checklist input[type=checkbox]'));
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ state = {}; }
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+  }
+  function render(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var on = !!state[b.dataset.k];
+      b.checked = on;
+      if(on) done++;
+      b.closest('.chk').classList.toggle('done', on);
+    });
+    var p = document.getElementById('chkProgress');
+    if(p) p.textContent = done + ' / ' + boxes.length + (done === boxes.length ? ' · ครบแล้ว 🎉' : '');
+  }
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      state[b.dataset.k] = b.checked;
+      save(); render();
+    });
+  });
+  var reset = document.getElementById('chkReset');
+  if(reset){
+    reset.addEventListener('click', function(){
+      state = {};
+      save(); render();
+    });
+  }
+  render();
+})();
+</script>
+</body>
+</html>
