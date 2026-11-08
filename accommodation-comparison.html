@@ -60,10 +60,21 @@ h3{margin:0}
 .pick p{margin:0;font-size:14px;color:var(--muted)}
 .pick .price{font-weight:700;color:var(--ink);font-size:15px;margin-top:8px}
 
-/* cards */
+/* cards (list view) */
 .cards{display:grid;gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:70px}
-.card-head{padding:18px 20px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfbf8)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:70px;display:grid;grid-template-columns:320px minmax(0,1fr);cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;outline:none}
+.card:hover,.card:focus-visible{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,23,42,.13);border-color:#cfe6e1}
+.card-media{position:relative;background:#e8eeec;overflow:hidden;min-height:212px}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .card-media img{transform:scale(1.05)}
+.media-badge{position:absolute;left:10px;bottom:10px;background:rgba(15,23,42,.72);color:#fff;font-size:12px;padding:3px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.media-cta{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.95);color:var(--teal);font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.2s}
+.card:hover .media-cta{opacity:1;transform:none}
+.media-empty{display:grid;place-items:center;background:linear-gradient(135deg,#0f766e,#0891b2)}
+.media-ph{text-align:center;color:#fff;padding:18px}
+.media-ph span{font-size:38px;display:block;margin-bottom:6px}
+.media-ph small{font-size:12px;opacity:.92;line-height:1.45;display:block;max-width:200px}
+.card-head{padding:18px 20px;border-bottom:0;background:linear-gradient(180deg,#fff,#fcfbf8);display:flex;flex-direction:column;justify-content:center}
 .card-head .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
 .card-head h3{font-size:clamp(18px,2.4vw,22px);line-height:1.3}
 .card-head .zone{font-size:13px;color:var(--muted);margin-top:2px}
@@ -76,6 +87,10 @@ h3{margin:0}
 .tag.no{background:#fef2f2;color:#b91c1c}
 .tag.best{background:#fef3c7;color:#92400e;font-weight:600}
 .card-body{padding:16px 20px 20px;display:grid;gap:16px}
+.card>.card-body,.card>.card-foot{display:none}
+.brief{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+.brief-text{font-size:13.5px;color:#475569}
+.brief-price{font-size:15px;font-weight:700;color:var(--teal);white-space:nowrap}
 .block h4{margin:0 0 6px;font-size:14px;color:var(--teal);letter-spacing:.02em}
 .block p{margin:0;font-size:14px}
 .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
@@ -128,8 +143,45 @@ footer{background:#0f172a;color:#cbd5e1;padding:26px 20px;margin-top:40px;font-s
 footer .wrap{display:grid;gap:6px}
 footer a{color:#5eead4}
 
+/* ---------- detail modal ---------- */
+.modal{position:fixed;inset:0;z-index:200;display:none;background:rgba(15,23,42,.62)}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-panel{position:relative;background:#fff;width:100%;max-width:960px;height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:760px){.modal-panel{height:92vh;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.4)}}
+.modal-scroll{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;overscroll-behavior:contain}
+.modal-close{position:absolute;top:10px;right:10px;z-index:6;width:38px;height:38px;border-radius:50%;border:0;background:rgba(15,23,42,.55);color:#fff;font-size:17px;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px);font-family:inherit}
+.modal-close:hover{background:rgba(15,23,42,.82)}
+.gallery{position:relative;background:#0f172a;aspect-ratio:16/9;max-height:54vh;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.g-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#0f172a;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;font-family:inherit;padding-bottom:3px}
+.g-nav:hover{background:#fff}
+.g-nav:disabled{opacity:.22;cursor:default}
+.g-prev{left:10px}.g-next{right:10px}
+.g-count{position:absolute;right:10px;bottom:10px;background:rgba(15,23,42,.72);color:#fff;font-size:12px;padding:3px 10px;border-radius:999px}
+.g-thumbs{display:flex;gap:8px;padding:10px 14px;overflow-x:auto;background:#0f172a}
+.g-thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;flex:0 0 auto;background:none}
+.g-thumbs img{width:78px;height:56px;object-fit:cover;display:block;opacity:.62;transition:.15s}
+.g-thumbs button:hover img{opacity:.9}
+.g-thumbs button.active{border-color:#14b8a6}
+.g-thumbs button.active img{opacity:1}
+.gallery-empty{aspect-ratio:16/9;max-height:36vh;display:grid;place-items:center;background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;text-align:center;padding:24px;font-size:14px;line-height:1.7}
+.modal-content .card-head{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfbf8)}
+.modal-content .card-body{display:grid}
+.modal-content .card-foot{position:sticky;bottom:0;z-index:4;background:#fcfbf8;border-top:1px solid var(--line);box-shadow:0 -6px 16px rgba(15,23,42,.06)}
+body.modal-open{overflow:hidden}
+.pick[data-villa]{cursor:pointer;transition:transform .18s,box-shadow .18s}
+.pick[data-villa]:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(15,23,42,.14)}
+
 @media(max-width:720px){
   .pros-cons{grid-template-columns:1fr}
+  .card{grid-template-columns:1fr}
+  .card-media{min-height:0;aspect-ratio:16/9}
+  .media-cta{opacity:1;transform:none}
+  .media-ph small{max-width:none}
+  .modal-panel{max-width:none}
+  .gallery{aspect-ratio:4/3;max-height:44vh}
+  .g-thumbs img{width:66px;height:48px}
+  .modal-content .card-foot{flex-wrap:wrap}
   .rank-row{grid-template-columns:1fr 60px;grid-template-areas:"name num" "bar bar"}
   .rank-row .name{grid-area:name}.rank-row .bar{grid-area:bar}.rank-row .rank-num{grid-area:num}
   .filterbar .inner:first-of-type{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
@@ -143,9 +195,12 @@ footer a{color:#5eead4}
   th,td{padding:6px 7px}
 }
 @media print{
-  .filterbar,.card-foot,.hero .meta,.howto{display:none!important}
+  .filterbar,.card-foot,.hero .meta,.howto,.modal,.media-cta,.media-badge{display:none!important}
   body{background:#fff}
-  .card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .card{box-shadow:none;break-inside:avoid;page-break-inside:avoid;grid-template-columns:1fr}
+  .card>.card-body{display:grid!important}
+  .card-media{max-height:260px}
+  .card-media img{height:260px}
   .hero{background:#0f766e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a{color:inherit}
 }
@@ -176,8 +231,9 @@ footer a{color:#5eead4}
   <div class="howto">
     <b>วิธีใช้หน้านี้</b>
     <ol>
+      <li><b>กดที่การ์ดที่พัก</b> (หรือรูป) เพื่อเปิดหน้ารายละเอียดเต็ม พร้อมแกลเลอรีรูปภาพ — เลื่อนซ้าย/ขวาดูรูปได้</li>
       <li>ใช้ปุ่มตัวกรองด้านบนเพื่อดูเฉพาะโซน / ที่มีโต๊ะพูล / รับหมา / ติดทะเล / งบไม่เกิน 10,000</li>
-      <li>กด <b>“เปิดแผนที่”</b> เพื่อดูทำเลจริง และอ่านรีวิวท้ายการ์ดแต่ละหลัง</li>
+      <li>ในหน้ารายละเอียด กด <b>“เปิดแผนที่”</b> เพื่อดูทำเลจริง และอ่านรีวิวท้ายการ์ด</li>
       <li>กด <b>“โหวตหลังนี้”</b> — ใช้ตอนนั่งคุยกันในบ้าน (เปิดบนจอเดียว/โทรทัศน์) แล้วดูอันดับด้านล่าง</li>
       <li>กด <b>“พิมพ์ / บันทึก PDF”</b> เพื่อส่งต่อให้คนที่ไม่ได้อยู่หน้าจอ</li>
     </ol>
@@ -187,19 +243,19 @@ footer a{color:#5eead4}
     <h2>⭐ 3 ตัวเลือกที่คุ้มที่สุดสำหรับครอบครัวเรา</h2>
     <p class="lead">คัดจากโจทย์: โต๊ะพูล + รับหมา + งบ ≤10,000 + ใกล้แหล่งปู</p>
     <div class="picks">
-      <div class="pick gold">
+      <div class="pick gold" data-villa="levelup">
         <div class="kicker">ครบที่สุด · ระยอง</div>
         <h3>Level Up Pool Villa</h3>
         <p>4 นอน/3 น้ำ · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน · หาดแม่รำพึง 1.2 กม.</p>
         <div class="price">8,900–10,900 บาท/คืน</div>
       </div>
-      <div class="pick">
+      <div class="pick" data-villa="watchara">
         <div class="kicker">คุ้มที่สุด · จันทบุรี</div>
         <h3>วัชระ &amp; ภัทรมน พูลวิลล่า</h3>
         <p>4–5 นอน/5 น้ำ · สระเกลือ + สระเด็ก · โต๊ะพูล · รับหมา · ใกล้อ่าวยาง/แหลมสิงห์/เจ้าหลาว</p>
         <div class="price">7,000–8,000 บาท/คืน</div>
       </div>
-      <div class="pick coral">
+      <div class="pick coral" data-villa="mountainview">
         <div class="kicker">ประหยัด · ระยอง</div>
         <h3>Mountain View Pool Villa</h3>
         <p>3 นอน/2 น้ำ · สระ + สไลเดอร์ · โต๊ะพูล + ฮอกกี้ + ปิงปอง · ราคาเบาสุดในกลุ่มที่มีโต๊ะพูล</p>
@@ -235,7 +291,12 @@ footer a{color:#5eead4}
 
 <div class="wrap">
 <div class="cards" id="cards">
-<article class="card" id="levelup" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6">
+<article class="card" id="levelup" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6" data-brief="4 นอน · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน" data-price-label="8,900–10,900 บาท/คืน" data-photos="images/levelup/01.jpg|images/levelup/02.jpg|images/levelup/03.jpg|images/levelup/04.jpg|images/levelup/05.jpg|images/levelup/06.jpg">
+  <div class="card-media">
+    <img src="images/levelup/01.jpg" alt="Level Up Pool Villa Rayong" loading="lazy" decoding="async">
+    <span class="media-badge">📷 6 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -312,7 +373,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="mountainview" data-order="3" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="4900" data-rating="5.0">
+<article class="card" id="mountainview" data-order="3" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="4900" data-rating="5.0" data-brief="3 นอน · สระ + สไลเดอร์ · โต๊ะพูล + ฮอกกี้ + ปิงปอง" data-price-label="4,900–6,500 บาท/คืน" data-photos="images/mountainview/01.jpg|images/mountainview/02.jpg|images/mountainview/03.jpg|images/mountainview/04.jpg|images/mountainview/05.jpg">
+  <div class="card-media">
+    <img src="images/mountainview/01.jpg" alt="Mountain View Pool Villa Rayong" loading="lazy" decoding="async">
+    <span class="media-badge">📷 5 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -383,7 +449,12 @@ footer a{color:#5eead4}
     <a class="btn" href="tel:0903960149">📞 090-396-0149</a>
   </div>
 </article>
-<article class="card" id="bussarakham" data-order="10" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="7500" data-rating="0">
+<article class="card" id="bussarakham" data-order="10" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="7500" data-rating="0" data-brief="3 นอน · ข้ามถนนถึงหาด · โต๊ะพูล · หมา ≤3 กก." data-price-label="7,500 บาท/คืน" data-photos="images/bussarakham/01.jpg">
+  <div class="card-media">
+    <img src="images/bussarakham/01.jpg" alt="บ้านบุศราคัม พูลวิลล่า" loading="lazy" decoding="async">
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -454,7 +525,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="seasunlake" data-order="6" data-zone="rayong" data-pool="0" data-pet="1" data-beach="0" data-price="6000" data-rating="0">
+<article class="card" id="seasunlake" data-order="6" data-zone="rayong" data-pool="0" data-pet="1" data-beach="0" data-price="6000" data-rating="0" data-brief="2+1 นอน · สระ 5×15 ม. + สไลเดอร์ · รับหมา" data-price-label="4,000–7,000 บาท/คืน" data-photos="images/seasunlake/01.jpg|images/seasunlake/02.jpg|images/seasunlake/03.jpg|images/seasunlake/04.jpg|images/seasunlake/05.jpg">
+  <div class="card-media">
+    <img src="images/seasunlake/01.jpg" alt="Sea Sun Lake Poolvilla" loading="lazy" decoding="async">
+    <span class="media-badge">📷 5 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -527,7 +603,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="sunrise" data-order="9" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="5900" data-rating="0">
+<article class="card" id="sunrise" data-order="9" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="5900" data-rating="0" data-brief="3 นอน · สระเด็ก 80 ซม. · โต๊ะพูล" data-price-label="5,900–13,900 บาท/คืน" data-photos="images/sunrise/01.jpg|images/sunrise/02.jpg|images/sunrise/03.jpg|images/sunrise/04.jpg">
+  <div class="card-media">
+    <img src="images/sunrise/01.jpg" alt="Sunrise Poolvilla สัตหีบ" loading="lazy" decoding="async">
+    <span class="media-badge">📷 4 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -598,7 +679,12 @@ footer a{color:#5eead4}
     <a class="btn" href="https://checkinpoolvilla.com/location_detail/221" target="_blank" rel="noopener">💬 หน้าติดต่อ</a>
   </div>
 </article>
-<article class="card" id="watchara" data-order="2" data-zone="chanthaburi" data-pool="1" data-pet="1" data-beach="0" data-price="7000" data-rating="4.7">
+<article class="card" id="watchara" data-order="2" data-zone="chanthaburi" data-pool="1" data-pet="1" data-beach="0" data-price="7000" data-rating="4.7" data-brief="4–5 นอน · สระเกลือ + สระเด็ก · โต๊ะพูล · รับหมา" data-price-label="7,000–8,000 บาท/คืน" data-photos="images/watchara/01.jpg|images/watchara/02.jpg|images/watchara/03.jpg|images/watchara/04.jpg">
+  <div class="card-media">
+    <img src="images/watchara/01.jpg" alt="วัชระ &amp; ภัทรมน พูลวิลล่า รีสอร์ท" loading="lazy" decoding="async">
+    <span class="media-badge">📷 4 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -676,7 +762,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="janja1" data-order="4" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0">
+<article class="card" id="janja1" data-order="4" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="4 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja1/01.jpg">
+  <div class="card-media">
+    <img src="images/janja1/01.jpg" alt="Jan-Ja 1 Poolvilla" loading="lazy" decoding="async">
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -745,7 +836,12 @@ footer a{color:#5eead4}
     <a class="btn" href="tel:0891056105">📞 089-105-6105</a>
   </div>
 </article>
-<article class="card" id="janja2" data-order="8" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0">
+<article class="card" id="janja2" data-order="8" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="3 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja2/01.jpg">
+  <div class="card-media">
+    <img src="images/janja2/01.jpg" alt="Jan-Ja 2 Poolvilla" loading="lazy" decoding="async">
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -813,7 +909,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="vanillacoco" data-order="5" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="7900" data-rating="0">
+<article class="card" id="vanillacoco" data-order="5" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="7900" data-rating="0" data-brief="4 นอน · ติดหาดแหลมสิงห์ · สระเกลือ" data-price-label="7,900 บาท/คืน" data-photos="images/vanillacoco/01.jpg|images/vanillacoco/02.jpg|images/vanillacoco/03.jpg|images/vanillacoco/04.jpg|images/vanillacoco/05.jpg">
+  <div class="card-media">
+    <img src="images/vanillacoco/01.jpg" alt="Vanilla Coco Poolvilla" loading="lazy" decoding="async">
+    <span class="media-badge">📷 5 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -888,7 +989,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="ploychan" data-order="7" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="5900" data-rating="0">
+<article class="card" id="ploychan" data-order="7" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="5900" data-rating="0" data-brief="3 นอน · สไลเดอร์ 2.5 ม. · ตลาดปู 1.2 กม." data-price-label="5,900 บาท/คืน" data-photos="images/ploychan/01.jpg|images/ploychan/02.jpg|images/ploychan/03.jpg|images/ploychan/04.jpg|images/ploychan/05.jpg">
+  <div class="card-media">
+    <img src="images/ploychan/01.jpg" alt="บ้านพลอยจันท์ พูลวิลล่า" loading="lazy" decoding="async">
+    <span class="media-badge">📷 5 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -959,7 +1065,12 @@ footer a{color:#5eead4}
     <a class="btn" href="tel:0892524536">📞 089-252-4536</a>
   </div>
 </article>
-<article class="card" id="bluecat" data-order="12" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="0" data-price="3000" data-rating="9.3">
+<article class="card" id="bluecat" data-order="12" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="0" data-price="3000" data-rating="9.3" data-brief="3 นอน · สระเกลือ · คะแนนรีวิว 9.3/10" data-price-label="3,000–3,500 บาท/คืน" data-photos="images/bluecat/01.jpg|images/bluecat/02.jpg|images/bluecat/03.jpg|images/bluecat/04.jpg|images/bluecat/05.jpg">
+  <div class="card-media">
+    <img src="images/bluecat/01.jpg" alt="Blue Cat Pool Villa" loading="lazy" decoding="async">
+    <span class="media-badge">📷 5 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -1033,7 +1144,11 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="bluehana" data-order="11" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="6500" data-rating="0">
+<article class="card" id="bluehana" data-order="11" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="6500" data-rating="0" data-brief="หลายขนาดถึง 18 ท่าน · สระ + สไลเดอร์วิวทะเล" data-price-label="6,500 บาท/คืน ขึ้นไป" data-photos="">
+  <div class="card-media media-empty">
+    <div class="media-ph"><span>🏖️</span><small>ยังไม่มีรูปยืนยันจากแหล่งทางการ</small></div>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -1106,7 +1221,12 @@ footer a{color:#5eead4}
   </div>
 </article>
 
-<article class="card" id="villablanca" data-order="13" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="10500" data-rating="8.5">
+<article class="card" id="villablanca" data-order="13" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="10500" data-rating="8.5" data-brief="3 นอน · ติดหาดเจ้าหลาว · ร้านซีฟู้ดในที่พัก" data-price-label="10,500 บาท/คืน" data-photos="images/villablanca/01.jpg|images/villablanca/02.jpg|images/villablanca/03.jpg|images/villablanca/04.jpg|images/villablanca/05.jpg|images/villablanca/06.jpg">
+  <div class="card-media">
+    <img src="images/villablanca/01.jpg" alt="Villa Blanca Hotel &amp; Restaurant" loading="lazy" decoding="async">
+    <span class="media-badge">📷 6 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
   <div class="card-head">
     <div class="top">
       <div>
@@ -1267,6 +1387,25 @@ footer a{color:#5eead4}
   </div>
 </footer>
 
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="ปิดหน้ารายละเอียด">✕</button>
+    <div class="modal-scroll" id="modalScroll">
+      <div class="gallery" id="gallery">
+        <img id="gMain" src="" alt="">
+        <button class="g-nav g-prev" id="gPrev" type="button" aria-label="รูปก่อนหน้า">‹</button>
+        <button class="g-nav g-next" id="gNext" type="button" aria-label="รูปถัดไป">›</button>
+        <span class="g-count" id="gCount"></span>
+      </div>
+      <div class="gallery-empty" id="gEmpty" style="display:none">
+        <div>ยังไม่มีรูปภาพที่ยืนยันได้จากแหล่งทางการของที่พักนี้<br>ดูรูปและข้อมูลเพิ่มเติมได้ที่เพจ/เว็บไซต์ของที่พักด้านล่าง</div>
+      </div>
+      <div class="g-thumbs" id="gThumbs"></div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
@@ -1274,6 +1413,36 @@ footer a{color:#5eead4}
   var countEl = document.getElementById('count');
   var sortEl = document.getElementById('sort');
   var grid = document.getElementById('cards');
+
+  var modal = document.getElementById('modal');
+  var modalContent = document.getElementById('modalContent');
+  var modalScroll = document.getElementById('modalScroll');
+  var galleryEl = document.getElementById('gallery');
+  var gEmpty = document.getElementById('gEmpty');
+  var gMain = document.getElementById('gMain');
+  var gCount = document.getElementById('gCount');
+  var gThumbs = document.getElementById('gThumbs');
+  var gPrev = document.getElementById('gPrev');
+  var gNext = document.getElementById('gNext');
+  var gPhotos = [], gIndex = 0, lastFocus = null;
+
+  /* ---------- summary line on each card ---------- */
+  cards.forEach(function(card){
+    var head = card.querySelector('.card-head');
+    if(head && !head.querySelector('.brief')){
+      var b = document.createElement('div');
+      b.className = 'brief';
+      var t = document.createElement('span');
+      t.className = 'brief-text';
+      t.textContent = card.dataset.brief || '';
+      var p = document.createElement('span');
+      p.className = 'brief-price';
+      p.textContent = card.dataset.priceLabel || '';
+      b.appendChild(t); b.appendChild(p);
+      head.appendChild(b);
+    }
+    card.setAttribute('tabindex', '0');
+  });
 
   /* ---------- Filter ---------- */
   function activeFilters(){
@@ -1334,19 +1503,18 @@ footer a{color:#5eead4}
   }
   function nameOf(card){
     var h = card.querySelector('.card-head h3');
-    return h ? h.textContent.replace(/^[^\wก-๙]+/,'').trim() : card.id;
+    return h ? h.textContent.replace(/^[^\w\u0E00-\u0E7F]+/,'').trim() : card.id;
   }
   function refresh(){
     cards.forEach(function(card){
-      var id = card.id;
-      var n = votes[id] || 0;
-      var cnt = document.querySelector('[data-count="'+id+'"]');
-      if(cnt) cnt.textContent = n + ' โหวต';
-      var btn = card.querySelector('.vote');
-      if(btn){
-        if(n > 0){ btn.classList.add('voted'); btn.textContent = '✅ โหวตแล้ว'; }
-        else { btn.classList.remove('voted'); btn.textContent = '👍 โหวตหลังนี้'; }
-      }
+      var n = votes[card.id] || 0;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-count="'+card.id+'"]'), function(el){
+        el.textContent = n + ' โหวต';
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.vote[data-id="'+card.id+'"]'), function(btn){
+        btn.classList.toggle('voted', n > 0);
+        btn.textContent = n > 0 ? '\u2705 โหวตแล้ว' : '\ud83d\udc4d โหวตหลังนี้';
+      });
     });
     renderRank();
   }
@@ -1373,16 +1541,17 @@ footer a{color:#5eead4}
       '</div>';
     }).join('');
   }
-  cards.forEach(function(card){
-    var btn = card.querySelector('.vote');
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.vote[data-id]') : null;
     if(!btn) return;
-    btn.addEventListener('click', function(){
-      var id = card.id;
-      if(votes[id]) { delete votes[id]; }
-      else { votes[id] = 1; }
-      save(); refresh();
-    });
-  });
+    e.preventDefault();
+    e.stopPropagation();
+    var id = btn.dataset.id;
+    if(votes[id]) { delete votes[id]; } else { votes[id] = 1; }
+    save(); refresh();
+  }, true);
+
   var reset = document.getElementById('resetVotes');
   if(reset){
     reset.addEventListener('click', function(){
@@ -1392,8 +1561,124 @@ footer a{color:#5eead4}
     });
   }
 
+  /* ---------- Gallery ---------- */
+  function renderGallery(){
+    gMain.src = gPhotos[gIndex];
+    gCount.textContent = (gIndex + 1) + ' / ' + gPhotos.length;
+    var btns = gThumbs.querySelectorAll('button');
+    Array.prototype.forEach.call(btns, function(b, i){
+      b.classList.toggle('active', i === gIndex);
+    });
+    gPrev.disabled = (gIndex === 0);
+    gNext.disabled = (gIndex === gPhotos.length - 1);
+  }
+  function step(d){
+    var n = gIndex + d;
+    if(n < 0 || n >= gPhotos.length) return;
+    gIndex = n;
+    renderGallery();
+  }
+  gPrev.addEventListener('click', function(e){ e.stopPropagation(); step(-1); });
+  gNext.addEventListener('click', function(e){ e.stopPropagation(); step(1); });
+  gThumbs.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('button[data-i]') : null;
+    if(!b) return;
+    gIndex = Number(b.dataset.i);
+    renderGallery();
+  });
+
+  /* ---------- Open / close detail ---------- */
+  function openCard(card){
+    if(!card) return;
+    var photos = (card.dataset.photos || '').split('|').filter(Boolean);
+    gPhotos = photos;
+    gIndex = 0;
+
+    var has = photos.length > 0;
+    galleryEl.style.display = has ? '' : 'none';
+    gEmpty.style.display = has ? 'none' : '';
+    gThumbs.style.display = (has && photos.length > 1) ? '' : 'none';
+    gThumbs.innerHTML = photos.map(function(src, i){
+      return '<button type="button" data-i="' + i + '"' + (i === 0 ? ' class="active"' : '') +
+             ' aria-label="รูปที่ ' + (i + 1) + '"><img src="' + src + '" alt="รูปที่ ' + (i + 1) +
+             '" loading="lazy" decoding="async"></button>';
+    }).join('');
+    if(has) renderGallery();
+
+    var head = card.querySelector('.card-head').cloneNode(true);
+    var brief = head.querySelector('.brief');
+    if(brief) brief.parentNode.removeChild(brief);
+    var h3 = head.querySelector('h3');
+    if(h3) h3.id = 'modalTitle';
+    var body = card.querySelector('.card-body').cloneNode(true);
+    var foot = card.querySelector('.card-foot').cloneNode(true);
+
+    modalContent.innerHTML = '';
+    modalContent.appendChild(head);
+    modalContent.appendChild(body);
+    modalContent.appendChild(foot);
+
+    refresh();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modalScroll.scrollTop = 0;
+    lastFocus = document.activeElement;
+    try { history.replaceState(null, '', '#' + card.id); } catch(e){}
+    document.getElementById('modalClose').focus();
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    if(lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch(e){} }
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+
+  grid.addEventListener('click', function(e){
+    if(e.target.closest('a, button, .g-nav, .g-thumbs')) return;
+    var card = e.target.closest('.card');
+    if(card) openCard(card);
+  });
+  grid.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var card = e.target.closest('.card');
+    if(card && e.target === card){
+      e.preventDefault();
+      openCard(card);
+    }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.pick[data-villa]'), function(p){
+    p.addEventListener('click', function(){
+      openCard(document.getElementById(p.dataset.villa));
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(!modal.classList.contains('open')) return;
+    if(e.key === 'Escape'){ closeModal(); }
+    else if(e.key === 'ArrowLeft'){ step(-1); }
+    else if(e.key === 'ArrowRight'){ step(1); }
+  });
+
+  /* ---------- init ---------- */
   applyFilter();
   refresh();
+
+  if(location.hash.length > 1){
+    var target = document.getElementById(location.hash.slice(1));
+    if(target && target.classList && target.classList.contains('card')){
+      history.replaceState(null, '', location.pathname + location.search);
+      openCard(target);
+    }
+  }
 })();
 </script>
 </body>

@@ -1,2 +1,10 @@
 # ข้อมูลส่วนตัวของครอบครัว — ไม่ขึ้น repo สาธารณะ
 requirement.txt
+
+# ไฟล์ชั่วคราวจากเครื่องมือ
+.playwright-mcp/
+_*.py
+_t*.py
+shot-*.png
+_sheet.jpg
+_yt.jpg
