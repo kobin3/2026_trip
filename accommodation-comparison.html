@@ -71,6 +71,9 @@ h3{margin:0}
 .media-cta{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.95);color:var(--teal);font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.2s}
 .card:hover .media-cta{opacity:1;transform:none}
 .media-empty{display:grid;place-items:center;background:linear-gradient(135deg,#0f766e,#0891b2)}
+.hotel-badge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.95);color:#b45309;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(15,23,42,.15)}
+.card.hotel{border-color:#fde68a;background:linear-gradient(180deg,#fffdf7,#fff)}
+.card.hotel:hover{border-color:#fcd34d}
 .media-ph{text-align:center;color:#fff;padding:18px}
 .media-ph span{font-size:38px;display:block;margin-bottom:6px}
 .media-ph small{font-size:12px;opacity:.92;line-height:1.45;display:block;max-width:200px}
@@ -229,7 +232,7 @@ body.modal-open{overflow:hidden}
 <header class="hero">
   <div class="hero-inner">
     <h1>🏖️ เลือกที่พักทริปทะเลตะวันออก</h1>
-    <p>รวม 13 พูลวิลล่าในระยองและจันทบุรี พร้อมราคา สเปกละเอียด ที่ตั้ง สถานที่ใกล้เคียง และรีวิวจากอินเทอร์เน็ต/โซเชียล — เปิดให้ทุกคนในบ้านช่วยกันดูและโหวต</p>
+    <p>รวม 13 พูลวิลล่า + 8 โรงแรม/รีสอร์ท ในระยองและจันทบุรี พร้อมราคา สเปกละเอียด ที่ตั้ง สถานที่ใกล้เคียง รีวิว และวิดีโอ — เปิดให้ทุกคนในบ้านช่วยกันดูและโหวต</p>
     <div class="meta">
       <span>👨‍👩‍👧 6 ผู้ใหญ่ + เด็ก 2 ขวบ</span>
       <span>🐶 หมา 1 ตัว (ถ้าสะดวก)</span>
@@ -251,7 +254,7 @@ body.modal-open{overflow:hidden}
     <b>วิธีใช้หน้านี้</b>
     <ol>
       <li><b>กดที่การ์ดที่พัก</b> (หรือรูป) เพื่อเปิดหน้ารายละเอียดเต็ม พร้อมแกลเลอรีรูปภาพ — เลื่อนซ้าย/ขวาดูรูปได้</li>
-      <li>ใช้ปุ่มตัวกรองด้านบนเพื่อดูเฉพาะโซน / ที่มีโต๊ะพูล / รับหมา / ติดทะเล / งบไม่เกิน 10,000</li>
+      <li>ใช้ปุ่มตัวกรองด้านบนเพื่อดูเฉพาะโซน / ที่มีโต๊ะพูล / รับหมา / ติดทะเล / งบไม่เกิน 10,000 / <b>โรงแรม</b></li>
       <li>ในหน้ารายละเอียด กด <b>“เปิดแผนที่”</b> เพื่อดูทำเลจริง และอ่านรีวิวท้ายการ์ด</li>
       <li>กด <b>“โหวตหลังนี้”</b> — ใช้ตอนนั่งคุยกันในบ้าน (เปิดบนจอเดียว/โทรทัศน์) แล้วดูอันดับด้านล่าง</li>
       <li>กด <b>“พิมพ์ / บันทึก PDF”</b> เพื่อส่งต่อให้คนที่ไม่ได้อยู่หน้าจอ</li>
@@ -294,6 +297,7 @@ body.modal-open{overflow:hidden}
     <button class="chip" data-filter="pet">🐶 รับหมา</button>
     <button class="chip" data-filter="beach">🏖️ ติดทะเล</button>
     <button class="chip" data-filter="budget">💰 ≤10,000</button>
+    <button class="chip" data-filter="hotel">🏨 โรงแรม</button>
   </div>
   <div class="inner">
     <div class="count" id="count"></div>
@@ -309,6 +313,9 @@ body.modal-open{overflow:hidden}
 </div>
 
 <div class="wrap">
+<div class="notice" style="margin:16px 0 6px">
+  <b>ตอนนี้มี 21 ตัวเลือก:</b> 13 พูลวิลล่า (เหมาหลัง มีสระส่วนตัว + โต๊ะพูล) และ 8 โรงแรม/รีสอร์ท (จอง 3 ห้อง เหมาะถ้าอยากได้อาหารเช้าและไม่ต้องดูแลบ้านทั้งหลัง) — กดปุ่ม <b>🏨 โรงแรม</b> ด้านบนเพื่อดูเฉพาะกลุ่มโรงแรม
+</div>
 <div class="cards" id="cards">
 <article class="card" id="levelup" data-credit-label="Gangstays (หน้า listing ของที่พัก)" data-credit-url="https://gangstays.com/stay/level-up-pool-villa-rayong" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6" data-brief="4 นอน · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน" data-price-label="8,900–10,900 บาท/คืน" data-photos="images/levelup/01.jpg|images/levelup/02.jpg|images/levelup/03.jpg|images/levelup/04.jpg|images/levelup/05.jpg|images/levelup/06.jpg">
   <div class="card-media">
@@ -1443,6 +1450,509 @@ body.modal-open{overflow:hidden}
     <a class="btn" href="tel:0839000902">📞 083-900-0902</a>
   </div>
 </article>
+<article class="card hotel" id="sunvada" data-order="101" data-zone="rayong" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="5850" data-rating="0" data-brief="3 ห้อง · 1,950/ห้อง · สระ · ข้ามถนนถึงหาด" data-price-label="5,850 บาท/คืน (3 ห้อง)" data-photos="images/hotels/sunvada.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-mae-ramphueng-beach/">
+  <div class="card-media">
+    <img src="images/hotels/sunvada.jpg" alt="Sunvada Beach Rayong" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Sunvada Beach Rayong</h3>
+        <div class="zone">📍 หาดแม่รำพึง อ.เมืองระยอง · ข้ามถนนถึงทะเล</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">🏖️ ข้ามถนนถึงหาด</span>
+      <span class="tag ok">🏊 สระว่ายน้ำ</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+      <span class="tag warn">🐶 ต้องสอบถาม</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ที่พักดีไซน์มินิมอล อยู่ติดถนนเลียบหาด ข้ามถนนก็ถึงทะเล ใกล้ 7-Eleven ห้องใหม่ แอร์เย็น มีอุปกรณ์เล่นน้ำให้ยืมฟรี</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,950 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~5,850 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>มี (เช็คประเภท)</div>
+      <div class="spec"><b>สระ</b>✅ สระว่ายน้ำ</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,950</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~5,850</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ใกล้ทะเลมาก แค่ข้ามถนน</li><li>ดีไซน์มินิมอล ถ่ายรูปสวย</li><li>ใกล้ 7-Eleven และร้านอาหาร</li><li>ที่จอดสะดวก</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่มีโต๊ะพูล</li><li>ไม่มีครัว/ปิ้งย่างในห้อง</li><li>ต้องแยก 3 ห้อง</li><li>ราคาสูงกว่า Panwana</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้องติดกัน/ชั้นเดียวกันได้ไหม · อาหารเช้ากี่คน · ห้องพักรับ 3 ท่านได้ไหม (เตียงเสริม) · ที่จอด 2 คัน</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Sunvada%20Beach%20Rayong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="sunvada">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="sunvada">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=Sunvada%20Beach%20Rayong" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="vipresort" data-order="102" data-zone="rayong" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="4050" data-rating="0" data-brief="3 ห้อง · 1,350/ห้อง · สระ+จากุซซี่ · มีมุมครัว" data-price-label="4,050 บาท/คืน (3 ห้อง)" data-photos="images/hotels/vipresort.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-mae-ramphueng-beach/">
+  <div class="card-media">
+    <img src="images/hotels/vipresort.jpg" alt="The Oriental Tropical Beach at VIP Resort" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>The Oriental Tropical Beach at VIP Resort</h3>
+        <div class="zone">📍 หาดแม่รำพึง–บ้านเพ · ริมหาด</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">🏖️ ริมหาด</span>
+      <span class="tag ok">🛁 จากุซซี่</span>
+      <span class="tag ok">🍳 มุมครัว</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทสไตล์คอนโดริมหาดแม่รำพึง–บ้านเพ ห้องกว้างแบ่งสัดส่วนชัดเจน มีมุมครัวและโซฟา สระคลับเฮ้าส์พร้อมจากุซซี่ และรถกอล์ฟรับส่ง</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,350 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~4,050 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>❓ ต้องสอบถาม</div>
+      <div class="spec"><b>สระ</b>✅ + จากุซซี่</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>✅ มุมครัวในห้อง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,350</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~4,050</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>มีมุมครัว ทำอาหารง่าย ๆ ได้</li><li>สระ + จากุซซี่</li><li>บรรยากาศเงียบ เป็นส่วนตัว</li><li>ราคาไม่แรง</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่มีโต๊ะพูล</li><li>เป็นสไตล์คอนโด ไม่ใช่บ้านเดี่ยว</li><li>ต้องสอบถามอาหารเช้า</li><li>ห้องอาจไม่ติดกัน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้องติดกันได้ไหม · อาหารเช้ารวมไหม · มุมครัวมีเตา/ไมโครเวฟอะไรบ้าง · ค่าจอดรถ</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=The%20Oriental%20Tropical%20Beach%20at%20VIP%20Resort" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="vipresort">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="vipresort">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=The%20Oriental%20Tropical%20Beach%20at%20VIP%20Resort" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="panwana" data-order="103" data-zone="rayong" data-type="hotel" data-pool="0" data-pet="0" data-beach="0" data-price="2250" data-rating="0" data-brief="3 ห้อง · 750/ห้อง · สระ + คาเฟ่ · ถูกสุด" data-price-label="2,250 บาท/คืน (3 ห้อง)" data-photos="images/hotels/panwana.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-mae-ramphueng-beach/">
+  <div class="card-media">
+    <img src="images/hotels/panwana.jpg" alt="Panwana Resort (พรรณวนา รีสอร์ท)" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Panwana Resort (พรรณวนา รีสอร์ท)</h3>
+        <div class="zone">📍 ใกล้หาดแม่รำพึง ระยอง · ขับไปหาด ~5 นาที</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">💰 ถูกสุด</span>
+      <span class="tag ok">🏊 สระ + คาเฟ่</span>
+      <span class="tag warn">🚗 ไม่ติดหาด</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทสไตล์ธรรมชาติ เงียบสงบ มีสระว่ายน้ำและคาเฟ่ในที่พัก มีน้องหมาน้องแมวต้อนรับ — ถูกที่สุดในกลุ่มตัวเลือกโรงแรม</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~750 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~2,250 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>❓ ต้องสอบถาม</div>
+      <div class="spec"><b>สระ</b>✅</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม (มีสัตว์ที่รีสอร์ท)</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~750</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~2,250</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ถูกที่สุด — 3 ห้อง ~2,250/คืน</li><li>มีสระและคาเฟ่ในที่พัก</li><li>บรรยากาศธรรมชาติ เหมาะพักผ่อน</li><li>เหลืองบไปกินปูอีกเยอะ</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่ติดหาด ต้องขับรถไป</li><li>ไม่มีโต๊ะพูล</li><li>ห้องอาจเรียบง่ายระดับรีสอร์ทเล็ก</li><li>ข้อมูลอาหารเช้าไม่ชัด</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> อาหารเช้ารวมไหม · ห้องติดกัน 3 ห้องได้ไหม · รับหมาไหม (ถ้าพาไป) · ระยะไปหาดแม่รำพึง/ตลาดบ้านเพ</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Panwana%20Resort%20Rayong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="panwana">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="panwana">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=Panwana%20Resort%20%28%E0%B8%9E%E0%B8%A3%E0%B8%A3%E0%B8%93%E0%B8%A7%E0%B8%99%E0%B8%B2%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%29" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="kiangtalay" data-order="104" data-zone="rayong" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="4350" data-rating="0" data-brief="3 ห้อง · 1,450/ห้อง · ติดทะเล · อาหารเช้า" data-price-label="4,350 บาท/คืน (3 ห้อง)" data-photos="images/hotels/kiangtalay.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-mae-ramphueng-beach/">
+  <div class="card-media">
+    <img src="images/hotels/kiangtalay.jpg" alt="เคียงทะเล รีสอร์ท (Kiang Talay Resort)" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>เคียงทะเล รีสอร์ท (Kiang Talay Resort)</h3>
+        <div class="zone">📍 หาดแม่รำพึง อ.เมืองระยอง · ข้ามถนนถึงหาด</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">🏖️ ติดทะเล</span>
+      <span class="tag ok">🍳 อาหารเช้า</span>
+      <span class="tag ok">🏊 สระ</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทขนาดใหญ่ติดถนนเลียบหาด ข้ามถนนถึงหาดแม่รำพึง มีทั้งห้องวิวทะเลและวิลล่า สระว่ายน้ำ อาหารเช้า และห้องจัดเลี้ยง</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,450 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~4,350 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>✅ มี</div>
+      <div class="spec"><b>สระ</b>✅</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,450</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~4,350</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดทะเล ข้ามถนนถึงหาด</li><li>มีสระและอาหารเช้า</li><li>มีห้องวิวทะเล</li><li>รองรับครอบครัว/คณะใหญ่</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่มีโต๊ะพูล</li><li>บรรยากาศคึกคัก ไม่ส่วนตัว</li><li>ที่จอดอาจแน่นช่วงไฮซีซัน</li><li>ห้องวิวทะเลราคาสูงกว่า</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้องวิวทะเล 3 ห้องติดกันได้ไหม · อาหารเช้าสำหรับเด็กคิดเงินไหม · ที่จอด 2 คันจองล่วงหน้าได้ไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%A3%E0%B8%B3%E0%B8%9E%E0%B8%B6%E0%B8%87" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="kiangtalay">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="kiangtalay">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%28Kiang%20Talay%20Resort%29" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="sanddunes" data-order="105" data-zone="chanthaburi" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="5550" data-rating="0" data-brief="3 ห้อง · 1,850/ห้อง · 4 ดาว · สระวิวทะเล" data-price-label="5,550 บาท/คืน (3 ห้อง)" data-photos="images/hotels/sanddunes.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-chao-lao-beach/">
+  <div class="card-media">
+    <img src="images/hotels/sanddunes.jpg" alt="แซนด์ดูนส์ เจ้าหลาว บีช รีสอร์ท" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>แซนด์ดูนส์ เจ้าหลาว บีช รีสอร์ท</h3>
+        <div class="zone">📍 หาดเจ้าหลาว จ.จันทบุรี · ติดหาด</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag best">⭐ 4 ดาว</span>
+      <span class="tag ok">🏖️ ติดหาด</span>
+      <span class="tag ok">🍳 อาหารเช้าดี</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ท 4 ดาวติดหาดเจ้าหลาว สระว่ายน้ำวิวทะเลพาโนรามา อาหารเช้าหลากหลาย ห้องมีอ่างอาบน้ำ — Comfortable ที่สุดในกลุ่มโรงแรม</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,850 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~5,550 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>✅ บุฟเฟต์</div>
+      <div class="spec"><b>สระ</b>✅ วิวทะเล</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,850</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~5,550</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดเจ้าหลาว ลงเดินได้เลย</li><li>สระวิวทะเลสวย</li><li>อาหารเช้าหลากหลาย</li><li>เหมาะกับผู้สูงอายุ</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ราคาสูงสุดในกลุ่มโรงแรม</li><li>ไม่มีโต๊ะพูล</li><li>คนเยอะช่วงวันหยุด</li><li>อาจไม่รับหมา</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้อง 3 ห้องติดกัน · เตียงเสริมเด็ก 2 ขวบ · อาหารเช้าเด็กคิดเงินไหม · ที่จอด 2 คัน</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=%E0%B9%81%E0%B8%8B%E0%B8%99%E0%B8%94%E0%B9%8C%E0%B8%94%E0%B8%B9%E0%B8%99%E0%B8%AA%E0%B9%8C%20%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7%20%E0%B8%9A%E0%B8%B5%E0%B8%8A%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="sanddunes">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="sanddunes">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=%E0%B9%81%E0%B8%8B%E0%B8%99%E0%B8%94%E0%B9%8C%E0%B8%94%E0%B8%B9%E0%B8%99%E0%B8%AA%E0%B9%8C%20%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7%20%E0%B8%9A%E0%B8%B5%E0%B8%8A%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="cabana" data-order="106" data-zone="chanthaburi" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="4950" data-rating="0" data-brief="3 ห้อง · 1,650/ห้อง · สระเกลือไล่ระดับ เหมาะเด็ก" data-price-label="4,950 บาท/คืน (3 ห้อง)" data-photos="images/hotels/cabana.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-chao-lao-beach/">
+  <div class="card-media">
+    <img src="images/hotels/cabana.jpg" alt="เจ้าหลาว คาบาน่า รีสอร์ท" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>เจ้าหลาว คาบาน่า รีสอร์ท</h3>
+        <div class="zone">📍 หาดเจ้าหลาว จ.จันทบุรี · ริมหาด</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag best">👶 สระไล่ระดับ</span>
+      <span class="tag ok">🏖️ ริมหาด</span>
+      <span class="tag ok">🏊 สระเกลือ</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทสไตล์บ้านพักริมหาดเจ้าหลาว มีทั้งบ้านเป็นหลังและห้องในอาคารริมสระ จุดเด่นคือสระเกลือแบบไล่ระดับความลึก เหมาะกับเด็กเล็ก</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,650 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~4,950 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>❓ ต้องสอบถาม</div>
+      <div class="spec"><b>สระ</b>✅ เกลือ ไล่ระดับ</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,650</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~4,950</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>สระเกลือไล่ระดับ ปลอดภัยกับเด็ก 2 ขวบ</li><li>ติดหาดเจ้าหลาว</li><li>บรรยากาศเงียบ สงบ</li><li>มีทั้งบ้านหลังและห้องในอาคาร</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่มีโต๊ะพูล</li><li>ต้องจอง 3 ห้อง</li><li>ข้อมูลอาหารเช้าไม่ชัด</li><li>ห้องในอาคารอาจไม่ติดกัน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> สระเด็กเริ่มลึกเท่าไร · ห้อง 3 ห้องติดกัน · อาหารเช้า · รับหมาไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7%20%E0%B8%84%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%99%E0%B9%88%E0%B8%B2%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="cabana">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="cabana">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7%20%E0%B8%84%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%99%E0%B9%88%E0%B8%B2%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="baanimsuk" data-order="107" data-zone="chanthaburi" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="4350" data-rating="0" data-brief="3 ห้อง · 1,450/ห้อง · ชิโน-โปรตุกีส · ทางลงหาดส่วนตัว" data-price-label="4,350 บาท/คืน (3 ห้อง)" data-photos="images/hotels/baanimsuk.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-chao-lao-beach/">
+  <div class="card-media">
+    <img src="images/hotels/baanimsuk.jpg" alt="บ้านอิ่มสุขรีสอร์ท" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>บ้านอิ่มสุขรีสอร์ท</h3>
+        <div class="zone">📍 หาดเจ้าหลาว จ.จันทบุรี · ติดหาด (ทางลงส่วนตัว)</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">🏖️ ทางลงหาดส่วนตัว</span>
+      <span class="tag ok">🏊 สระ</span>
+      <span class="tag ok">👨‍👩‍👧 ห้อง Family</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทสไตล์ชิโน-โปรตุกีสริมหาดเจ้าหลาว มีสระว่ายน้ำ ทางเดินลงหาดส่วนตัว ห้องแบบ Family ในอาคารติดทะเล และ Deluxe Garden</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,450 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~4,350 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>✅ A la carte / บุฟเฟต์</div>
+      <div class="spec"><b>สระ</b>✅</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,450</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~4,350</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>มีทางเดินลงหาดส่วนตัว</li><li>มีห้อง Family เหมาะครอบครัว</li><li>บรรยากาศร่มรื่น ถ่ายรูปสวย</li><li>ราคากลาง</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>อาคารบางส่วนเก่าตามกาลเวลา</li><li>ไม่มีโต๊ะพูล</li><li>ต้องถามเรื่องห้องติดกัน</li><li>กิจกรรมเสริมอาจมีค่าใช้จ่าย</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้อง Family พักได้กี่คน · ห้อง 3 ห้องติดกัน · อาหารเช้าเด็ก · ทางลงหาดใช้ได้ตลอดไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="baanimsuk">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="baanimsuk">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
+
+<article class="card hotel" id="maldives" data-order="108" data-zone="chanthaburi" data-type="hotel" data-pool="0" data-pet="0" data-beach="1" data-price="4800" data-rating="0" data-brief="3 ห้อง · 1,600/ห้อง · วิวทะเล · คาเฟ่" data-price-label="4,800 บาท/คืน (3 ห้อง)" data-photos="images/hotels/maldives.jpg" data-credit-label="paknaidi.com (บทความรวมที่พัก)" data-credit-url="https://www.paknaidi.com/hotels-in-chao-lao-beach/">
+  <div class="card-media">
+    <img src="images/hotels/maldives.jpg" alt="โรงแรม มัลดีฟส์ บีช รีสอร์ท" loading="lazy" decoding="async">
+    <span class="hotel-badge">🏨 โรงแรม/รีสอร์ท</span>
+    <span class="media-badge">📷 1 รูป</span>
+    <span class="media-cta">ดูรายละเอียด →</span>
+  </div>
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>โรงแรม มัลดีฟส์ บีช รีสอร์ท</h3>
+        <div class="zone">📍 หาดเจ้าหลาว จ.จันทบุรี · ติดหาด</div>
+      </div>
+      <div class="rating none">ราคาอ้างอิงจากบทความรวมที่พัก</div>
+    </div>
+    <div class="tags">
+      <span class="tag">🛏️ จอง 3 ห้อง</span>
+      <span class="tag ok">🏖️ ติดหาด</span>
+      <span class="tag ok">☕ คาเฟ่</span>
+      <span class="tag ok">🌊 วิวทะเล</span>
+      <span class="tag warn">🎱 ไม่มีโต๊ะพูล</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>รีสอร์ทสไตล์วิลล่าริมหาดเจ้าหลาว มีห้องวิวทะเลและพูลวิลล่า คาเฟ่ถ่ายรูปสวย อาหารเช้าหลากหลาย</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ประเภท</b>โรงแรม/รีสอร์ท</div>
+      <div class="spec"><b>จำนวนห้องที่ต้องจอง</b>3 ห้อง (2+2+3 ท่าน)</div>
+      <div class="spec"><b>ราคาต่อห้อง</b>~1,600 บาท/คืน</div>
+      <div class="spec"><b>รวม 3 ห้อง</b>~4,800 บาท/คืน</div>
+      <div class="spec"><b>อาหารเช้า</b>✅ มี</div>
+      <div class="spec"><b>สระ</b>✅</div>
+      <div class="spec"><b>ที่จอด</b>✅</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>❌ ไม่มี</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ห้องพัก (ต่อห้อง/คืน)</td><td class="num">~1,600</td></tr>
+        <tr><td>3 ห้อง (7 ท่าน) ต่อคืน</td><td class="num">~4,800</td></tr>
+        <tr><td>เทียบกับพูลวิลล่า 4 นอน</td><td class="num">ถูกกว่า 3,000–5,000/คืน</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">ราคาเป็นช่วงอ้างอิงจากบทความรวมที่พัก ต้องเช็คราคาจริงตามวันอีกครั้ง</p>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดเจ้าหลาว</li><li>มีคาเฟ่และมุมถ่ายรูป</li><li>ห้องหลายแบบ เลือกได้ตามงบ</li><li>อาหารเช้าหลากหลาย</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่มีโต๊ะพูล</li><li>ราคากลาง–สูง</li><li>ต้องเช็คว่าห้องมาตรฐานพอ 7 คนไหม</li><li>ช่วงวันหยุดคนเยอะ</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ห้องวิวทะเล 3 ห้อง · เตียงเสริม · อาหารเช้าเด็ก · รับหมาไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%A1%20%E0%B8%A1%E0%B8%B1%E0%B8%A5%E0%B8%94%E0%B8%B5%E0%B8%9F%E0%B8%AA%E0%B9%8C%20%E0%B8%9A%E0%B8%B5%E0%B8%8A%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97%20%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A7" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="maldives">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="maldives">0 โหวต</span>
+    <a class="btn" href="https://www.booking.com/searchresults.html?ss=%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%A1%20%E0%B8%A1%E0%B8%B1%E0%B8%A5%E0%B8%94%E0%B8%B5%E0%B8%9F%E0%B8%AA%E0%B9%8C%20%E0%B8%9A%E0%B8%B5%E0%B8%8A%20%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%97" target="_blank" rel="noopener">🔎 เช็คราคาจริง</a>
+  </div>
+</article>
 </div>
 
 <section id="vote">
@@ -1459,7 +1969,7 @@ body.modal-open{overflow:hidden}
 </section>
 
 <section>
-  <h2>📊 ตารางเปรียบเทียบทั้ง 13 หลัง</h2>
+  <h2>📊 ตารางเปรียบเทียบ 13 พูลวิลล่า</h2>
   <p class="lead">เลื่อนตารางไปทางขวาเพื่อดูคอลัมน์เพิ่มเติม (บนมือถือ)</p>
   <div class="table-scroll">
     <table>
@@ -1488,6 +1998,29 @@ body.modal-open{overflow:hidden}
   <p style="font-size:12.5px;color:var(--muted);margin-top:10px">✅ = มี/รับ · ❌ = ไม่มี/ไม่รับ · ⚠️ = มีเงื่อนไข · ❓ = ยังไม่ระบุ ต้องสอบถาม · “—” = ยังไม่พบคะแนนรีวิวรวม</p>
 </section>
 
+
+<section>
+  <h2>🏨 ตารางเทียบตัวเลือกโรงแรม/รีสอร์ท</h2>
+  <p class="lead">ราคาต่อห้องเป็นช่วงอ้างอิง — คิดรวม 3 ห้องสำหรับ 7 ท่าน (2+2+3)</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>ที่พัก</th><th>โซน</th><th>ห้อง</th><th>ราคา/ห้อง</th><th>รวม 3 ห้อง</th><th>สระ</th><th>อาหารเช้า</th><th>ติดทะเล</th></tr>
+      </thead>
+      <tbody>
+<tr><td class="name">Sunvada Beach Rayong</td><td>ระยอง</td><td>3</td><td>1,950</td><td>5,850</td><td>✅</td><td>❓</td><td>✅</td></tr>
+        <tr><td class="name">The Oriental Tropical Beach at VIP Resort</td><td>ระยอง</td><td>3</td><td>1,350</td><td>4,050</td><td>✅</td><td>❓</td><td>✅</td></tr>
+        <tr><td class="name">Panwana Resort</td><td>ระยอง</td><td>3</td><td>750</td><td>2,250</td><td>✅</td><td>❓</td><td>🚗 ใกล้</td></tr>
+        <tr><td class="name">เคียงทะเล รีสอร์ท</td><td>ระยอง</td><td>3</td><td>1,450</td><td>4,350</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td class="name">แซนด์ดูนส์ เจ้าหลาว บีช รีสอร์ท</td><td>จันทบุรี</td><td>3</td><td>1,850</td><td>5,550</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td class="name">เจ้าหลาว คาบาน่า รีสอร์ท</td><td>จันทบุรี</td><td>3</td><td>1,650</td><td>4,950</td><td>✅</td><td>❓</td><td>✅</td></tr>
+        <tr><td class="name">บ้านอิ่มสุขรีสอร์ท</td><td>จันทบุรี</td><td>3</td><td>1,450</td><td>4,350</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td class="name">โรงแรม มัลดีฟส์ บีช รีสอร์ท</td><td>จันทบุรี</td><td>3</td><td>1,600</td><td>4,800</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px">✅ = มี · ❓ = ต้องสอบถาม · 🚗 = ต้องขับไป · ราคาจากบทความรวมที่พักช่วง พ.ย. 2569 ต้องเช็คราคาจริงก่อนจอง</p>
+</section>
 <section>
   <h2>🧭 สรุปช่วยตัดสินใจ</h2>
   <div class="picks">
@@ -1505,6 +2038,11 @@ body.modal-open{overflow:hidden}
       <div class="kicker">ถ้าเด็กต้องสนุก</div>
       <h3>บ้านพลอยจันท์</h3>
       <p>สไลเดอร์ 2.5 ม. + ใกล้ตลาดปูที่สุด แต่ยอมแลกด้วยการไม่มีโต๊ะพูล</p>
+    </div>
+    <div class="pick coral">
+      <div class="kicker">ถ้าอยากได้อาหารเช้า + ไม่ต้องดูแลบ้าน</div>
+      <h3>โรงแรม 3 ห้อง</h3>
+      <p>แซนด์ดูนส์ / เคียงทะเล / เจ้าหลาว คาบาน่า — ถูกกว่าวิลล่า 3,000–5,000/คืน แต่ไม่ได้สระส่วนตัวและโต๊ะพูล</p>
     </div>
   </div>
 </section>
@@ -1609,11 +2147,12 @@ body.modal-open{overflow:hidden}
         if(k === 'pet'    && card.dataset.pet   !== '1') ok = false;
         if(k === 'beach'  && card.dataset.beach !== '1') ok = false;
         if(k === 'budget' && Number(card.dataset.price) > 10000) ok = false;
+        if(k === 'hotel'  && card.dataset.type !== 'hotel') ok = false;
       });
       card.style.display = ok ? '' : 'none';
       if(ok) shown++;
     });
-    countEl.textContent = 'แสดง ' + shown + ' จาก ' + cards.length + ' หลัง';
+    countEl.textContent = 'แสดง ' + shown + ' จาก ' + cards.length + ' ตัวเลือก';
   }
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){
