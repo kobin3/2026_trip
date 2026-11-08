@@ -105,6 +105,22 @@ td.num{white-space:nowrap;font-weight:600}
 .review{border-left:3px solid var(--gold);background:#fffdf6;padding:10px 14px;border-radius:0 10px 10px 0;font-size:13.5px;margin:0 0 8px}
 .review .who{display:block;font-size:12px;color:var(--muted);margin-top:4px}
 .review-src{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+
+/* video review */
+.vids{display:grid;gap:9px}
+.vid{display:flex;gap:11px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:7px;background:#fff;text-decoration:none;color:var(--ink);transition:.15s}
+.vid:hover{border-color:#f87171;background:#fff8f8;text-decoration:none}
+.vid-thumb{position:relative;flex:0 0 auto;width:116px;height:65px;border-radius:8px;overflow:hidden;background:#0f172a}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.vid-thumb i{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;background:rgba(0,0,0,.3)}
+.vid-meta{display:flex;flex-direction:column;gap:3px;min-width:0}
+.vid-meta b{font-size:13.5px;line-height:1.42;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vid-meta small{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag.vid-tag{background:#fee2e2;color:#b91c1c;font-weight:600}
+@media(max-width:520px){
+  .vid-thumb{width:96px;height:54px}
+  .vid-meta b{font-size:12.5px}
+}
 .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .pros-cons>div{border-radius:12px;padding:10px 14px;font-size:13.5px}
 .pros{background:#f0fdf4;border:1px solid #bbf7d0}
@@ -309,6 +325,7 @@ body.modal-open{overflow:hidden}
       <div class="rating">★ 8.6/10 <span style="font-weight:400">· 3 รีวิว (Trip.com)</span></div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag best">ครบโจทย์ที่สุด</span>
       <span class="tag ok">🎱 โต๊ะพูล</span>
       <span class="tag ok">🐶 รับหมา +500</span>
@@ -362,6 +379,16 @@ body.modal-open{overflow:hidden}
         <a href="https://gangstays.com/stay/level-up-pool-villa-rayong" target="_blank" rel="noopener">ข้อมูลจากตัวแทน ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=XMsPLE6-l88" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/XMsPLE6-l88.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>Level Up Pool Villa Rayong (เลเวลอัพพูลวิลล่า)</b><small>Somewhere Together Channel · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ครบที่สุดในระยอง: โต๊ะพูล + หมา + จอด 2 คันในบ้าน</li><li>สระใหญ่ 15×6 ม. เล่นได้ทั้งครอบครัว</li><li>ใกล้ทะเลและตลาดปูบ้านเพ</li><li>เจ้าของดูแลเอง ตอบแชทเร็ว</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>คืนเสาร์ 10,900 เกินงบเล็กน้อย</li><li>ห้อง 4 เป็นฟูกปูพื้น ไม่ใช่เตียง</li><li>ห้อง 2/3 มีเตียงเดี่ยวปน</li><li>คะแนนทำเล/บริการจาก Trip.com ยังน้อย (8.0/7.7)</li></ul></div>
@@ -391,6 +418,7 @@ body.modal-open{overflow:hidden}
       <div class="rating">★ 5.0/5 <span style="font-weight:400">· 13 รีวิว</span></div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag best">ราคาเบาสุดที่มีโต๊ะพูล</span>
       <span class="tag ok">🎱 โต๊ะพูล</span>
       <span class="tag no">🚫 ไม่รับหมา</span>
@@ -439,6 +467,16 @@ body.modal-open{overflow:hidden}
         <a href="https://www.facebook.com/102126302774138" target="_blank" rel="noopener">เพจ Facebook ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=JE3MiLKg9cA" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/JE3MiLKg9cA.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>Presentation Mountain View PoolVilla Rayong</b><small>Mountain View PoolVilla Rayong (ช่องที่พัก) · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ถูกที่สุดในกลุ่มที่มีโต๊ะพูล (4,900)</li><li>กิจกรรมในบ้านเยอะ เหมาะวันฝนตก</li><li>คะแนนรีวิว 5.0 เต็ม</li><li>สระน้ำเกลือ + สไลเดอร์ เด็กชอบ</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่รับหมา — ตัดตัวเลือกนี้ทิ้งถ้าหมาไปด้วย</li><li>ไกลทะเล 6 กม. ต้องขับรถไปกินปู</li><li>รับได้แค่ 8 ท่าน (เรา 7 คน พอดี ไม่มีที่เหลือ)</li></ul></div>
@@ -467,6 +505,7 @@ body.modal-open{overflow:hidden}
       <div class="rating none">ยังไม่พบคะแนนรวม</div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag ok">🏖️ ติดทะเล (ข้ามถนน)</span>
       <span class="tag ok">🎱 โต๊ะพูล</span>
       <span class="tag warn">🐶 รับเฉพาะ ≤3 กก.</span>
@@ -514,6 +553,16 @@ body.modal-open{overflow:hidden}
         <a href="https://www.youtube.com/watch?v=knlutRweddQ" target="_blank" rel="noopener">คลิปพาชมบ้าน ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=knlutRweddQ" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/knlutRweddQ.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>บ้านบุษราคัม พูลวิลล่าริมทะเล หาดแม่รำพึง</b><small>JaoJuneHouse · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ใกล้ทะเลที่สุดในระยอง (ข้ามถนน)</li><li>มีโต๊ะพูล + รับหมาเล็ก</li><li>ราคา 7,500 คงที่ทุกวัน</li><li>เด็ก ≤6 ปีนอนกับผู้ปกครองได้ 2 คน</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>รับหมาเฉพาะ ≤3 กก. — ต้องชั่งน้ำหนักก่อน</li><li>ไม่มีคะแนนรีวิวอิสระให้ตรวจ</li><li>ต้องข้ามถนนไปทะเล (ระวังเด็ก)</li></ul></div>
@@ -592,6 +641,13 @@ body.modal-open{overflow:hidden}
         <a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%a3%e0%b8%b0%e0%b8%a2%e0%b8%ad%e0%b8%87/" target="_blank" rel="noopener">ประกาศพร้อมราคา ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=See%20Sun%20Lake%20Pool%20Villa%20%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%AD%E0%B8%87" target="_blank" rel="noopener">ค้นหา “See Sun Lake Pool Villa ระยอง” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ใกล้ตลาดปูบ้านเพที่สุด</li><li>รับหมา + สระมีสไลเดอร์</li><li>ราคาถูก</li><li>ใกล้อุทยานเขาแหลมหญ้า</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b> — ขาดโจทย์หลัก</li><li>เช็คอิน 15:00 ช้ากว่าที่อื่น</li><li>Zone B ไม่มีครัว/คาราโอเกะ</li><li>ราคาในแต่ละประกาศไม่ตรงกัน</li></ul></div>
@@ -621,6 +677,7 @@ body.modal-open{overflow:hidden}
       <div class="rating none">ยังไม่พบคะแนนรวม</div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag ok">🎱 โต๊ะพูล</span>
       <span class="tag ok">👶 สระเด็ก 80 ซม.</span>
       <span class="tag warn">🐶 ไม่ระบุ</span>
@@ -669,6 +726,16 @@ body.modal-open{overflow:hidden}
         <a href="https://www.google.com/search?q=Sunrise+Poolvilla+สัตหีบ" target="_blank" rel="noopener">ค้นข้อมูลเพิ่มเติม ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=IUHTmTMKt8w" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/IUHTmTMKt8w.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>Sunrise Pool Villa สัตหีบ</b><small>Rattapong Mahakshetrin · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>สระมีโซนเด็ก 80 ซม. ปลอดภัยสำหรับ 2 ขวบ</li><li>มีโต๊ะพูล</li><li>ราคาวันธรรมดา 5,900 ดีมาก</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>คืนเสาร์ 13,900 แพงเกินงบมาก</li><li>ไม่ระบุเรื่องหมา</li><li>ไกลแหล่งปูบ้านเพ</li><li>ไม่มีคะแนนรีวิวให้ตรวจ</li></ul></div>
@@ -697,6 +764,7 @@ body.modal-open{overflow:hidden}
       <div class="rating">★ 4.7/5 <span style="font-weight:400">· 26 รีวิว</span></div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag best">คุ้มที่สุด · จันทบุรี</span>
       <span class="tag ok">🎱 โต๊ะพูล</span>
       <span class="tag ok">🐶 รับหมา +300</span>
@@ -751,6 +819,16 @@ body.modal-open{overflow:hidden}
         <a href="https://www.facebook.com/search/top?q=วัชระ%20ภัทรมน%20พูลวิลล่า" target="_blank" rel="noopener">ค้นเพจที่พักบน Facebook ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=HrD_JsZNxJI" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/HrD_JsZNxJI.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>Ep.46 วัชระ &amp; ภัทรมน พูลวิลล่า จันทบุรี</b><small>หนุ่มอุดร พลัดถิ่น ชาแนล · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ครบสุด: โต๊ะพูล + หมา + สระเด็ก</li><li>ราคา 7,000–8,000 อยู่ในงบทุกวัน</li><li>ใกล้อ่าวยาง/แหลมสิงห์/เจ้าหลาว</li><li>รีวิว 4.7/5 และมีรีวิวบวกเรื่องหมา/เด็กชัดเจน</li><li>สั่งอาหารเข้ามาทานได้</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ต้องขับไปหาด 7–8 กม.</li><li>ห้ามลงทะเลหลังบ้าน (เป็นเลน ปรับ 1,000)</li><li>ห้ามหมา up เตียง/ลงสระ</li><li>เช็คเอาท์เกิน 11:00 ปรับ 1,000</li></ul></div>
@@ -826,6 +904,13 @@ body.modal-open{overflow:hidden}
         <a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-1/" target="_blank" rel="noopener">ประกาศพร้อมสเปก/ราคา ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=Jan-Ja%201%20Poolvilla%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%20%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" target="_blank" rel="noopener">ค้นหา “Jan-Ja 1 Poolvilla แหลมสิงห์ จันทบุรี” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ถูกกว่า วัชระ และพักได้ 15 ท่าน</li><li>มีโต๊ะพูล + จากุซซี่ + สระเด็ก</li><li>เช็คเอาท์ 12:00 สายกว่าที่อื่น</li><li>เหมาะกลุ่มใหญ่/ครอบครัวขยาย</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่ระบุว่ารับหมา</b> — ต้องถามก่อน</li><li>ไม่มีคะแนนรีวิวอิสระ</li><li>ไม่ติดหาด</li><li>ห้องนอน 4 ห้องสำหรับ 7 คนสบาย แต่ถ้ามากกว่านี้จะแน่น</li></ul></div>
@@ -898,6 +983,13 @@ body.modal-open{overflow:hidden}
       <div class="review">ยังไม่พบรีวิวผู้เข้าพักหรือคะแนนรวม — มีเพียงประกาศของตัวแทนที่ระบุสเปก 3 ห้องนอน 4 ห้องน้ำ โต๊ะพูล จากุซซี่ และสระเด็ก<span class="who">— ข้อมูลจากประกาศที่พัก</span></div>
       <div class="review-src"><a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-2/" target="_blank" rel="noopener">ประกาศพร้อมสเปก/ราคา ↗</a></div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=Jan-Ja%202%20Poolvilla%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%20%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" target="_blank" rel="noopener">ค้นหา “Jan-Ja 2 Poolvilla แหลมสิงห์ จันทบุรี” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ราคาเดียวกับ Jan-Ja 1 แต่พื้นที่รวมกว้างกว่า</li><li>โต๊ะพูล + จากุซซี่ + สระเด็ก</li><li>เช็คเอาท์ 12:00</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>มีแค่ 3 ห้องนอน (7 คนอาจต้องนอนรวม)</li><li>ไม่ระบุเรื่องหมา</li><li>ไม่มีคะแนนรีวิว</li></ul></div>
@@ -978,6 +1070,13 @@ body.modal-open{overflow:hidden}
         <a href="https://th.trip.com/hotels/laem-sing-hotel-detail-125335776/vanilla-coco-poolvilla/" target="_blank" rel="noopener">Trip.com ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=Vanilla%20Coco%20Poolvilla%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%20%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" target="_blank" rel="noopener">ค้นหา “Vanilla Coco Poolvilla แหลมสิงห์ จันทบุรี” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดจริง — เด็กเล่นทรายได้เลย</li><li>สระเกลือไม่แสบตาเด็ก</li><li>ราคา 7,900 อยู่ในงบ</li><li>ห้องน้ำในตัวทุกห้อง</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่ระบุโต๊ะพูล</b> — อาจขาดโจทย์หลัก</li><li>ไม่ระบุเรื่องหมา</li><li>ราคา 2 แหล่งไม่ตรงกัน</li><li>ไม่มีคะแนนรีวิวรวม</li></ul></div>
@@ -1055,6 +1154,13 @@ body.modal-open{overflow:hidden}
         <a href="https://www.facebook.com/Ploychanpoolvilla/" target="_blank" rel="noopener">เพจ Facebook ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%AD%E0%B8%A2%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B9%8C%20%E0%B8%9E%E0%B8%B9%E0%B8%A5%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B9%88%E0%B8%B2%20%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C" target="_blank" rel="noopener">ค้นหา “บ้านพลอยจันท์ พูลวิลล่า แหลมสิงห์” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>สไลเดอร์ใหญ่ เด็ก 2 ขวบตื่นเต้นแน่นอน</li><li>ใกล้ตลาดปูที่สุด (1.2 กม.)</li><li>ราคา 5,900 ถูกมาก</li><li>มีรีวิวบวกเรื่องความสะอาด/ทำเล</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b></li><li>สระลึก 1.5 ม. ต้องดูแลเด็กใกล้ชิด</li><li>ไม่ระบุเรื่องหมา</li><li>ไม่มีคะแนนรีวิวรวม</li></ul></div>
@@ -1133,6 +1239,13 @@ body.modal-open{overflow:hidden}
         <a href="https://bluecatpoolvilla.com/" target="_blank" rel="noopener">เว็บไซต์ทางการ ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <p>ยังไม่พบวิดีโอรีวิวของที่พักนี้โดยตรง — <a href="https://www.youtube.com/results?search_query=Blue%20Cat%20Pool%20Villa%20%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" target="_blank" rel="noopener">ค้นหา “Blue Cat Pool Villa จันทบุรี” บน YouTube ↗</a></p>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>คะแนนรีวิวสูงสุดในลิสต์ (9.3)</li><li>ถูกมาก 3,000–3,500</li><li>บ้านใหม่ สะอาด เจ้าของใส่ใจ</li><li>เหมาะพักผ่อนเงียบ ๆ</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b></li><li><b>ไม่รับหมา</b></li><li>ไกลทะเล ~30 นาที</li><li>รับได้แค่ 8 ท่าน</li></ul></div>
@@ -1161,6 +1274,7 @@ body.modal-open{overflow:hidden}
       <div class="rating none">ยังไม่พบคะแนนรวม</div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag ok">🏖️ ริมทะเล</span>
       <span class="tag ok">🛝 สระ + สไลเดอร์ วิวทะเล</span>
       <span class="tag ok">👥 รับถึง 18 ท่าน</span>
@@ -1210,6 +1324,20 @@ body.modal-open{overflow:hidden}
         <a href="https://www.facebook.com/search/top?q=The%20Blue%20Hana%20Resort%20จันทบุรี" target="_blank" rel="noopener">เพจ Facebook ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=58_vyc5Aa4Y" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/58_vyc5Aa4Y.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>The Blue Ha Na Resort พูลวิลล่าจันทบุรี</b><small>khunkha kids · YouTube</small></span>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=TsMm9kK_TpE" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/TsMm9kK_TpE.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>The Blue Ha Na Resort พูลวิลล่า จันทบุรี</b><small>แม็ก แป้ง · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ริมทะเล วิวดี</li><li>สระ + สไลเดอร์ เหมาะเด็ก</li><li>รับกลุ่มใหญ่ถึง 18 ท่าน</li><li>ราคาเริ่มต้น 6,500 ดี</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่ระบุโต๊ะพูล/หมา</li><li>มีหลายหลัง สเปกต่างกัน ต้องเลือกให้ดี</li><li>ไม่มีคะแนนรีวิวรวม</li><li>ต้องยืนยันราคาตามหลัง/จำนวนคน</li></ul></div>
@@ -1239,6 +1367,7 @@ body.modal-open{overflow:hidden}
       <div class="rating">★ 8.5/10 <span style="font-weight:400">· Agoda</span></div>
     </div>
     <div class="tags">
+      <span class="tag vid-tag">🎬 มีวิดีโอรีวิว</span>
       <span class="tag best">ติดหาดเจ้าหลาว</span>
       <span class="tag ok">🍽️ ร้านซีฟู้ดในที่พัก</span>
       <span class="tag ok">🏊 สระส่วนตัว</span>
@@ -1287,6 +1416,20 @@ body.modal-open{overflow:hidden}
         <a href="https://www.agoda.com/th-th/villa-blanca-hotel-and-restaurant/hotel/chanthaburi-th.html" target="_blank" rel="noopener">Agoda 8.5 ↗</a>
       </div>
     </div>
+    <div class="block">
+      <h4>🎬 วิดีโอรีวิว</h4>
+      <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=yTigTxv-ahw" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/yTigTxv-ahw.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>วิลล่า บลังก้า โฮเทล แอนด์ เรสเตอรองต์ หาดเจ้าหลาว</b><small>tim tim · YouTube</small></span>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=iIsI6NleFrE" target="_blank" rel="noopener">
+        <span class="vid-thumb"><img src="images/videos/iIsI6NleFrE.jpg" alt="" loading="lazy" decoding="async"><i>▶</i></span>
+        <span class="vid-meta"><b>Villa Blanca Hotel &amp; Restaurant, Chao Lao Beach</b><small>Holiday with Falguni · YouTube</small></span>
+      </a>
+    </div>
+    </div>
+
     <div class="pros-cons">
       <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดเจ้าหลาวจริง</li><li>มีร้านซีฟู้ดในที่พัก สั่งปู/อาหารทะเลสะดวก</li><li>คะแนนรีวิวดี 8.5</li><li>บรรยากาศเงียบ เป็นส่วนตัว</li></ul></div>
       <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>10,500 เกินงบ</li><li>ไม่ระบุโต๊ะพูล/หมา</li><li>ข้อมูลห้องน้อย ต้องถามเยอะ</li><li>อาจไม่พอ 7 คน ต้องยืนยัน</li></ul></div>
@@ -1375,6 +1518,7 @@ body.modal-open{overflow:hidden}
       <li><b>รีวิวจากเพจ/TikTok ของที่พัก</b> เป็นข้อมูลประชาสัมพันธ์ ไม่ใช่รีวิวอิสระ — ใช้ประกอบแต่ไม่ควรใช้ตัดสินเพียงอย่างเดียว</li>
       <li><b>“ยังไม่พบคะแนนรวม”</b> หมายความว่าที่พักนั้นมีรีวิวน้อยหรือไม่มีบนแพลตฟอร์มที่ค้นได้ ไม่ได้แปลว่าที่พักไม่ดี</li>
       <li><b>รูปภาพ</b> ดึงมาจากเว็บไซต์/เพจ/หน้า listing ของที่พักแต่ละแห่ง และแสดง <b>ลิงก์แหล่งที่มา</b> ไว้ใต้แกลเลอรีในหน้ารายละเอียด — เป็นรูปประกอบจากประกาศ ไม่ใช่รูปที่ถ่ายตอนเราเข้าพักจริง</li>
+      <li><b>วิดีโอรีวิว</b> เป็นคลิปจาก YouTube ที่ผู้เข้าพักหรือช่องรีวิวทำไว้ — ช่วยดูบรรยากาศจริง ขนาดห้อง และสภาพสระ แต่บางคลิปอาจถ่ายไว้นานแล้ว สภาพอาจเปลี่ยน</li>
       <li>ราคา/สเปกอาจเปลี่ยนได้ตลอด — <b>ยืนยันกับเจ้าของก่อนโอนทุกครั้ง</b></li>
     </ul>
   </div>
