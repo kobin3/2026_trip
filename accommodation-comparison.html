@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เลือกที่พักทริปทะเลตะวันออก · ครอบครัว 7 คน + หมา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#faf6ef;--card:#fff;--ink:#1f2937;--muted:#6b7280;
+  --teal:#0f766e;--teal-soft:#e6f4f1;--coral:#f97316;--coral-soft:#fff2e8;
+  --line:#e5e7eb;--gold:#f59e0b;--green:#16a34a;--red:#dc2626;
+  --shadow:0 6px 24px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Segoe UI",system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.hero{background:linear-gradient(135deg,#0f766e,#0e7490 45%,#0891b2);color:#fff;padding:34px 20px 30px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;bottom:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.hero h1{margin:0 0 6px;font-size:clamp(24px,4vw,36px);line-height:1.25}
+.hero p{margin:0;opacity:.92;max-width:780px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;font-size:13px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+section{margin:30px 0}
+h2{font-size:clamp(20px,2.6vw,26px);margin:0 0 12px}
+h3{margin:0}
+.lead{color:var(--muted);margin:0 0 16px}
+.notice{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px 16px;font-size:14px;margin:18px 0}
+.notice b{color:#92400e}
+.howto{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);font-size:14px}
+.howto ol{margin:8px 0 0;padding-left:20px}
+.howto li{margin:3px 0}
+
+/* filter bar */
+.filterbar{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0}
+.filterbar .inner{max-width:1120px;margin:0 auto;padding:0 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.sortbox{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.sortbox select{font-family:inherit;font-size:13px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.count{font-size:13px;color:var(--muted);padding:4px 2px}
+
+/* top picks */
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.pick{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.pick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal)}
+.pick.gold::before{background:var(--gold)}
+.pick.coral::before{background:var(--coral)}
+.pick .kicker{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--teal);text-transform:uppercase}
+.pick.gold .kicker{color:#b45309}
+.pick.coral .kicker{color:#c2410c}
+.pick h3{font-size:18px;margin:4px 0 6px}
+.pick p{margin:0;font-size:14px;color:var(--muted)}
+.pick .price{font-weight:700;color:var(--ink);font-size:15px;margin-top:8px}
+
+/* cards */
+.cards{display:grid;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:70px}
+.card-head{padding:18px 20px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfbf8)}
+.card-head .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.card-head h3{font-size:clamp(18px,2.4vw,22px);line-height:1.3}
+.card-head .zone{font-size:13px;color:var(--muted);margin-top:2px}
+.rating{display:inline-flex;align-items:center;gap:6px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:999px;padding:4px 11px;font-size:13px;font-weight:600;white-space:nowrap}
+.rating.none{background:#f3f4f6;border-color:var(--line);color:var(--muted);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#f3f4f6;color:#374151;border:1px solid transparent}
+.tag.ok{background:var(--teal-soft);color:#0f766e}
+.tag.warn{background:var(--coral-soft);color:#c2410c}
+.tag.no{background:#fef2f2;color:#b91c1c}
+.tag.best{background:#fef3c7;color:#92400e;font-weight:600}
+.card-body{padding:16px 20px 20px;display:grid;gap:16px}
+.block h4{margin:0 0 6px;font-size:14px;color:var(--teal);letter-spacing:.02em}
+.block p{margin:0;font-size:14px}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.spec{background:#f9fafb;border:1px solid #f1f2f4;border-radius:10px;padding:8px 11px;font-size:13px}
+.spec b{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f9fafb;font-size:12px;color:var(--muted);font-weight:600}
+td.num{white-space:nowrap;font-weight:600}
+.near{display:flex;flex-wrap:wrap;gap:6px}
+.near span{font-size:12.5px;background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:#475569}
+.review{border-left:3px solid var(--gold);background:#fffdf6;padding:10px 14px;border-radius:0 10px 10px 0;font-size:13.5px;margin:0 0 8px}
+.review .who{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.review-src{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pros-cons>div{border-radius:12px;padding:10px 14px;font-size:13.5px}
+.pros{background:#f0fdf4;border:1px solid #bbf7d0}
+.cons{background:#fef2f2;border:1px solid #fecaca}
+.pros b{color:#15803d}.cons b{color:#b91c1c}
+.pros ul,.cons ul,.ask ul{margin:5px 0 0;padding-left:18px}
+.pros li,.cons li,.ask li{margin:2px 0}
+.ask{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:10px 14px;font-size:13.5px}
+.ask b{color:#1d4ed8}
+.card-foot{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 20px;background:#fcfbf8;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:.15s}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{background:#0b5f59;color:#fff}
+.btn.voted{background:var(--coral);border-color:var(--coral);color:#fff}
+.vote-count{font-size:13px;color:var(--muted)}
+.map-btn{background:var(--teal-soft);border-color:#b8e3dc;color:#0f766e;font-weight:600}
+
+/* ranking */
+.rank-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
+.rank-row{display:grid;grid-template-columns:minmax(120px,1.4fr) 3fr 46px;gap:10px;align-items:center;margin:9px 0;font-size:13.5px}
+.bar{height:12px;background:#f1f5f9;border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#14b8a6,#0f766e);border-radius:999px;width:0;transition:width .3s}
+.rank-num{text-align:right;font-weight:700;color:var(--teal)}
+.empty{color:var(--muted);font-size:14px}
+
+/* comparison table */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.table-scroll table{min-width:900px}
+.table-scroll th,.table-scroll td{padding:9px 11px}
+.table-scroll tr:nth-child(even) td{background:#fcfbf8}
+.table-scroll td.name{font-weight:600;white-space:nowrap}
+
+/* footer */
+footer{background:#0f172a;color:#cbd5e1;padding:26px 20px;margin-top:40px;font-size:13px}
+footer .wrap{display:grid;gap:6px}
+footer a{color:#5eead4}
+
+@media(max-width:720px){
+  .pros-cons{grid-template-columns:1fr}
+  .rank-row{grid-template-columns:1fr 60px;grid-template-areas:"name num" "bar bar"}
+  .rank-row .name{grid-area:name}.rank-row .bar{grid-area:bar}.rank-row .rank-num{grid-area:num}
+  .filterbar .inner:first-of-type{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+  .filterbar .inner:first-of-type::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;font-size:12.5px;padding:5px 11px}
+  .sortbox{margin-left:auto}
+  .sortbox select{flex:0 0 auto}
+  .card-body{padding:14px 16px 18px}
+  .card-head{padding:16px 16px 12px}
+  .card-foot{padding:12px 16px}
+  th,td{padding:6px 7px}
+}
+@media print{
+  .filterbar,.card-foot,.hero .meta,.howto{display:none!important}
+  body{background:#fff}
+  .card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .hero{background:#0f766e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <h1>🏖️ เลือกที่พักทริปทะเลตะวันออก</h1>
+    <p>รวม 13 พูลวิลล่าในระยองและจันทบุรี พร้อมราคา สเปกละเอียด ที่ตั้ง สถานที่ใกล้เคียง และรีวิวจากอินเทอร์เน็ต/โซเชียล — เปิดให้ทุกคนในบ้านช่วยกันดูและโหวต</p>
+    <div class="meta">
+      <span>👨‍👩‍👧 6 ผู้ใหญ่ + เด็ก 2 ขวบ</span>
+      <span>🐶 หมา 1 ตัว (ถ้าสะดวก)</span>
+      <span>🚗 รถส่วนตัว 2 คัน</span>
+      <span>⏱️ ไม่เกิน 4 ชม. จาก กทม.</span>
+      <span>🗓️ พ.ย.–ธ.ค. 2569</span>
+      <span>🦀 เน้นปูราคาถูก</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="notice">
+    <b>อ่านก่อนตัดสินใจ:</b> ราคาทั้งหมดเป็น “ราคาอ้างอิง” จากประกาศ/เพจช่วง พ.ย. 2569 ไม่ใช่วันที่จริงของเรา — พ.ย.–ธ.ค. เป็นไฮซีซัน ราคาอาจขยับ 1,000–3,000 บาท และหลายแห่งคิดตามจำนวนคนฐาน (8/10/12/15 ท่าน) ต้องโทรหรือทักแชทเช็กราคารวมสุทธิก่อนโอนทุกครั้ง
+  </div>
+
+  <div class="howto">
+    <b>วิธีใช้หน้านี้</b>
+    <ol>
+      <li>ใช้ปุ่มตัวกรองด้านบนเพื่อดูเฉพาะโซน / ที่มีโต๊ะพูล / รับหมา / ติดทะเล / งบไม่เกิน 10,000</li>
+      <li>กด <b>“เปิดแผนที่”</b> เพื่อดูทำเลจริง และอ่านรีวิวท้ายการ์ดแต่ละหลัง</li>
+      <li>กด <b>“โหวตหลังนี้”</b> — ใช้ตอนนั่งคุยกันในบ้าน (เปิดบนจอเดียว/โทรทัศน์) แล้วดูอันดับด้านล่าง</li>
+      <li>กด <b>“พิมพ์ / บันทึก PDF”</b> เพื่อส่งต่อให้คนที่ไม่ได้อยู่หน้าจอ</li>
+    </ol>
+  </div>
+
+  <section>
+    <h2>⭐ 3 ตัวเลือกที่คุ้มที่สุดสำหรับครอบครัวเรา</h2>
+    <p class="lead">คัดจากโจทย์: โต๊ะพูล + รับหมา + งบ ≤10,000 + ใกล้แหล่งปู</p>
+    <div class="picks">
+      <div class="pick gold">
+        <div class="kicker">ครบที่สุด · ระยอง</div>
+        <h3>Level Up Pool Villa</h3>
+        <p>4 นอน/3 น้ำ · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน · หาดแม่รำพึง 1.2 กม.</p>
+        <div class="price">8,900–10,900 บาท/คืน</div>
+      </div>
+      <div class="pick">
+        <div class="kicker">คุ้มที่สุด · จันทบุรี</div>
+        <h3>วัชระ &amp; ภัทรมน พูลวิลล่า</h3>
+        <p>4–5 นอน/5 น้ำ · สระเกลือ + สระเด็ก · โต๊ะพูล · รับหมา · ใกล้อ่าวยาง/แหลมสิงห์/เจ้าหลาว</p>
+        <div class="price">7,000–8,000 บาท/คืน</div>
+      </div>
+      <div class="pick coral">
+        <div class="kicker">ประหยัด · ระยอง</div>
+        <h3>Mountain View Pool Villa</h3>
+        <p>3 นอน/2 น้ำ · สระ + สไลเดอร์ · โต๊ะพูล + ฮอกกี้ + ปิงปอง · ราคาเบาสุดในกลุ่มที่มีโต๊ะพูล</p>
+        <div class="price">4,900–6,500 บาท/คืน</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="filterbar">
+  <div class="inner">
+    <button class="chip active" data-filter="all">ทั้งหมด</button>
+    <button class="chip" data-filter="rayong">ระยอง</button>
+    <button class="chip" data-filter="chanthaburi">จันทบุรี</button>
+    <button class="chip" data-filter="pool">🎱 มีโต๊ะพูล</button>
+    <button class="chip" data-filter="pet">🐶 รับหมา</button>
+    <button class="chip" data-filter="beach">🏖️ ติดทะเล</button>
+    <button class="chip" data-filter="budget">💰 ≤10,000</button>
+  </div>
+  <div class="inner">
+    <div class="count" id="count"></div>
+    <div class="sortbox">
+      <label for="sort">เรียง:</label>
+      <select id="sort">
+        <option value="order">แนะนำ</option>
+        <option value="price">ราคาต่ำ → สูง</option>
+        <option value="rating">คะแนนรีวิว</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="cards" id="cards">
+<article class="card" id="levelup" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>⭐ Level Up Pool Villa Rayong</h3>
+        <div class="zone">📍 หาดแม่รำพึง อ.เมืองระยอง · ห่างทะเล 1.2–1.4 กม.</div>
+      </div>
+      <div class="rating">★ 8.6/10 <span style="font-weight:400">· 3 รีวิว (Trip.com)</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag best">ครบโจทย์ที่สุด</span>
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag ok">🐶 รับหมา +500</span>
+      <span class="tag ok">🏊 สระ 15×6 ม.</span>
+      <span class="tag ok">🚗 จอดในบ้าน 2 คัน</span>
+      <span class="tag warn">เสาร์ 10,900</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>99/6 ม.5 ถ.บ้านช่น–หาดแม่รำพึง ต.ตะพง อ.เมืองระยอง 21000 — อยู่โซนหาดแม่รำพึง ใกล้ร้านอาหารทะเลริมหาดและตลาดบ้านเพ (แหล่งปูถูก) ประมาณ 10 กม.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>4 ห้อง (เตียงคู่ 2+1+1, ฟูกปูพื้น 5×5 ม.)</div>
+      <div class="spec"><b>ห้องน้ำ</b>3 ห้อง (ในตัว 2 + รวม 1)</div>
+      <div class="spec"><b>ความจุ</b>ฐาน 10 ท่าน / สูงสุด 20 ท่าน</div>
+      <div class="spec"><b>สระ</b>15×6 ม. ระบบคลอรีน</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มาตรฐาน + ไม้คิว/ลูก</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัวครบชุด + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>✅ +500 บาท/ตัว/คืน</div>
+      <div class="spec"><b>ที่จอด</b>ในบ้าน 2 + นอกบ้าน 20 คัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 11:00</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, ของเล่นเด็ก, Smart TV, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (10 ท่าน)</th></tr>
+        <tr><td>อาทิตย์–พฤหัสบดี</td><td class="num">8,900</td></tr>
+        <tr><td>ศุกร์</td><td class="num">9,900</td></tr>
+        <tr><td>เสาร์</td><td class="num">10,900</td></tr>
+        <tr><td>นักขัตฤกษ์ / ปีใหม่</td><td class="num">12,500–14,900</td></tr>
+        <tr><td>เกิน 10 ท่าน</td><td class="num">+500/คน/คืน</td></tr>
+        <tr><td>ประกัน (คืนวันเช็คเอาท์)</td><td class="num">3,000</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแม่รำพึง 1.1 กม.</span><span>🛕 วัดช้างชน 870 ม.</span><span>🪨 ลานหินขาว 2.2 กม.</span><span>🦀 ตลาดบ้านเพ ~10 กม.</span><span>🦐 ร้านซีฟู้ด ~5 กม.</span><span>🏪 7-11 ~3 กม. (มีส่งถึงบ้าน)</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“สถานที่เหมาะอย่างยิ่งสำหรับการพักผ่อนกับกลุ่มเพื่อน มีทุกอย่างครบตามมาตรฐานพูลวิลล่า”<span class="who">— ผู้เข้าพักจริง, Trip.com (คะแนนรวม 8.6/10 · ความสะอาด 9.3 · สิ่งอำนวยความสะดวก 9.3 · ทำเล 8.0 · บริการ 7.7)</span></div>
+      <div class="review">เพจเจ้าของระบุว่าเป็น Pet-Friendly Villa รับ “สัตว์เลี้ยงทุกขนาด” ค่าบริการตัวละ 500 บาท และมีรีวิวจากลูกค้าที่พาสุนัข/แมวมาพักจำนวนมาก<span class="who">— เพจ Facebook ทางการของที่พัก (ไม่ใช่รีวิวอิสระ)</span></div>
+      <div class="review-src">
+        <a href="https://www.trip.co.th/hotels/th/level-up-pool-villa-rayong/125315884.html" target="_blank" rel="noopener">ดูรีวิว Trip.com ↗</a>
+        <a href="https://www.facebook.com/leveluppoolvilla/" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+        <a href="https://gangstays.com/stay/level-up-pool-villa-rayong" target="_blank" rel="noopener">ข้อมูลจากตัวแทน ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ครบที่สุดในระยอง: โต๊ะพูล + หมา + จอด 2 คันในบ้าน</li><li>สระใหญ่ 15×6 ม. เล่นได้ทั้งครอบครัว</li><li>ใกล้ทะเลและตลาดปูบ้านเพ</li><li>เจ้าของดูแลเอง ตอบแชทเร็ว</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>คืนเสาร์ 10,900 เกินงบเล็กน้อย</li><li>ห้อง 4 เป็นฟูกปูพื้น ไม่ใช่เตียง</li><li>ห้อง 2/3 มีเตียงเดี่ยวปน</li><li>คะแนนทำเล/บริการจาก Trip.com ยังน้อย (8.0/7.7)</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ค่าไฟ/น้ำเพิ่มไหม · ค่าล้างจาน/แม่บ้าน · หมาเข้าห้องนอนได้ไหม · สระมีไฟส่องกลางคืนไหม (มีเด็ก 2 ขวบ) · ขอเตียงเด็ก/เปลไหมได้</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Level+Up+Pool+Villa+Rayong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="levelup">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="levelup">0 โหวต</span>
+    <a class="btn" href="tel:0945542463">📞 094-554-2463</a>
+  </div>
+</article>
+
+<article class="card" id="mountainview" data-order="3" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="4900" data-rating="5.0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Mountain View Pool Villa Rayong</h3>
+        <div class="zone">📍 ต.ตะพง อ.เมืองระยอง · ห่างทะเล 6 กม.</div>
+      </div>
+      <div class="rating">★ 5.0/5 <span style="font-weight:400">· 13 รีวิว</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag best">ราคาเบาสุดที่มีโต๊ะพูล</span>
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag no">🚫 ไม่รับหมา</span>
+      <span class="tag ok">🎯 ฮอกกี้ + ปิงปอง</span>
+      <span class="tag warn">ไกลทะเล 6 กม.</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>81/21 ต.ตะพง อ.เมืองระยอง 21000 — บ้านเดี่ยววิวเขายายดา เงียบสงบ ขับ 10 นาทีถึงอ่าวไข่/แหลมแม่พิมพ์ และไม่เกิน 10 กม. ถึงหาดแม่รำพึง</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง + ห้องรับแขก (เตียง 5 ฟุต 1, 6 ฟุต 4)</div>
+      <div class="spec"><b>ห้องน้ำ</b>2 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>8 ท่าน (เด็ก &lt;7 ขวบฟรี 3 คน)</div>
+      <div class="spec"><b>สระ</b>สระส่วนตัว + สไลเดอร์</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ + โต๊ะฮอกกี้ + ปิงปอง</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาบาร์บีคิว + ถังน้ำแข็ง 40 ล.</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❌ ไม่อนุญาต (มีที่ฝากใกล้ที่พัก)</div>
+      <div class="spec"><b>ที่จอด</b>มี (2 คันได้)</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 11:00</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, สระน้ำเกลือ, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (8 ท่าน)</th></tr>
+        <tr><td>จันทร์–พฤหัสบดี</td><td class="num">4,900</td></tr>
+        <tr><td>ศุกร์–เสาร์ / นักขัตฤกษ์</td><td class="num">6,500</td></tr>
+        <tr><td>มัดจำ/ประกัน</td><td class="num">3,000</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>⛰️ เขายายดา (เดิน/วิ่งเทรล)</span><span>🏖️ อ่าวไข่/แหลมแม่พิมพ์ 10 นาที</span><span>🏖️ หาดแม่รำพึง &lt;10 กม.</span><span>🌿 สวนพฤกษศาสตร์ระยอง</span><span>🐘 ปางช้างระยอง</span><span>🦀 ตลาดบ้านเพ ~12 กม.</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“ภายในบ้านกว้างมาก ๆ มีห้องเยอะ แอร์เย็นทุกห้อง มีโต๊ะพูล โต๊ะเกมส์ คาราโอเกะ อุปกรณ์ครัวครบ มีน้ำแข็งฟรี สระน้ำเกลือ มีสไลเดอร์ด้วย สั่ง Grab ได้”<span class="who">— ผู้เข้าพักจริง 5/5, มี.ค. 2025</span></div>
+      <div class="review">“ที่พักสะอาดมาก อุปกรณ์ครบ เหมาะกับการพักผ่อนที่สุด เจ้าของเป็นกันเองมาก ราคาสุดเบา”<span class="who">— ผู้เข้าพักจริง 5/5, ส.ค. 2023 (คะแนนรวม 5.0/5 จาก 13 รีวิว)</span></div>
+      <div class="review-src">
+        <a href="https://mountainviewrayong.com/" target="_blank" rel="noopener">เว็บไซต์ทางการ ↗</a>
+        <a href="https://www.facebook.com/102126302774138" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ถูกที่สุดในกลุ่มที่มีโต๊ะพูล (4,900)</li><li>กิจกรรมในบ้านเยอะ เหมาะวันฝนตก</li><li>คะแนนรีวิว 5.0 เต็ม</li><li>สระน้ำเกลือ + สไลเดอร์ เด็กชอบ</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่รับหมา — ตัดตัวเลือกนี้ทิ้งถ้าหมาไปด้วย</li><li>ไกลทะเล 6 กม. ต้องขับรถไปกินปู</li><li>รับได้แค่ 8 ท่าน (เรา 7 คน พอดี ไม่มีที่เหลือ)</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ค่าไฟ · ผ้าขนหนู/ของใช้เด็ก · ระยะเดินไปร้านอาหาร · สระมีโซนตื้นไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Mountain+View+Pool+Villa+Rayong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="mountainview">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="mountainview">0 โหวต</span>
+    <a class="btn" href="tel:0903960149">📞 090-396-0149</a>
+  </div>
+</article>
+<article class="card" id="bussarakham" data-order="10" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="7500" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>บ้านบุศราคัม พูลวิลล่า</h3>
+        <div class="zone">📍 หาดแม่รำพึง อ.แกลง ระยอง · ข้ามถนนถึงหาด</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag ok">🏖️ ติดทะเล (ข้ามถนน)</span>
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag warn">🐶 รับเฉพาะ ≤3 กก.</span>
+      <span class="tag ok">💰 7,500 คงที่</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>หาดแม่รำพึง อ.แกลง ระยอง — บ้านชั้นเดียวติดทะเล ต้องเดินข้ามถนนไปหาดนิดเดียว ใกล้ตลาดสดและร้านอาหารทะเล</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>4 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>10 ท่าน (เสริม +5 ท่าน +300/คน)</div>
+      <div class="spec"><b>สระ</b>สระส่วนตัว</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัวครบ + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>⚠️ หมา/แมว ≤3 กก. +300/ตัว</div>
+      <div class="spec"><b>ที่จอด</b>มี (2 คันได้)</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / สอบถาม</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, แอร์ทุกห้อง, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ราคาโปรโมชั่น (10 ท่าน)</td><td class="num">7,500/คืน</td></tr>
+        <tr><td>เสริมคน (เกิน 10)</td><td class="num">+300/คน</td></tr>
+        <tr><td>สัตว์เลี้ยง ≤3 กก.</td><td class="num">+300/ตัว</td></tr>
+        <tr><td>มัดจำ + ประกันบ้าน</td><td class="num">50% + 3,000</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแม่รำพึง ข้ามถนน</span><span>🦀 ตลาดบ้านเพ ~15 นาที</span><span>🦐 ร้านซีฟู้ดริมหาด</span><span>🏪 ร้านสะดวกซื้อใกล้ ๆ</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">ยังไม่พบรีวิวรวมเป็นคะแนนบนแพลตฟอร์มใหญ่ — มีเพียงคลิป/โพสต์แนะนำจากเพจที่พักและ YouTube ซึ่งระบุว่า “บ้านชั้นเดียว ติดทะเลแต่ต้องเดินข้ามถนนไปนิดนึง บรรยากาศดี มีสระส่วนตัว โต๊ะพูล ปิ้งย่าง”<span class="who">— ข้อมูลจากโพสต์แนะนำที่พัก (ไม่ใช่รีวิวผู้เข้าพักอิสระ)</span></div>
+      <div class="review-src">
+        <a href="https://www.facebook.com/JaoJuneHouse/posts/676866171124468/" target="_blank" rel="noopener">โพสต์แนะนำที่พัก ↗</a>
+        <a href="https://www.youtube.com/watch?v=knlutRweddQ" target="_blank" rel="noopener">คลิปพาชมบ้าน ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ใกล้ทะเลที่สุดในระยอง (ข้ามถนน)</li><li>มีโต๊ะพูล + รับหมาเล็ก</li><li>ราคา 7,500 คงที่ทุกวัน</li><li>เด็ก ≤6 ปีนอนกับผู้ปกครองได้ 2 คน</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>รับหมาเฉพาะ ≤3 กก. — ต้องชั่งน้ำหนักก่อน</li><li>ไม่มีคะแนนรีวิวอิสระให้ตรวจ</li><li>ต้องข้ามถนนไปทะเล (ระวังเด็ก)</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> น้ำหนักหมา · ค่าไฟ · จำนวนเตียงแต่ละห้อง · จอดในบ้านได้กี่คัน · มีรั้วกั้นสระไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=บ้านบุศราคัม+หาดแม่รำพึง+ระยอง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="bussarakham">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="bussarakham">0 โหวต</span>
+    <a class="btn" href="tel:0813541534">📞 081-354-1534</a>
+  </div>
+</article>
+
+<article class="card" id="seasunlake" data-order="6" data-zone="rayong" data-pool="0" data-pet="1" data-beach="0" data-price="6000" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Sea Sun Lake Poolvilla</h3>
+        <div class="zone">📍 บ้านเพ ระยอง · ห่างทะเล 900 ม.</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag no">🚫 ไม่มีโต๊ะพูล</span>
+      <span class="tag ok">🐶 รับหมา +300</span>
+      <span class="tag ok">🏊 สระ 5×15 ม.</span>
+      <span class="tag ok">🦀 ตลาดบ้านเพ 3 นาที</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>บ้านเพ ระยอง — ใกล้อุทยานเขาแหลมหญ้า 1 นาที และตลาดบ้านเพ 3 นาที (แหล่งปู/อาหารทะเลถูกที่สุดของระยอง) เหมาะถ้าให้ความสำคัญกับ “กินปู” มากกว่าโต๊ะพูล</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>2+1 ห้อง (Zone A 2 นอน/2 น้ำ, Zone B 1 นอน/1 น้ำ)</div>
+      <div class="spec"><b>ห้องน้ำ</b>3 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>8–14 ท่าน (เสริมถึง 20–23)</div>
+      <div class="spec"><b>สระ</b>5×15 ม. ลึก 0.9–1.5 ม. + สไลเดอร์</div>
+      <div class="spec"><b>โต๊ะพูล</b>❌ ไม่มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาปิ้งย่าง (Zone B ไม่มีครัว)</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>✅ สุนัขเล็ก +300/ตัว</div>
+      <div class="spec"><b>ที่จอด</b>3–5 คัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>15:00 / 12:00</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, Smart TV 55", Netflix/Disney+</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>แบบ</th><th>ราคา</th></tr>
+        <tr><td>Zone A (8 ท่าน) จ.–พฤ.</td><td class="num">6,000</td></tr>
+        <tr><td>Zone A (8 ท่าน) ศ.–อา.</td><td class="num">7,000</td></tr>
+        <tr><td>Zone B (6 ท่าน) จ.–พฤ.</td><td class="num">4,000</td></tr>
+        <tr><td>ประกัน</td><td class="num">3,000</td></tr>
+        <tr><td>ค่าล้างจาน/แม่บ้าน</td><td class="num">500–1,000</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">* พบราคาเริ่มต้นต่างกันในแต่ละประกาศ (3,500–6,000) ต้องยืนยันตามจำนวนคนและโซน</p>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ ทะเล 900 ม.</span><span>🌳 อุทยานเขาแหลมหญ้า 1 นาที</span><span>🦀 ตลาดบ้านเพ 3 นาที</span><span>⛵ ท่าเรือบ้านเพ</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">ยังไม่พบรีวิวรวมเป็นคะแนนบนแพลตฟอร์มใหญ่ — เพจที่พักระบุ “เริ่มต้น 4,000 บาท พร้อมสระว่ายน้ำ สระส่วนตัว + สไลเดอร์ทุกหลัง” และมีคลิป TikTok/Instagram จากผู้เข้าพักแนะนำว่าอยู่ใกล้ทะเลและบรรยากาศร่มรื่น<span class="who">— ข้อมูลจากเพจที่พักและโซเชียล (ยังไม่มีคะแนนรีวิวอิสระ)</span></div>
+      <div class="review-src">
+        <a href="https://www.facebook.com/p/See-sun-lake-Pool-VillaRAYONG-100089552542701/" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+        <a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%a3%e0%b8%b0%e0%b8%a2%e0%b8%ad%e0%b8%87/" target="_blank" rel="noopener">ประกาศพร้อมราคา ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ใกล้ตลาดปูบ้านเพที่สุด</li><li>รับหมา + สระมีสไลเดอร์</li><li>ราคาถูก</li><li>ใกล้อุทยานเขาแหลมหญ้า</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b> — ขาดโจทย์หลัก</li><li>เช็คอิน 15:00 ช้ากว่าที่อื่น</li><li>Zone B ไม่มีครัว/คาราโอเกะ</li><li>ราคาในแต่ละประกาศไม่ตรงกัน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> จอง Zone A อย่างเดียวได้ไหม · ค่าไฟ · หมาเข้าบ้านได้แค่ไหน · สระมีไฟ/รั้วกั้นไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=See+Sun+Lake+Pool+Villa+Rayong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="seasunlake">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="seasunlake">0 โหวต</span>
+    <a class="btn" href="https://www.facebook.com/p/See-sun-lake-Pool-VillaRAYONG-100089552542701/" target="_blank" rel="noopener">💬 เพจที่พัก</a>
+  </div>
+</article>
+
+<article class="card" id="sunrise" data-order="9" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="5900" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Sunrise Poolvilla (สัตหีบ)</h3>
+        <div class="zone">📍 สัตหีบ ชลบุรี · ห่างหาดจอมเทียน 2 กม.</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag ok">👶 สระเด็ก 80 ซม.</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+      <span class="tag no">เสาร์ 13,900</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>สัตหีบ ชลบุรี สไตล์โมเดิร์น ใกล้หาดจอมเทียน 2 กม. และท่าเรือบางเสร่ 5.2 กม. — ไม่ใช่โซนบ้านเพ แต่ขับต่อไปกินปูได้</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>3 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>10 ท่าน (สูงสุด 15)</div>
+      <div class="spec"><b>สระ</b>4×10 ม. ลึก 1.5 ม. + สระเด็ก 80 ซม.</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>ในบ้าน 1 + หน้าบ้าน 2</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>สอบถาม</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, ไฟเธค, ห่วงยาง</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (10 ท่าน)</th></tr>
+        <tr><td>อาทิตย์–พฤหัสบดี</td><td class="num">5,900</td></tr>
+        <tr><td>ศุกร์</td><td class="num">8,900</td></tr>
+        <tr><td>เสาร์</td><td class="num">13,900</td></tr>
+        <tr><td>เสริมคน</td><td class="num">+300/คน</td></tr>
+        <tr><td>ประกัน</td><td class="num">4,000</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดจอมเทียน 2 กม.</span><span>⛵ ท่าเรือบางเสร่ 5.2 กม.</span><span>🦀 ตลาดบ้านเพ ~35 กม.</span><span>🛍️ ตลาดสด/ร้านอาหารสัตหีบ</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">ยังไม่พบรีวิวผู้เข้าพักเป็นคะแนน — หน้าเว็บตัวแทนระบุสเปก “3 ห้องนอน 3 ห้องน้ำ สระส่วนตัว สไลเดอร์ โต๊ะพูล” และทำเลห่างหาดจอมเทียน 2 กม.<span class="who">— ข้อมูลจากหน้าเว็บตัวแทน (ไม่ใช่รีวิว)</span></div>
+      <div class="review-src">
+        <a href="https://checkinpoolvilla.com/location_detail/221" target="_blank" rel="noopener">หน้าข้อมูลที่พัก ↗</a>
+        <a href="https://www.google.com/search?q=Sunrise+Poolvilla+สัตหีบ" target="_blank" rel="noopener">ค้นข้อมูลเพิ่มเติม ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>สระมีโซนเด็ก 80 ซม. ปลอดภัยสำหรับ 2 ขวบ</li><li>มีโต๊ะพูล</li><li>ราคาวันธรรมดา 5,900 ดีมาก</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>คืนเสาร์ 13,900 แพงเกินงบมาก</li><li>ไม่ระบุเรื่องหมา</li><li>ไกลแหล่งปูบ้านเพ</li><li>ไม่มีคะแนนรีวิวให้ตรวจ</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> รับหมาไหม · ค่าไฟ · สระเด็กมีน้ำตลอดไหม · เช็คอิน/เอาท์กี่โมง · ค่าล้างจาน</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Sunrise+Poolvilla+Sattahip" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="sunrise">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="sunrise">0 โหวต</span>
+    <a class="btn" href="https://checkinpoolvilla.com/location_detail/221" target="_blank" rel="noopener">💬 หน้าติดต่อ</a>
+  </div>
+</article>
+<article class="card" id="watchara" data-order="2" data-zone="chanthaburi" data-pool="1" data-pet="1" data-beach="0" data-price="7000" data-rating="4.7">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>⭐ วัชระ &amp; ภัทรมน พูลวิลล่า รีสอร์ท</h3>
+        <div class="zone">📍 ต.บางกะไชย อ.แหลมสิงห์ จันทบุรี · ระหว่างแหลมสิงห์–เจ้าหลาว</div>
+      </div>
+      <div class="rating">★ 4.7/5 <span style="font-weight:400">· 26 รีวิว</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag best">คุ้มที่สุด · จันทบุรี</span>
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag ok">🐶 รับหมา +300</span>
+      <span class="tag ok">👶 สระเด็ก + สระผู้ใหญ่</span>
+      <span class="tag ok">🦀 ตลาดป้าปุ๊ย ~7 กม.</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>53/7 ม.5 ต.บางกะไชย อ.แหลมสิงห์ จ.จันทบุรี 22120 — อยู่กึ่งกลางระหว่างหาดแหลมสิงห์กับหาดเจ้าหลาว ใกล้ทั้ง 2 หาด ใกล้อ่าวยาง/คุกขี้ไก่ และตลาดปูแหลมสิงห์</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>4 ห้องแอร์ (เตียงคู่ 2 เตียง 2 ห้อง / 1 เตียง 2 ห้อง) + ห้องเสริมแอร์ 3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>5 ห้อง (ในตัว 1 + รวม 4)</div>
+      <div class="spec"><b>ความจุ</b>ฐาน 12 ท่าน / สูงสุด 28–30 ท่าน</div>
+      <div class="spec"><b>สระ</b>ระบบเกลือ + สระเด็ก/สระผู้ใหญ่ (ก.6 × ย.11 × ล.140)</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัวครบ + เตาปิ้งย่าง + ถ่าน 2 ถุง + ถังน้ำแข็ง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>✅ +300/ตัว (ห้ามขึ้นเตียง/ลงสระ)</div>
+      <div class="spec"><b>ที่จอด</b>หลายคัน (2 คันสบาย)</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 11:00</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, ลำโพงเคลื่อนที่, ห่วงยาง, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (12 ท่าน)</th></tr>
+        <tr><td>จันทร์–พฤหัสบดี</td><td class="num">7,000</td></tr>
+        <tr><td>ศุกร์–อาทิตย์</td><td class="num">8,000</td></tr>
+        <tr><td>นักขัตฤกษ์</td><td class="num">9,000</td></tr>
+        <tr><td>หยุดยาว 3 วัน / ปีใหม่</td><td class="num">11,000–12,000</td></tr>
+        <tr><td>เกิน 12 ท่าน</td><td class="num">+350/คน</td></tr>
+        <tr><td>ห้องเสริม (แอร์)</td><td class="num">1,000/ห้อง/คืน</td></tr>
+        <tr><td>ประกัน + ค่าล้างจาน</td><td class="num">2,000 + 500–1,000</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ อ่าวยาง 4 กม.</span><span>🏖️ หาดแหลมสิงห์ 7 กม.</span><span>🏖️ หาดเจ้าหลาว 8 กม.</span><span>🪨 คุกขี้ไก่ 6.6 กม.</span><span>🐬 โอเอซิส ซีเวิลด์ 6.2 กม.</span><span>⛪ โบสถ์สีน้ำเงิน 4 กม.</span><span>💦 น้ำตกพลิ้ว 18 กม.</span><span>🦀 ตลาดป้าปุ๊ย ~7 กม.</span><span>🍽️ ครัวณอาภา 2.6 กม.</span><span>🍽️ ทะเลเป็นใจ 4 กม.</span><span>🏪 เซเว่น 8 กม.</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“ที่พักกว้างดีค่ะ ราคากันเอง เจ้าของน่ารัก ห้องพักสะอาด รับคนได้เยอะดีค่ะ”<span class="who">— รีวิวผู้เข้าพัก (Google/แผนที่รวม 4.7/5 จาก 26 รีวิว)</span></div>
+      <div class="review">“สุนัขก็นำมาได้ ปลื้มมากค่ะ ไว้โอกาสหน้าจะมาใหม่นะคะ 😊”<span class="who">— รีวิวผู้เข้าพัก (ยืนยันว่ารับสัตว์เลี้ยงจริง)</span></div>
+      <div class="review">“เด็ก ๆ ชอบมากค่ะ แนะนำเลย อาหารก็สั่งเข้ามาได้”<span class="who">— รีวิวผู้เข้าพัก</span></div>
+      <div class="review-src">
+        <a href="https://th.maptons.com/p/12414929583" target="_blank" rel="noopener">รวมรีวิว/แผนที่ ↗</a>
+        <a href="https://2pos.world/164666/3540" target="_blank" rel="noopener">คะแนน 4.7/26 ↗</a>
+        <a href="https://www.facebook.com/search/top?q=วัชระ%20ภัทรมน%20พูลวิลล่า" target="_blank" rel="noopener">ค้นเพจที่พักบน Facebook ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ครบสุด: โต๊ะพูล + หมา + สระเด็ก</li><li>ราคา 7,000–8,000 อยู่ในงบทุกวัน</li><li>ใกล้อ่าวยาง/แหลมสิงห์/เจ้าหลาว</li><li>รีวิว 4.7/5 และมีรีวิวบวกเรื่องหมา/เด็กชัดเจน</li><li>สั่งอาหารเข้ามาทานได้</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ต้องขับไปหาด 7–8 กม.</li><li>ห้ามลงทะเลหลังบ้าน (เป็นเลน ปรับ 1,000)</li><li>ห้ามหมา up เตียง/ลงสระ</li><li>เช็คเอาท์เกิน 11:00 ปรับ 1,000</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> เตียงแต่ละห้องกี่เตียง/ขนาดไหน · สระเด็กลึกเท่าไร · หมาเข้าบ้านได้ไหม · ค่าไฟ · สระมีรั้วกั้นไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=วัชระ+ภัทรมน+พูลวิลล่า+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="watchara">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="watchara">0 โหวต</span>
+    <a class="btn" href="tel:0643520637">📞 064-352-0637</a>
+  </div>
+</article>
+
+<article class="card" id="janja1" data-order="4" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Jan-Ja 1 Poolvilla</h3>
+        <div class="zone">📍 ใกล้หาดแหลมสิงห์ จันทบุรี</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag ok">🛁 จากุซซี่</span>
+      <span class="tag ok">👶 สระเด็ก</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+      <span class="tag ok">💰 6,500–7,500</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ใกล้หาดแหลมสิงห์ จันทบุรี — ไม่ติดหาด แต่ขับไปหาดและตลาดปูได้สะดวก เหมาะกลุ่มที่อยากได้บ้านถูกแต่ครบเครื่อง</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>4 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>4 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>15 ท่าน (เสริม +300/คน, เด็ก ≤10 ขวบฟรี)</div>
+      <div class="spec"><b>สระ</b>สระผู้ใหญ่ + สระเด็ก</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัวครบ + เตาปิ้งย่าง + โต๊ะกินข้าวริมสระ</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ — ต้องถาม</div>
+      <div class="spec"><b>ที่จอด</b>หน้าบ้านหลายคัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 12:00</div>
+      <div class="spec"><b>อื่น ๆ</b>จากุซซี่, คาราโอเกะ, Smart TV ทุกห้อง, Wi-Fi, ห่วงยางฟรี</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (15 ท่าน)</th></tr>
+        <tr><td>อาทิตย์–พฤหัสบดี</td><td class="num">6,500</td></tr>
+        <tr><td>ศุกร์–เสาร์–นักขัตฤกษ์</td><td class="num">7,500</td></tr>
+        <tr><td>ประกัน + ค่าล้างจาน</td><td class="num">2,000 + 300</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแหลมสิงห์ ใกล้ ๆ</span><span>🦀 ตลาดป้าปุ๊ย ~5–7 กม.</span><span>🐬 โอเอซิส ซีเวิลด์</span><span>⛪ ตัวเมืองจันทบุรี</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">ยังไม่พบรีวิวผู้เข้าพักหรือคะแนนรวมบนแพลตฟอร์มใหญ่ — ข้อมูลที่มีคือประกาศของตัวแทน/เพจที่ระบุสเปก 4 ห้องนอน 4 ห้องน้ำ โต๊ะพูล จากุซซี่ และสระเด็ก<span class="who">— ข้อมูลจากประกาศที่พัก (ไม่มีรีวิวอิสระให้ตรวจ)</span></div>
+      <div class="review-src">
+        <a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-1/" target="_blank" rel="noopener">ประกาศพร้อมสเปก/ราคา ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ถูกกว่า วัชระ และพักได้ 15 ท่าน</li><li>มีโต๊ะพูล + จากุซซี่ + สระเด็ก</li><li>เช็คเอาท์ 12:00 สายกว่าที่อื่น</li><li>เหมาะกลุ่มใหญ่/ครอบครัวขยาย</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่ระบุว่ารับหมา</b> — ต้องถามก่อน</li><li>ไม่มีคะแนนรีวิวอิสระ</li><li>ไม่ติดหาด</li><li>ห้องนอน 4 ห้องสำหรับ 7 คนสบาย แต่ถ้ามากกว่านี้จะแน่น</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> รับหมาไหม (สำคัญ) · สระเด็กลึกเท่าไร · ค่าไฟ · ระยะไปตลาดปู · มีรั้วกั้นสระไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Jan-Ja+Poolvilla+แหลมสิงห์+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="janja1">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="janja1">0 โหวต</span>
+    <a class="btn" href="tel:0891056105">📞 089-105-6105</a>
+  </div>
+</article>
+<article class="card" id="janja2" data-order="8" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Jan-Ja 2 Poolvilla</h3>
+        <div class="zone">📍 ใกล้หาดแหลมสิงห์ จันทบุรี · บ้านหลังที่ 2 ของเจ้าของเดียวกัน</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag ok">🎱 โต๊ะพูล</span>
+      <span class="tag ok">🛁 จากุซซี่</span>
+      <span class="tag ok">👶 สระเด็ก</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+      <span class="tag ok">💰 6,500–7,500</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ใกล้หาดแหลมสิงห์ จันทบุรี — สเปกเดียวกับ Jan-Ja 1 แต่มีห้องนอน 3 ห้อง พื้นที่ส่วนกลางมากกว่า เหมาะกลุ่มที่ไม่ได้ต้องการแยกห้องเยอะ</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>4 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>15 ท่าน</div>
+      <div class="spec"><b>สระ</b>สระผู้ใหญ่ + สระเด็ก</div>
+      <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>หลายคัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 12:00</div>
+      <div class="spec"><b>อื่น ๆ</b>จากุซซี่, คาราโอเกะ, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (15 ท่าน)</th></tr>
+        <tr><td>อาทิตย์–พฤหัสบดี</td><td class="num">6,500</td></tr>
+        <tr><td>ศุกร์–เสาร์–นักขัตฤกษ์</td><td class="num">7,500</td></tr>
+        <tr><td>ประกัน + ค่าล้างจาน</td><td class="num">2,000 + 300</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแหลมสิงห์</span><span>🦀 ตลาดป้าปุ๊ย</span><span>⛪ ตัวเมืองจันทบุรี</span><span>🐬 โอเอซิส ซีเวิลด์</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">ยังไม่พบรีวิวผู้เข้าพักหรือคะแนนรวม — มีเพียงประกาศของตัวแทนที่ระบุสเปก 3 ห้องนอน 4 ห้องน้ำ โต๊ะพูล จากุซซี่ และสระเด็ก<span class="who">— ข้อมูลจากประกาศที่พัก</span></div>
+      <div class="review-src"><a href="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-2/" target="_blank" rel="noopener">ประกาศพร้อมสเปก/ราคา ↗</a></div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ราคาเดียวกับ Jan-Ja 1 แต่พื้นที่รวมกว้างกว่า</li><li>โต๊ะพูล + จากุซซี่ + สระเด็ก</li><li>เช็คเอาท์ 12:00</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>มีแค่ 3 ห้องนอน (7 คนอาจต้องนอนรวม)</li><li>ไม่ระบุเรื่องหมา</li><li>ไม่มีคะแนนรีวิว</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> จำนวนเตียงแต่ละห้อง · รับหมาไหม · ค่าไฟ · สระเด็กลึกเท่าไร</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Jan-Ja+Poolvilla+แหลมสิงห์+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="janja2">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="janja2">0 โหวต</span>
+    <a class="btn" href="https://line.me/R/ti/p/@lby8567n" target="_blank" rel="noopener">💬 Line @lby8567n</a>
+  </div>
+</article>
+
+<article class="card" id="vanillacoco" data-order="5" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="7900" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Vanilla Coco Poolvilla <span style="font-weight:400;font-size:14px;color:var(--muted)">(coco vanila)</span></h3>
+        <div class="zone">📍 ติดหาดแหลมสิงห์ จันทบุรี · บางกะไชย</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag best">ติดทะเลจริง</span>
+      <span class="tag ok">🏖️ บ้านติดชายหาด</span>
+      <span class="tag ok">🏊 สระเกลือ</span>
+      <span class="tag ok">🎤 คาราโอเกะ + ปิ้งย่าง</span>
+      <span class="tag warn">🎱 ไม่ระบุโต๊ะพูล</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ต.บางกะไชย อ.แหลมสิงห์ จันทบุรี — บ้านติดชายหาดส่วนตัวหาดแหลมสิงห์ เปิดประตูเดินลงหาดได้เลย ห่างเซเว่นประมาณ 4 กม. และใกล้ตลาดอาหารทะเลสด</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>4 ห้อง (บางประกาศระบุ 3 — ยืนยันอีกครั้ง)</div>
+      <div class="spec"><b>ห้องน้ำ</b>4 ห้อง (ในตัวทุกห้อง)</div>
+      <div class="spec"><b>ความจุ</b>14 ท่าน</div>
+      <div class="spec"><b>สระ</b>ระบบเกลือ</div>
+      <div class="spec"><b>โต๊ะพูล</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + พื้นที่ปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>มี</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>สอบถาม</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, ชายหาดส่วนตัว</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ราคาจากเพจทางการ (4 ห้องนอน)</td><td class="num">7,900/คืน</td></tr>
+        <tr><td>ราคาที่พบในประกาศอื่น</td><td class="num">6,900/คืน</td></tr>
+        <tr><td>ประกัน/ค่าล้างจาน</td><td class="num">สอบถาม</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">* ราคาสองแหล่งไม่ตรงกัน — ต้องยืนยันกับเพจโดยตรงก่อนจอง</p>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแหลมสิงห์ ติดบ้าน</span><span>🏪 เซเว่น 4 กม.</span><span>🦀 ตลาดอาหารทะเลสดใกล้ ๆ</span><span>☕ คาเฟ่ริมทะเล</span><span>⛪ ตัวเมืองจันทบุรี ~14 กม.</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“รอบนี้พาครอบครัวมาพักผ่อนที่ Vanilla Coco Pool Villa ที่พักติดทะเล หาดแหลมสิงห์ เดินทางจาก กทม. 3 ชั่วโมงครึ่งก็ได้วิวแบบนี้เลยค่าา”<span class="who">— รีวิว/blog บน Lemon8 โดยผู้เข้าพัก</span></div>
+      <div class="review">เพจทางการระบุ “พูลวิลล่าติดทะเลส่วนตัว 4 ห้องนอน 4 ห้องน้ำในตัว ปิ้งย่างได้ มีคาราโอเกะ บ้านติดชายหาด”<span class="who">— ข้อมูลจากเพจที่พัก (ไม่ใช่รีวิวอิสระ)</span></div>
+      <div class="review-src">
+        <a href="https://www.lemon8-app.com/@sheis.nattt/7573134450704318992?region=th" target="_blank" rel="noopener">รีวิว Lemon8 ↗</a>
+        <a href="https://www.facebook.com/vanilla.coco.poolvilla/" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+        <a href="https://th.trip.com/hotels/laem-sing-hotel-detail-125335776/vanilla-coco-poolvilla/" target="_blank" rel="noopener">Trip.com ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดจริง — เด็กเล่นทรายได้เลย</li><li>สระเกลือไม่แสบตาเด็ก</li><li>ราคา 7,900 อยู่ในงบ</li><li>ห้องน้ำในตัวทุกห้อง</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่ระบุโต๊ะพูล</b> — อาจขาดโจทย์หลัก</li><li>ไม่ระบุเรื่องหมา</li><li>ราคา 2 แหล่งไม่ตรงกัน</li><li>ไม่มีคะแนนรีวิวรวม</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> มีโต๊ะพูลไหม · รับหมาไหม · ราคาจริง 6,900 หรือ 7,900 · จำนวนห้องนอนจริง · ประกัน/ค่าล้างจาน · สระลึกเท่าไร</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Vanilla+Coco+Poolvilla+แหลมสิงห์" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="vanillacoco">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="vanillacoco">0 โหวต</span>
+    <a class="btn" href="https://www.facebook.com/vanilla.coco.poolvilla/" target="_blank" rel="noopener">💬 เพจที่พัก</a>
+  </div>
+</article>
+
+<article class="card" id="ploychan" data-order="7" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="5900" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>บ้านพลอยจันท์ พูลวิลล่า</h3>
+        <div class="zone">📍 ต.ปากน้ำ อ.แหลมสิงห์ · ห่างหาดแหลมสิงห์ 1.4 กม.</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag best">เด็ก 2 ขวบชอบสุด</span>
+      <span class="tag ok">🛝 สไลเดอร์ 2.5 ม.</span>
+      <span class="tag ok">🦀 ตลาดป้าปุ๊ย 1.2 กม.</span>
+      <span class="tag no">🚫 ไม่มีโต๊ะพูล</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ต.ปากน้ำ อ.แหลมสิงห์ จันทบุรี — ใกล้หาดแหลมสิงห์ 1.4 กม. และใกล้ตลาดป้าปุ๊ย (แหล่งปูราคาถูก) เพียง 1.2 กม. เดินทางสะดวก</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง (เตียง 6 ฟุต 6 เตียง)</div>
+      <div class="spec"><b>ห้องน้ำ</b>4 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>10 ท่าน (เสริมถึง 20 ท่าน +350/คน, เด็ก &lt;6 ปีฟรี)</div>
+      <div class="spec"><b>สระ</b>4×9 ม. ลึก 1.5 ม. + สไลเดอร์ 2.5 ม. ระบบเกลือ</div>
+      <div class="spec"><b>โต๊ะพูล</b>❌ ไม่มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>~6 คัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 11:00</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, ห่วงยางฟรี, เครื่องทำน้ำอุ่น, ไดร์เป่าผม</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ราคาโปรโมชั่น (10 ท่าน)</td><td class="num">5,900/คืน</td></tr>
+        <tr><td>เสริมคน (เกิน 10)</td><td class="num">+350/คน</td></tr>
+        <tr><td>ประกัน/ค่าล้างจาน</td><td class="num">สอบถาม</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดแหลมสิงห์ 1.4 กม.</span><span>🦀 ตลาดป้าปุ๊ย 1.2 กม.</span><span>🛝 สไลเดอร์ในบ้าน</span><span>⛪ ตัวเมืองจันทบุรี ~14 กม.</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“บ้านสะอาด ไม่ไกลจากทะเล มีตลาดสดใกล้ ๆ เดินทางสะดวก โดยรวมดีทุกอย่าง มีซ้ำแน่นอนครับ”<span class="who">— รีวิวผู้เข้าพัก 5.0/5 (เว็บรวมที่พัก)</span></div>
+      <div class="review">เพจที่พักมีผู้ติดตาม ~5,700 คน และมีคลิป TikTok รีวิวจากผู้เข้าพักหลายคลิป โดยเน้นจุดขายสระ + สไลเดอร์<span class="who">— ข้อมูลจากเพจ/TikTok (ไม่ใช่คะแนนรวม)</span></div>
+      <div class="review-src">
+        <a href="https://xn--12c7bhaw4iemu7j3c5c.com/hotel/2884/ploy-chan-pool-villa/" target="_blank" rel="noopener">หน้าข้อมูล/รีวิว ↗</a>
+        <a href="https://www.facebook.com/Ploychanpoolvilla/" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>สไลเดอร์ใหญ่ เด็ก 2 ขวบตื่นเต้นแน่นอน</li><li>ใกล้ตลาดปูที่สุด (1.2 กม.)</li><li>ราคา 5,900 ถูกมาก</li><li>มีรีวิวบวกเรื่องความสะอาด/ทำเล</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b></li><li>สระลึก 1.5 ม. ต้องดูแลเด็กใกล้ชิด</li><li>ไม่ระบุเรื่องหมา</li><li>ไม่มีคะแนนรีวิวรวม</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> รับหมาไหม · ประกัน/ค่าล้างจาน · สระมีโซนตื้นไหม · จำนวนเตียงต่อห้อง · สไลเดอร์มีเจ้าหน้าที่ดูแลไหม</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=บ้านพลอยจันท์+พูลวิลล่า+แหลมสิงห์" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="ploychan">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="ploychan">0 โหวต</span>
+    <a class="btn" href="tel:0892524536">📞 089-252-4536</a>
+  </div>
+</article>
+<article class="card" id="bluecat" data-order="12" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="0" data-price="3000" data-rating="9.3">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Blue Cat Pool Villa</h3>
+        <div class="zone">📍 อ.เมืองจันทบุรี · ริมแม่น้ำจันทบุรี (ไม่ติดทะเล)</div>
+      </div>
+      <div class="rating">★ 9.3/10 <span style="font-weight:400">· 81 รีวิว (Agoda)</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag best">คะแนนรีวิวสูงสุด</span>
+      <span class="tag no">🚫 ไม่มีโต๊ะพูล</span>
+      <span class="tag no">🚫 ไม่รับหมา</span>
+      <span class="tag ok">💰 3,000–3,500</span>
+      <span class="tag warn">ไกลทะเล ~30 นาที</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>อ.เมืองจันทบุรี ริมแม่น้ำจันทบุรี — บ้านใหม่เงียบสงบ ใกล้ศาลหลักเมือง 3.56 กม. แต่ต้องขับไปทะเลประมาณ 30 นาที จึงไม่เหมาะถ้าโจทย์หลักคือทะเล/ปู</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>2 ห้อง</div>
+      <div class="spec"><b>ความจุ</b>6–8 ท่าน (+200/คน สำหรับคนที่ 7–8)</div>
+      <div class="spec"><b>สระ</b>ระบบเกลือ</div>
+      <div class="spec"><b>โต๊ะพูล</b>❌ ไม่มี</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัวครบ + เตาปิ้ง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❌ ไม่อนุญาต</div>
+      <div class="spec"><b>ที่จอด</b>3 คัน</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>14:00 / 11:00</div>
+      <div class="spec"><b>อื่น ๆ</b>ทีวี, Wi-Fi, ขนาดบ้าน 250 ตร.ม.</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>ช่วงวัน</th><th>ราคา (6 ท่าน)</th></tr>
+        <tr><td>อาทิตย์–ศุกร์</td><td class="num">3,000</td></tr>
+        <tr><td>เสาร์–นักขัตฤกษ์</td><td class="num">3,500</td></tr>
+        <tr><td>คนที่ 7–8</td><td class="num">+200/คน</td></tr>
+        <tr><td>ประกัน</td><td class="num">3,500</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏛️ ศาลหลักเมืองจันทบุรี 3.56 กม.</span><span>🌊 ทะเล ~30 นาที</span><span>🛍️ ตลาดในเมืองจันทบุรี</span><span>☕ คาเฟ่ริมน้ำ</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“ประทับใจมากค่ะ ก่อนเข้าพักเจ้าของมาเปิดแอร์รอต้อนรับ น่ารักมาก ใส่ใจรายละเอียดเล็ก ๆ น้อย ๆ ที่พักสะอาด มีกลิ่นหอมทุกห้อง วางที่ดับกลิ่นทุกจุด มีสิ่งอำนวยความสะดวกครบ”<span class="who">— รีวิวผู้เข้าพักจริง, Booking.com</span></div>
+      <div class="review">คะแนน 9.3/10 “ยอดเยี่ยม” จาก 81 รีวิวบน Agoda — วิลลา 3 ห้องนอน 2 ห้องน้ำส่วนตัว ขนาด 250 ตร.ม.<span class="who">— Agoda</span></div>
+      <div class="review-src">
+        <a href="https://www.agoda.com/th-th/blue-cat-pool-villa/hotel/chanthaburi-th.html" target="_blank" rel="noopener">Agoda 9.3/81 ↗</a>
+        <a href="https://www.booking.com/hotel/th/blue-cat-pool-villa.th.html" target="_blank" rel="noopener">Booking.com ↗</a>
+        <a href="https://bluecatpoolvilla.com/" target="_blank" rel="noopener">เว็บไซต์ทางการ ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>คะแนนรีวิวสูงสุดในลิสต์ (9.3)</li><li>ถูกมาก 3,000–3,500</li><li>บ้านใหม่ สะอาด เจ้าของใส่ใจ</li><li>เหมาะพักผ่อนเงียบ ๆ</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li><b>ไม่มีโต๊ะพูล</b></li><li><b>ไม่รับหมา</b></li><li>ไกลทะเล ~30 นาที</li><li>รับได้แค่ 8 ท่าน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> ไม่จำเป็นถ้าเอาตามโจทย์ — แต่ถ้าสนใจจริงถามเรื่องสระลึก/รั้วกั้นและค่าล้างจาน</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Blue+Cat+Pool+Villa+Chanthaburi" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="bluecat">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="bluecat">0 โหวต</span>
+    <a class="btn" href="tel:0889993333">📞 088-999-3333</a>
+  </div>
+</article>
+
+<article class="card" id="bluehana" data-order="11" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="6500" data-rating="0">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>The Blue Hana Resort</h3>
+        <div class="zone">📍 ต.บางกะไชย อ.แหลมสิงห์ · ริมถนนเฉลิมบูรพาชลทิต</div>
+      </div>
+      <div class="rating none">ยังไม่พบคะแนนรวม</div>
+    </div>
+    <div class="tags">
+      <span class="tag ok">🏖️ ริมทะเล</span>
+      <span class="tag ok">🛝 สระ + สไลเดอร์ วิวทะเล</span>
+      <span class="tag ok">👥 รับถึง 18 ท่าน</span>
+      <span class="tag warn">🎱 ไม่ระบุโต๊ะพูล</span>
+      <span class="tag warn">🐶 ไม่ระบุ</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>50 ม.7 ต.บางกะไชย อ.แหลมสิงห์ ริมถนนเฉลิมบูรพาชลทิต ระหว่างหาดเจ้าหลาวกับแหลมสิงห์ — เป็นรีสอร์ทพูลวิลล่าหลายหลัง ต้องเลือกหลังให้ตรงจำนวนคน</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>หลายขนาด (เช่น หลัง 4: 5 นอน/4 น้ำ + เสริม 3 ห้อง)</div>
+      <div class="spec"><b>ห้องน้ำ</b>ตามหลังที่จอง</div>
+      <div class="spec"><b>ความจุ</b>สูงสุด 18 ท่าน</div>
+      <div class="spec"><b>สระ</b>สระส่วนตัว + สไลเดอร์ วิวทะเล</div>
+      <div class="spec"><b>โต๊ะพูล</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + เตาปิ้งย่าง</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>มี</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>สอบถาม</div>
+      <div class="spec"><b>อื่น ๆ</b>คาราโอเกะ, Wi-Fi</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ราคาเริ่มต้น</td><td class="num">6,500/คืน</td></tr>
+        <tr><td>ราคาจริง</td><td class="num">แล้วแต่หลัง/จำนวนคน</td></tr>
+        <tr><td>ประกัน/ค่าล้างจาน</td><td class="num">สอบถาม</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดเจ้าหลาว</span><span>🏖️ หาดแหลมสิงห์</span><span>🦀 ตลาดป้าปุ๊ย ~8 กม.</span><span>🪨 คุกขี้ไก่</span><span>⛪ โบสถ์สีน้ำเงิน</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“The Blue Hana Resort บ้านหลังที่ 6 — บ้านพักแบบครอบครัว 10 คน เครื่องครัวครบครัน ห้องน้ำและห้องนอนใหม่ทุกอย่าง เหมาะแก่การไปพักผ่อนสุด ๆ”<span class="who">— รีวิว/blog บน Lemon8</span></div>
+      <div class="review">มีคลิปรีวิวจากผู้เข้าพักบน TikTok ระบุว่า “หลังที่ 4 ในตัวบ้านมี 5 ห้องนอน 4 ห้องน้ำ ด้านนอกเสริมได้อีก 3 ห้อง”<span class="who">— รีวิว TikTok</span></div>
+      <div class="review-src">
+        <a href="https://www.lemon8-app.com/@ncntnp4935/7133449937496343041?region=th" target="_blank" rel="noopener">รีวิว Lemon8 ↗</a>
+        <a href="https://www.tiktok.com/@waypavadee/video/7401551008314215687" target="_blank" rel="noopener">รีวิว TikTok ↗</a>
+        <a href="https://www.facebook.com/search/top?q=The%20Blue%20Hana%20Resort%20จันทบุรี" target="_blank" rel="noopener">เพจ Facebook ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ริมทะเล วิวดี</li><li>สระ + สไลเดอร์ เหมาะเด็ก</li><li>รับกลุ่มใหญ่ถึง 18 ท่าน</li><li>ราคาเริ่มต้น 6,500 ดี</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>ไม่ระบุโต๊ะพูล/หมา</li><li>มีหลายหลัง สเปกต่างกัน ต้องเลือกให้ดี</li><li>ไม่มีคะแนนรีวิวรวม</li><li>ต้องยืนยันราคาตามหลัง/จำนวนคน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> หลังไหนมีโต๊ะพูล · หลังไหนรับหมา · ราคารวม 7 คน · สระเด็ก · จำนวนห้องนอนจริง</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=The+Blue+Hana+Resort+จันทบุรี" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="bluehana">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="bluehana">0 โหวต</span>
+    <a class="btn" href="tel:0925760916">📞 092-576-0916</a>
+  </div>
+</article>
+
+<article class="card" id="villablanca" data-order="13" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="10500" data-rating="8.5">
+  <div class="card-head">
+    <div class="top">
+      <div>
+        <h3>Villa Blanca Hotel &amp; Restaurant</h3>
+        <div class="zone">📍 ติดหาดเจ้าหลาว จันทบุรี</div>
+      </div>
+      <div class="rating">★ 8.5/10 <span style="font-weight:400">· Agoda</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag best">ติดหาดเจ้าหลาว</span>
+      <span class="tag ok">🍽️ ร้านซีฟู้ดในที่พัก</span>
+      <span class="tag ok">🏊 สระส่วนตัว</span>
+      <span class="tag warn">🎱 ไม่ระบุโต๊ะพูล</span>
+      <span class="tag no">💰 10,500 เกินงบ</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="block">
+      <h4>ทำเล &amp; ที่ตั้ง</h4>
+      <p>ติดชายหาดเจ้าหลาว จันทบุรี — โรงแรม+วิลล่า+ร้านอาหารทะเลในที่เดียว เปิดประตูหลังห้องเจอสระ เดินไปทะเลแป๊บเดียว เหมาะถ้าอยากได้ความสะดวกแบบโรงแรม</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+      <div class="spec"><b>ห้องน้ำ</b>สอบถาม</div>
+      <div class="spec"><b>ความจุ</b>6+ ท่าน (ต้องยืนยันว่าพอ 7 คน)</div>
+      <div class="spec"><b>สระ</b>สระส่วนตัว</div>
+      <div class="spec"><b>โต๊ะพูล</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ครัว/ปิ้งย่าง</b>ครัว + ลานกิจกรรม</div>
+      <div class="spec"><b>สัตว์เลี้ยง</b>❓ ไม่ระบุ</div>
+      <div class="spec"><b>ที่จอด</b>มี</div>
+      <div class="spec"><b>เช็คอิน/เอาท์</b>สอบถาม</div>
+      <div class="spec"><b>อื่น ๆ</b>ร้านอาหารทะเลในโรงแรม, ริมหาด</div>
+    </div>
+    <div class="block">
+      <h4>ราคา &amp; ค่าใช้จ่าย</h4>
+      <table>
+        <tr><th>รายการ</th><th>ราคา</th></tr>
+        <tr><td>ราคาเริ่มต้น</td><td class="num">10,500/คืน</td></tr>
+        <tr><td>เตียงเสริม/คนเกิน</td><td class="num">สอบถาม</td></tr>
+        <tr><td>ประกัน</td><td class="num">สอบถาม</td></tr>
+      </table>
+    </div>
+    <div class="block">
+      <h4>สถานที่ใกล้เคียง</h4>
+      <div class="near">
+        <span>🏖️ หาดเจ้าหลาว ติดที่พัก</span><span>🦀 ตลาดเช้าเจ้าหลาว ~2 กม.</span><span>🍽️ ร้านซีฟู้ดในโรงแรม</span><span>🪨 คุกขี้ไก่</span><span>⛪ ตัวเมืองจันทบุรี ~19 กม.</span>
+      </div>
+    </div>
+    <div class="block">
+      <h4>รีวิวจากอินเทอร์เน็ต</h4>
+      <div class="review">“บรรยากาศดี เปิดประตูหลังห้องก็เจอสระว่ายน้ำ ห้องพักอยู่ใกล้ทะเลเดินไปแป๊บเดียว นั่งพักริมทะเลบรรยากาศเป็นส่วนตัวดี ไม่มีผู้คนพลุกพล่าน”<span class="who">— รีวิวผู้เข้าพักจริง, Booking.com</span></div>
+      <div class="review">คะแนน Agoda 8.5/10 — “คุ้มค่ากับเงินที่จ่าย” และคะแนนทำเลที่ตั้ง 9.0<span class="who">— Agoda</span></div>
+      <div class="review-src">
+        <a href="https://www.booking.com/hotel/th/villablanca.th.html" target="_blank" rel="noopener">Booking.com ↗</a>
+        <a href="https://www.agoda.com/th-th/villa-blanca-hotel-and-restaurant/hotel/chanthaburi-th.html" target="_blank" rel="noopener">Agoda 8.5 ↗</a>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><b>✅ ข้อดี</b><ul><li>ติดหาดเจ้าหลาวจริง</li><li>มีร้านซีฟู้ดในที่พัก สั่งปู/อาหารทะเลสะดวก</li><li>คะแนนรีวิวดี 8.5</li><li>บรรยากาศเงียบ เป็นส่วนตัว</li></ul></div>
+      <div class="cons"><b>⚠️ ข้อควรรู้</b><ul><li>10,500 เกินงบ</li><li>ไม่ระบุโต๊ะพูล/หมา</li><li>ข้อมูลห้องน้อย ต้องถามเยอะ</li><li>อาจไม่พอ 7 คน ต้องยืนยัน</li></ul></div>
+    </div>
+    <div class="ask"><b>ต้องถามก่อนจอง:</b> โต๊ะพูล · รับหมาไหม · พัก 7 คนได้ไหม/เตียงเสริม · ราคารวมอาหารเช้า · สระลึกเท่าไร</div>
+  </div>
+  <div class="card-foot">
+    <a class="btn map-btn" href="https://www.google.com/maps/search/?api=1&query=Villa+Blanca+หาดเจ้าหลาว" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+    <button class="btn vote" data-id="villablanca">👍 โหวตหลังนี้</button>
+    <span class="vote-count" data-count="villablanca">0 โหวต</span>
+    <a class="btn" href="tel:0839000902">📞 083-900-0902</a>
+  </div>
+</article>
+</div>
+
+<section id="vote">
+  <h2>🗳️ อันดับโหวตของครอบครัว</h2>
+  <p class="lead">ใช้ตอนนั่งเลือกด้วยกัน — กด “โหวตหลังนี้” ในการ์ดที่ชอบ แล้วดูอันดับด้านล่าง (คะแนนเก็บในเครื่องที่เปิดหน้านี้)</p>
+  <div class="rank-box">
+    <div id="rankList"></div>
+    <p class="empty" id="rankEmpty">ยังไม่มีโหวต — เลื่อนขึ้นไปกด “โหวตหลังนี้” ในการ์ดที่ชอบได้เลย</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <button class="btn" id="resetVotes">🗑️ ล้างโหวตทั้งหมด</button>
+      <button class="btn" onclick="window.print()">🖨️ พิมพ์ / บันทึก PDF</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>📊 ตารางเปรียบเทียบทั้ง 13 หลัง</h2>
+  <p class="lead">เลื่อนตารางไปทางขวาเพื่อดูคอลัมน์เพิ่มเติม (บนมือถือ)</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>ที่พัก</th><th>โซน</th><th>นอน/น้ำ</th><th>พักสูงสุด</th><th>สระ</th><th>โต๊ะพูล</th><th>หมา</th><th>ราคา/คืน</th><th>รีวิว</th><th>แหล่งปูใกล้สุด</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">Level Up</td><td>ระยอง</td><td>4/3</td><td>20</td><td>15×6 ม.</td><td>✅</td><td>✅ +500</td><td>8,900–10,900</td><td>8.6/10</td><td>ตลาดบ้านเพ ~10 กม.</td></tr>
+        <tr><td class="name">วัชระ &amp; ภัทรมน</td><td>จันทบุรี</td><td>4–5/5</td><td>28–30</td><td>เกลือ + สระเด็ก</td><td>✅</td><td>✅ +300</td><td>7,000–8,000</td><td>4.7/5</td><td>ตลาดป้าปุ๊ย ~7 กม.</td></tr>
+        <tr><td class="name">Mountain View</td><td>ระยอง</td><td>3/2</td><td>8</td><td>+ สไลเดอร์</td><td>✅</td><td>❌</td><td>4,900–6,500</td><td>5.0/5</td><td>ตลาดบ้านเพ ~12 กม.</td></tr>
+        <tr><td class="name">Jan-Ja 1</td><td>จันทบุรี</td><td>4/4</td><td>15</td><td>ผู้ใหญ่ + เด็ก</td><td>✅</td><td>❓</td><td>6,500–7,500</td><td>—</td><td>ตลาดป้าปุ๊ย ~5–7 กม.</td></tr>
+        <tr><td class="name">Vanilla Coco</td><td>จันทบุรี</td><td>4/4</td><td>14</td><td>เกลือ</td><td>❓</td><td>❓</td><td>7,900</td><td>—</td><td>ตลาดอาหารทะเลใกล้บ้าน</td></tr>
+        <tr><td class="name">Sea Sun Lake</td><td>ระยอง</td><td>2+1/3</td><td>23</td><td>5×15 ม. + สไลเดอร์</td><td>❌</td><td>✅ +300</td><td>4,000–7,000</td><td>—</td><td>ตลาดบ้านเพ 3 นาที</td></tr>
+        <tr><td class="name">บ้านพลอยจันท์</td><td>จันทบุรี</td><td>3/4</td><td>20</td><td>4×9 + สไลเดอร์ 2.5 ม.</td><td>❌</td><td>❓</td><td>5,900</td><td>5.0/5 (1)</td><td>ตลาดป้าปุ๊ย 1.2 กม.</td></tr>
+        <tr><td class="name">Jan-Ja 2</td><td>จันทบุรี</td><td>3/4</td><td>15</td><td>ผู้ใหญ่ + เด็ก</td><td>✅</td><td>❓</td><td>6,500–7,500</td><td>—</td><td>ตลาดป้าปุ๊ย ~5–7 กม.</td></tr>
+        <tr><td class="name">Sunrise</td><td>สัตหีบ</td><td>3/3</td><td>15</td><td>4×10 + สระเด็ก 80 ซม.</td><td>✅</td><td>❓</td><td>5,900–13,900</td><td>—</td><td>ตลาดบ้านเพ ~35 กม.</td></tr>
+        <tr><td class="name">บ้านบุศราคัม</td><td>ระยอง</td><td>3/4</td><td>15</td><td>สระส่วนตัว</td><td>✅</td><td>⚠️ ≤3 กก.</td><td>7,500</td><td>—</td><td>ตลาดบ้านเพ ~15 นาที</td></tr>
+        <tr><td class="name">The Blue Hana</td><td>จันทบุรี</td><td>หลายขนาด</td><td>18</td><td>+ สไลเดอร์ วิวทะเล</td><td>❓</td><td>❓</td><td>6,500+</td><td>—</td><td>ตลาดป้าปุ๊ย ~8 กม.</td></tr>
+        <tr><td class="name">Blue Cat</td><td>จันทบุรี</td><td>3/2</td><td>8</td><td>เกลือ</td><td>❌</td><td>❌</td><td>3,000–3,500</td><td>9.3/10</td><td>ตลาดป้าปุ๊ย ~20 กม.</td></tr>
+        <tr><td class="name">Villa Blanca</td><td>จันทบุรี</td><td>3/?</td><td>6+</td><td>สระส่วนตัว</td><td>❓</td><td>❓</td><td>10,500</td><td>8.5/10</td><td>ตลาดเช้าเจ้าหลาว ~2 กม.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px">✅ = มี/รับ · ❌ = ไม่มี/ไม่รับ · ⚠️ = มีเงื่อนไข · ❓ = ยังไม่ระบุ ต้องสอบถาม · “—” = ยังไม่พบคะแนนรีวิวรวม</p>
+</section>
+
+<section>
+  <h2>🧭 สรุปช่วยตัดสินใจ</h2>
+  <div class="picks">
+    <div class="pick">
+      <div class="kicker">ถ้าเอาครบโจทย์</div>
+      <h3>Level Up + วัชระ</h3>
+      <p>ได้โต๊ะพูล รับหมา ใกล้อาหารทะเล และอยู่ในงบ (ยกเว้นคืนเสาร์ของ Level Up)</p>
+    </div>
+    <div class="pick coral">
+      <div class="kicker">ถ้าอยากประหยัด</div>
+      <h3>Mountain View + Jan-Ja 1</h3>
+      <p>เหลือเงินกินปูอีกเยอะ แต่ Mountain View ไม่รับหมา และ Jan-Ja ต้องถามเรื่องหมาก่อน</p>
+    </div>
+    <div class="pick gold">
+      <div class="kicker">ถ้าเด็กต้องสนุก</div>
+      <h3>บ้านพลอยจันท์</h3>
+      <p>สไลเดอร์ 2.5 ม. + ใกล้ตลาดปูที่สุด แต่ยอมแลกด้วยการไม่มีโต๊ะพูล</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>ℹ️ เกี่ยวกับรีวิวและความน่าเชื่อถือของข้อมูล</h2>
+  <div class="howto">
+    <ul style="margin:6px 0 0;padding-left:20px">
+      <li><b>คะแนนที่มีตัวเลข</b> (เช่น 8.6/10, 4.7/5, 9.3/10) คือคะแนนรวมจากแพลตฟอร์ม/แผนที่สาธารณะ ณ ช่วง พ.ย. 2569 — จำนวนรีวิวระบุไว้ข้างคะแนน</li>
+      <li><b>คำรีวิวในเครื่องหมายคำพูด</b> คัดมาจากรีวิวผู้เข้าพักจริงหรือบล็อกท่องเที่ยว โดยแนบลิงก์ต้นทางให้กดตรวจได้</li>
+      <li><b>รีวิวจากเพจ/TikTok ของที่พัก</b> เป็นข้อมูลประชาสัมพันธ์ ไม่ใช่รีวิวอิสระ — ใช้ประกอบแต่ไม่ควรใช้ตัดสินเพียงอย่างเดียว</li>
+      <li><b>“ยังไม่พบคะแนนรวม”</b> หมายความว่าที่พักนั้นมีรีวิวน้อยหรือไม่มีบนแพลตฟอร์มที่ค้นได้ ไม่ได้แปลว่าที่พักไม่ดี</li>
+      <li>ราคา/สเปกอาจเปลี่ยนได้ตลอด — <b>ยืนยันกับเจ้าของก่อนโอนทุกครั้ง</b></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b>ทริปทะเลตะวันออก · 6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าสะดวก) · รถส่วนตัว 2 คัน</b></div>
+    <div>ข้อมูลรวบรวมเมื่อ พ.ย. 2569 จากเว็บไซต์ที่พัก เพจ Facebook, Trip.com, Agoda, Booking.com, Lemon8, TikTok และแผนที่สาธารณะ</div>
+    <div>ราคาและรีวิวเป็นข้อมูลอ้างอิง ไม่ใช่การยืนยันวันว่าง — โปรดติดต่อที่พักโดยตรงก่อนชำระเงิน</div>
+    <div>เปิดไฟล์นี้บนมือถือ/แท็บเล็ต/โทรทัศน์เพื่อช่วยกันโหวตได้ · กด “พิมพ์ / บันทึก PDF” เพื่อเก็บไว้ส่งต่อ</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var countEl = document.getElementById('count');
+  var sortEl = document.getElementById('sort');
+  var grid = document.getElementById('cards');
+
+  /* ---------- Filter ---------- */
+  function activeFilters(){
+    return chips.filter(function(c){return c.classList.contains('active') && c.dataset.filter !== 'all';})
+                .map(function(c){return c.dataset.filter;});
+  }
+  function applyFilter(){
+    var f = activeFilters();
+    var shown = 0;
+    cards.forEach(function(card){
+      var ok = true;
+      f.forEach(function(k){
+        if(k === 'rayong' || k === 'chanthaburi'){ if(card.dataset.zone !== k) ok = false; }
+        if(k === 'pool'   && card.dataset.pool  !== '1') ok = false;
+        if(k === 'pet'    && card.dataset.pet   !== '1') ok = false;
+        if(k === 'beach'  && card.dataset.beach !== '1') ok = false;
+        if(k === 'budget' && Number(card.dataset.price) > 10000) ok = false;
+      });
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    countEl.textContent = 'แสดง ' + shown + ' จาก ' + cards.length + ' หลัง';
+  }
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      if(chip.dataset.filter === 'all'){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+      } else {
+        chip.classList.toggle('active');
+        var allChip = chips.filter(function(c){return c.dataset.filter==='all';})[0];
+        allChip.classList.remove('active');
+        if(activeFilters().length === 0) allChip.classList.add('active');
+      }
+      applyFilter();
+    });
+  });
+
+  /* ---------- Sort ---------- */
+  function sortCards(){
+    var mode = sortEl.value;
+    var sorted = cards.slice().sort(function(a,b){
+      if(mode === 'price')  return Number(a.dataset.price) - Number(b.dataset.price);
+      if(mode === 'rating') return (Number(b.dataset.rating)||-1) - (Number(a.dataset.rating)||-1);
+      return Number(a.dataset.order) - Number(b.dataset.order);
+    });
+    sorted.forEach(function(c){ grid.appendChild(c); });
+  }
+  sortEl.addEventListener('change', sortCards);
+
+  /* ---------- Votes ---------- */
+  var KEY = 'travelVotes_v1';
+  var votes = {};
+  try { votes = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ votes = {}; }
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(votes)); } catch(e){}
+  }
+  function nameOf(card){
+    var h = card.querySelector('.card-head h3');
+    return h ? h.textContent.replace(/^[^\wก-๙]+/,'').trim() : card.id;
+  }
+  function refresh(){
+    cards.forEach(function(card){
+      var id = card.id;
+      var n = votes[id] || 0;
+      var cnt = document.querySelector('[data-count="'+id+'"]');
+      if(cnt) cnt.textContent = n + ' โหวต';
+      var btn = card.querySelector('.vote');
+      if(btn){
+        if(n > 0){ btn.classList.add('voted'); btn.textContent = '✅ โหวตแล้ว'; }
+        else { btn.classList.remove('voted'); btn.textContent = '👍 โหวตหลังนี้'; }
+      }
+    });
+    renderRank();
+  }
+  function renderRank(){
+    var list = document.getElementById('rankList');
+    var empty = document.getElementById('rankEmpty');
+    var rows = cards.map(function(card){
+      return { id: card.id, name: nameOf(card), n: votes[card.id] || 0 };
+    }).filter(function(r){ return r.n > 0; }).sort(function(a,b){ return b.n - a.n; });
+
+    if(rows.length === 0){
+      list.innerHTML = '';
+      empty.style.display = '';
+      return;
+    }
+    empty.style.display = 'none';
+    var max = rows[0].n;
+    list.innerHTML = rows.map(function(r,i){
+      var pct = Math.round(r.n / max * 100);
+      return '<div class="rank-row">' +
+        '<div class="name">' + (i+1) + '. ' + r.name + '</div>' +
+        '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+        '<div class="rank-num">' + r.n + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  cards.forEach(function(card){
+    var btn = card.querySelector('.vote');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var id = card.id;
+      if(votes[id]) { delete votes[id]; }
+      else { votes[id] = 1; }
+      save(); refresh();
+    });
+  });
+  var reset = document.getElementById('resetVotes');
+  if(reset){
+    reset.addEventListener('click', function(){
+      if(confirm('ล้างโหวตทั้งหมดบนเครื่องนี้?')){
+        votes = {}; save(); refresh();
+      }
+    });
+  }
+
+  applyFilter();
+  refresh();
+})();
+</script>
+</body>
+</html>
