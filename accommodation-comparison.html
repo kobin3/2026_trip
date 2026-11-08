@@ -164,6 +164,9 @@ footer a{color:#5eead4}
 .g-thumbs button:hover img{opacity:.9}
 .g-thumbs button.active{border-color:#14b8a6}
 .g-thumbs button.active img{opacity:1}
+.photo-credit{display:none;font-size:12.5px;color:#475569;background:#f1f5f9;border-bottom:1px solid var(--line);padding:9px 16px;line-height:1.5}
+.photo-credit.show{display:block}
+.photo-credit a{font-weight:700}
 .gallery-empty{width:100%;height:36vh;max-height:320px;min-height:170px;display:grid;place-items:center;background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;text-align:center;padding:24px;font-size:14px;line-height:1.7}
 .modal-content .card-head{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#fcfbf8)}
 .modal-content .card-body{display:grid}
@@ -291,7 +294,7 @@ body.modal-open{overflow:hidden}
 
 <div class="wrap">
 <div class="cards" id="cards">
-<article class="card" id="levelup" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6" data-brief="4 นอน · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน" data-price-label="8,900–10,900 บาท/คืน" data-photos="images/levelup/01.jpg|images/levelup/02.jpg|images/levelup/03.jpg|images/levelup/04.jpg|images/levelup/05.jpg|images/levelup/06.jpg">
+<article class="card" id="levelup" data-credit-label="Gangstays (หน้า listing ของที่พัก)" data-credit-url="https://gangstays.com/stay/level-up-pool-villa-rayong" data-order="1" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="8900" data-rating="8.6" data-brief="4 นอน · สระ 15×6 ม. · โต๊ะพูล · รับหมา · จอดในบ้าน 2 คัน" data-price-label="8,900–10,900 บาท/คืน" data-photos="images/levelup/01.jpg|images/levelup/02.jpg|images/levelup/03.jpg|images/levelup/04.jpg|images/levelup/05.jpg|images/levelup/06.jpg">
   <div class="card-media">
     <img src="images/levelup/01.jpg" alt="Level Up Pool Villa Rayong" loading="lazy" decoding="async">
     <span class="media-badge">📷 6 รูป</span>
@@ -373,7 +376,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="mountainview" data-order="3" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="4900" data-rating="5.0" data-brief="3 นอน · สระ + สไลเดอร์ · โต๊ะพูล + ฮอกกี้ + ปิงปอง" data-price-label="4,900–6,500 บาท/คืน" data-photos="images/mountainview/01.jpg|images/mountainview/02.jpg|images/mountainview/03.jpg|images/mountainview/04.jpg|images/mountainview/05.jpg">
+<article class="card" id="mountainview" data-credit-label="เว็บไซต์ทางการ mountainviewrayong.com" data-credit-url="https://mountainviewrayong.com/" data-order="3" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="4900" data-rating="5.0" data-brief="3 นอน · สระ + สไลเดอร์ · โต๊ะพูล + ฮอกกี้ + ปิงปอง" data-price-label="4,900–6,500 บาท/คืน" data-photos="images/mountainview/01.jpg|images/mountainview/02.jpg|images/mountainview/03.jpg|images/mountainview/04.jpg|images/mountainview/05.jpg">
   <div class="card-media">
     <img src="images/mountainview/01.jpg" alt="Mountain View Pool Villa Rayong" loading="lazy" decoding="async">
     <span class="media-badge">📷 5 รูป</span>
@@ -449,7 +452,7 @@ body.modal-open{overflow:hidden}
     <a class="btn" href="tel:0903960149">📞 090-396-0149</a>
   </div>
 </article>
-<article class="card" id="bussarakham" data-order="10" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="7500" data-rating="0" data-brief="3 นอน · ข้ามถนนถึงหาด · โต๊ะพูล · หมา ≤3 กก." data-price-label="7,500 บาท/คืน" data-photos="images/bussarakham/01.jpg">
+<article class="card" id="bussarakham" data-credit-label="คลิปพาชมบ้านของเจ้าของ (YouTube / JaoJune)" data-credit-url="https://www.youtube.com/watch?v=knlutRweddQ" data-order="10" data-zone="rayong" data-pool="1" data-pet="1" data-beach="1" data-price="7500" data-rating="0" data-brief="3 นอน · ข้ามถนนถึงหาด · โต๊ะพูล · หมา ≤3 กก." data-price-label="7,500 บาท/คืน" data-photos="images/bussarakham/01.jpg">
   <div class="card-media">
     <img src="images/bussarakham/01.jpg" alt="บ้านบุศราคัม พูลวิลล่า" loading="lazy" decoding="async">
     <span class="media-badge">📷 1 รูป</span>
@@ -525,7 +528,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="seasunlake" data-order="6" data-zone="rayong" data-pool="0" data-pet="1" data-beach="0" data-price="6000" data-rating="0" data-brief="2+1 นอน · สระ 5×15 ม. + สไลเดอร์ · รับหมา" data-price-label="4,000–7,000 บาท/คืน" data-photos="images/seasunlake/01.jpg|images/seasunlake/02.jpg|images/seasunlake/03.jpg|images/seasunlake/04.jpg|images/seasunlake/05.jpg">
+<article class="card" id="seasunlake" data-credit-label="Banpak Pool Villa Thailand" data-credit-url="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%a3%e0%b8%b0%e0%b8%a2%e0%b8%ad%e0%b8%87/" data-order="6" data-zone="rayong" data-pool="0" data-pet="1" data-beach="0" data-price="6000" data-rating="0" data-brief="2+1 นอน · สระ 5×15 ม. + สไลเดอร์ · รับหมา" data-price-label="4,000–7,000 บาท/คืน" data-photos="images/seasunlake/01.jpg|images/seasunlake/02.jpg|images/seasunlake/03.jpg|images/seasunlake/04.jpg|images/seasunlake/05.jpg">
   <div class="card-media">
     <img src="images/seasunlake/01.jpg" alt="Sea Sun Lake Poolvilla" loading="lazy" decoding="async">
     <span class="media-badge">📷 5 รูป</span>
@@ -603,7 +606,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="sunrise" data-order="9" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="5900" data-rating="0" data-brief="3 นอน · สระเด็ก 80 ซม. · โต๊ะพูล" data-price-label="5,900–13,900 บาท/คืน" data-photos="images/sunrise/01.jpg|images/sunrise/02.jpg|images/sunrise/03.jpg|images/sunrise/04.jpg">
+<article class="card" id="sunrise" data-credit-label="CheckInPoolVilla" data-credit-url="https://checkinpoolvilla.com/location_detail/221" data-order="9" data-zone="rayong" data-pool="1" data-pet="0" data-beach="0" data-price="5900" data-rating="0" data-brief="3 นอน · สระเด็ก 80 ซม. · โต๊ะพูล" data-price-label="5,900–13,900 บาท/คืน" data-photos="images/sunrise/01.jpg|images/sunrise/02.jpg|images/sunrise/03.jpg|images/sunrise/04.jpg">
   <div class="card-media">
     <img src="images/sunrise/01.jpg" alt="Sunrise Poolvilla สัตหีบ" loading="lazy" decoding="async">
     <span class="media-badge">📷 4 รูป</span>
@@ -679,7 +682,7 @@ body.modal-open{overflow:hidden}
     <a class="btn" href="https://checkinpoolvilla.com/location_detail/221" target="_blank" rel="noopener">💬 หน้าติดต่อ</a>
   </div>
 </article>
-<article class="card" id="watchara" data-order="2" data-zone="chanthaburi" data-pool="1" data-pet="1" data-beach="0" data-price="7000" data-rating="4.7" data-brief="4–5 นอน · สระเกลือ + สระเด็ก · โต๊ะพูล · รับหมา" data-price-label="7,000–8,000 บาท/คืน" data-photos="images/watchara/01.jpg|images/watchara/02.jpg|images/watchara/03.jpg|images/watchara/04.jpg">
+<article class="card" id="watchara" data-credit-label="Pool Villa World" data-credit-url="https://poolvillaworld.com/watchara-and-phattaramon-pool-villa-resort-chanthaburi/" data-order="2" data-zone="chanthaburi" data-pool="1" data-pet="1" data-beach="0" data-price="7000" data-rating="4.7" data-brief="4–5 นอน · สระเกลือ + สระเด็ก · โต๊ะพูล · รับหมา" data-price-label="7,000–8,000 บาท/คืน" data-photos="images/watchara/01.jpg|images/watchara/02.jpg|images/watchara/03.jpg|images/watchara/04.jpg">
   <div class="card-media">
     <img src="images/watchara/01.jpg" alt="วัชระ &amp; ภัทรมน พูลวิลล่า รีสอร์ท" loading="lazy" decoding="async">
     <span class="media-badge">📷 4 รูป</span>
@@ -762,7 +765,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="janja1" data-order="4" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="4 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja1/01.jpg">
+<article class="card" id="janja1" data-credit-label="Banpak Pool Villa Thailand" data-credit-url="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-1/" data-order="4" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="4 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja1/01.jpg">
   <div class="card-media">
     <img src="images/janja1/01.jpg" alt="Jan-Ja 1 Poolvilla" loading="lazy" decoding="async">
     <span class="media-badge">📷 1 รูป</span>
@@ -836,7 +839,7 @@ body.modal-open{overflow:hidden}
     <a class="btn" href="tel:0891056105">📞 089-105-6105</a>
   </div>
 </article>
-<article class="card" id="janja2" data-order="8" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="3 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja2/01.jpg">
+<article class="card" id="janja2" data-credit-label="Banpak Pool Villa Thailand" data-credit-url="https://banpakpoolvillathailand.com/%e0%b8%9e%e0%b8%b9%e0%b8%a5%e0%b8%a7%e0%b8%b4%e0%b8%a5%e0%b8%a5%e0%b9%88%e0%b8%b2%e0%b8%88%e0%b8%b1%e0%b8%99%e0%b8%97%e0%b8%9a%e0%b8%b8%e0%b8%a3%e0%b8%b5-%e0%b8%9a%e0%b9%89%e0%b8%b2%e0%b8%99-jan-ja-2/" data-order="8" data-zone="chanthaburi" data-pool="1" data-pet="0" data-beach="0" data-price="6500" data-rating="0" data-brief="3 นอน · โต๊ะพูล · จากุซซี่ · สระเด็ก" data-price-label="6,500–7,500 บาท/คืน" data-photos="images/janja2/01.jpg">
   <div class="card-media">
     <img src="images/janja2/01.jpg" alt="Jan-Ja 2 Poolvilla" loading="lazy" decoding="async">
     <span class="media-badge">📷 1 รูป</span>
@@ -909,7 +912,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="vanillacoco" data-order="5" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="7900" data-rating="0" data-brief="4 นอน · ติดหาดแหลมสิงห์ · สระเกลือ" data-price-label="7,900 บาท/คืน" data-photos="images/vanillacoco/01.jpg|images/vanillacoco/02.jpg|images/vanillacoco/03.jpg|images/vanillacoco/04.jpg|images/vanillacoco/05.jpg">
+<article class="card" id="vanillacoco" data-credit-label="Trip.com (รูปจากประกาศที่พัก)" data-credit-url="https://th.trip.com/hotels/laem-sing-hotel-detail-125335776/vanilla-coco-poolvilla/" data-order="5" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="7900" data-rating="0" data-brief="4 นอน · ติดหาดแหลมสิงห์ · สระเกลือ" data-price-label="7,900 บาท/คืน" data-photos="images/vanillacoco/01.jpg|images/vanillacoco/02.jpg|images/vanillacoco/03.jpg|images/vanillacoco/04.jpg|images/vanillacoco/05.jpg">
   <div class="card-media">
     <img src="images/vanillacoco/01.jpg" alt="Vanilla Coco Poolvilla" loading="lazy" decoding="async">
     <span class="media-badge">📷 5 รูป</span>
@@ -989,7 +992,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="ploychan" data-order="7" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="5900" data-rating="0" data-brief="3 นอน · สไลเดอร์ 2.5 ม. · ตลาดปู 1.2 กม." data-price-label="5,900 บาท/คืน" data-photos="images/ploychan/01.jpg|images/ploychan/02.jpg|images/ploychan/03.jpg|images/ploychan/04.jpg|images/ploychan/05.jpg">
+<article class="card" id="ploychan" data-credit-label="Pool Villa World" data-credit-url="https://poolvillaworld.com/baan-ploychan-pool-villa-laem-sing-chanthaburi/" data-order="7" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="5900" data-rating="0" data-brief="3 นอน · สไลเดอร์ 2.5 ม. · ตลาดปู 1.2 กม." data-price-label="5,900 บาท/คืน" data-photos="images/ploychan/01.jpg|images/ploychan/02.jpg|images/ploychan/03.jpg|images/ploychan/04.jpg|images/ploychan/05.jpg">
   <div class="card-media">
     <img src="images/ploychan/01.jpg" alt="บ้านพลอยจันท์ พูลวิลล่า" loading="lazy" decoding="async">
     <span class="media-badge">📷 5 รูป</span>
@@ -1065,7 +1068,7 @@ body.modal-open{overflow:hidden}
     <a class="btn" href="tel:0892524536">📞 089-252-4536</a>
   </div>
 </article>
-<article class="card" id="bluecat" data-order="12" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="0" data-price="3000" data-rating="9.3" data-brief="3 นอน · สระเกลือ · คะแนนรีวิว 9.3/10" data-price-label="3,000–3,500 บาท/คืน" data-photos="images/bluecat/01.jpg|images/bluecat/02.jpg|images/bluecat/03.jpg|images/bluecat/04.jpg|images/bluecat/05.jpg">
+<article class="card" id="bluecat" data-credit-label="เว็บไซต์ทางการ bluecatpoolvilla.com" data-credit-url="https://bluecatpoolvilla.com/" data-order="12" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="0" data-price="3000" data-rating="9.3" data-brief="3 นอน · สระเกลือ · คะแนนรีวิว 9.3/10" data-price-label="3,000–3,500 บาท/คืน" data-photos="images/bluecat/01.jpg|images/bluecat/02.jpg|images/bluecat/03.jpg|images/bluecat/04.jpg|images/bluecat/05.jpg">
   <div class="card-media">
     <img src="images/bluecat/01.jpg" alt="Blue Cat Pool Villa" loading="lazy" decoding="async">
     <span class="media-badge">📷 5 รูป</span>
@@ -1144,7 +1147,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="bluehana" data-order="11" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="6500" data-rating="0" data-brief="หลายขนาดถึง 18 ท่าน · สระ + สไลเดอร์วิวทะเล" data-price-label="6,500 บาท/คืน ขึ้นไป" data-photos="">
+<article class="card" id="bluehana" data-credit-label="เพจ Facebook ทางการของที่พัก" data-credit-url="https://www.facebook.com/100071072108136" data-order="11" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="6500" data-rating="0" data-brief="หลายขนาดถึง 18 ท่าน · สระ + สไลเดอร์วิวทะเล" data-price-label="6,500 บาท/คืน ขึ้นไป" data-photos="">
   <div class="card-media media-empty">
     <div class="media-ph"><span>🏖️</span><small>ยังไม่มีรูปยืนยันจากแหล่งทางการ</small></div>
     <span class="media-cta">ดูรายละเอียด →</span>
@@ -1221,7 +1224,7 @@ body.modal-open{overflow:hidden}
   </div>
 </article>
 
-<article class="card" id="villablanca" data-order="13" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="10500" data-rating="8.5" data-brief="3 นอน · ติดหาดเจ้าหลาว · ร้านซีฟู้ดในที่พัก" data-price-label="10,500 บาท/คืน" data-photos="images/villablanca/01.jpg|images/villablanca/02.jpg|images/villablanca/03.jpg|images/villablanca/04.jpg|images/villablanca/05.jpg|images/villablanca/06.jpg">
+<article class="card" id="villablanca" data-credit-label="GoThaiTogether" data-credit-url="https://www.gothaitogether.com/villa-blanca-hotel-and-restaurant/" data-order="13" data-zone="chanthaburi" data-pool="0" data-pet="0" data-beach="1" data-price="10500" data-rating="8.5" data-brief="3 นอน · ติดหาดเจ้าหลาว · ร้านซีฟู้ดในที่พัก" data-price-label="10,500 บาท/คืน" data-photos="images/villablanca/01.jpg|images/villablanca/02.jpg|images/villablanca/03.jpg|images/villablanca/04.jpg|images/villablanca/05.jpg|images/villablanca/06.jpg">
   <div class="card-media">
     <img src="images/villablanca/01.jpg" alt="Villa Blanca Hotel &amp; Restaurant" loading="lazy" decoding="async">
     <span class="media-badge">📷 6 รูป</span>
@@ -1371,6 +1374,7 @@ body.modal-open{overflow:hidden}
       <li><b>คำรีวิวในเครื่องหมายคำพูด</b> คัดมาจากรีวิวผู้เข้าพักจริงหรือบล็อกท่องเที่ยว โดยแนบลิงก์ต้นทางให้กดตรวจได้</li>
       <li><b>รีวิวจากเพจ/TikTok ของที่พัก</b> เป็นข้อมูลประชาสัมพันธ์ ไม่ใช่รีวิวอิสระ — ใช้ประกอบแต่ไม่ควรใช้ตัดสินเพียงอย่างเดียว</li>
       <li><b>“ยังไม่พบคะแนนรวม”</b> หมายความว่าที่พักนั้นมีรีวิวน้อยหรือไม่มีบนแพลตฟอร์มที่ค้นได้ ไม่ได้แปลว่าที่พักไม่ดี</li>
+      <li><b>รูปภาพ</b> ดึงมาจากเว็บไซต์/เพจ/หน้า listing ของที่พักแต่ละแห่ง และแสดง <b>ลิงก์แหล่งที่มา</b> ไว้ใต้แกลเลอรีในหน้ารายละเอียด — เป็นรูปประกอบจากประกาศ ไม่ใช่รูปที่ถ่ายตอนเราเข้าพักจริง</li>
       <li>ราคา/สเปกอาจเปลี่ยนได้ตลอด — <b>ยืนยันกับเจ้าของก่อนโอนทุกครั้ง</b></li>
     </ul>
   </div>
@@ -1401,6 +1405,7 @@ body.modal-open{overflow:hidden}
         <div>ยังไม่มีรูปภาพที่ยืนยันได้จากแหล่งทางการของที่พักนี้<br>ดูรูปและข้อมูลเพิ่มเติมได้ที่เพจ/เว็บไซต์ของที่พักด้านล่าง</div>
       </div>
       <div class="g-thumbs" id="gThumbs"></div>
+      <div class="photo-credit" id="gCredit"></div>
       <div class="modal-content" id="modalContent"></div>
     </div>
   </div>
@@ -1604,6 +1609,17 @@ body.modal-open{overflow:hidden}
              '" loading="lazy" decoding="async"></button>';
     }).join('');
     if(has) renderGallery();
+
+    var credit = document.getElementById('gCredit');
+    var cUrl = card.dataset.creditUrl, cLabel = card.dataset.creditLabel;
+    if(cUrl){
+      credit.innerHTML = (has ? '📷 รูปภาพจาก: ' : '🔎 ยังไม่มีรูปที่ยืนยันได้ — ดูรูปจริงได้ที่: ') +
+        '<a href="' + cUrl + '" target="_blank" rel="noopener">' + (cLabel || cUrl) + ' ↗</a>';
+      credit.classList.add('show');
+    } else {
+      credit.innerHTML = '';
+      credit.classList.remove('show');
+    }
 
     var head = card.querySelector('.card-head').cloneNode(true);
     var brief = head.querySelector('.brief');
