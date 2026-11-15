@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เกม · รวม 3 เกมในเครื่อง</title>
+<style>
+  :root{--teal:#0f766e;--ink:#1f2937;--muted:#6b7280}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:linear-gradient(135deg,#0f766e,#0891b2);font-family:"Noto Sans Thai","Segoe UI",system-ui,sans-serif;color:#fff;padding:34px 20px 44px}
+  .wrap{max-width:1000px;margin:0 auto}
+  .head{text-align:center;margin-bottom:26px}
+  h1{font-size:clamp(26px,5vw,38px);margin:0 0 10px;line-height:1.25}
+  .head p{margin:0 auto;max-width:620px;opacity:.93;font-size:15px;line-height:1.7}
+  .meta{margin-top:18px;font-size:13px;opacity:.88;line-height:1.9}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .card{background:rgba(255,255,255,.97);color:var(--ink);border-radius:18px;padding:22px 22px 20px;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 12px 34px rgba(0,0,0,.22);transition:transform .18s,box-shadow .18s;overflow:hidden}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.28)}
+  .card .icon{width:64px;height:64px;border-radius:16px;object-fit:cover;margin-bottom:12px;background:#e6f4f1;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
+  .card h2{margin:0 0 6px;font-size:18px;line-height:1.35}
+  .card .sub{margin:0 0 10px;font-size:12.5px;color:var(--teal);font-weight:700}
+  .card p{margin:0 0 14px;color:var(--muted);font-size:13.5px;line-height:1.65;flex:1}
+  .card .go{font-weight:700;color:var(--teal);font-size:14.5px}
+  .badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:8px;width:fit-content}
+  .mini{margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:12.5px;opacity:.9}
+  .mini a{color:#fff;text-decoration:underline}
+  @media(max-width:840px){.cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>🎮 รวมเกม</h1>
+      <p>3 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไร 추가</p>
+      <div class="meta">📱 รองรับมือถือ/แท็บเล็ต · 🔊 มีเสียง · 🖱️ ใช้เมาส์หรือแตะจอ</div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="food-truck/index.html">
+        <img class="icon" src="food-truck/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🍞'}))">
+        <div class="badge">Merge</div>
+        <h2>Magic Bites</h2>
+        <div class="sub">Cozy Alchemy Merge</div>
+        <p>รวมไอเท็มในร้านอาหารแฟนตาซี ผสมสูตรอาหารและอัปเกรดเคาน์เตอร์ไปเรื่อย ๆ เกมแนว merge สายชิล</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="sort/index.html">
+        <img class="icon" src="sort/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'📦'}))">
+        <div class="badge" style="background:#e6f4f1;color:#0f766e">Sorting</div>
+        <h2>Cozy Pack</h2>
+        <div class="sub">Sorting Puzzle</div>
+        <p>จัดของเข้าช่องให้ถูกที่ ทีละชิ้น ทีละลัง เป็นเกมเรียงลำดับของที่เล่นเพลิน ๆ ได้ทุกวัย</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="water-sort/index.html">
+        <img class="icon" src="water-sort/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🧪'}))">
+        <div class="badge" style="background:#ede9fe;color:#6d28d9">Puzzle</div>
+        <h2>Potion Sort</h2>
+        <div class="sub">Cozy Liquid Puzzle</div>
+        <p>เรียงของเหลวสีในขวดให้แยกชั้นถูกต้อง เกมแนว water sort ที่ต้องคิดทีละก้าวให้ครบทุกขวด</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+    </div>
+
+    <div class="mini">
+      <a href="../index.html">← กลับหน้าแผนทริป</a>
+      <span>·</span>
+      <span>โหลดครั้งแรกอาจใช้เวลาสักครู่ (~40 MB ต่อเกม)</span>
+    </div>
+  </div>
+</body>
+</html>
