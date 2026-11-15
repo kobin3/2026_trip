@@ -11,15 +11,28 @@ html, body, #canvas {
 	border: 0;
 }
 
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
+html, body {
+	height: 100%;
 }
 
+body {
+	color: #5b3a2e;
+	background-color: #efe0c8;
+	overflow: hidden;
+	touch-action: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Keep the 1080x1920 design canvas intact on any browser, centred with a
+   cream letterbox instead of stretching the layout. */
 #canvas {
 	display: block;
+	width: min(100vw, 56.25vh) !important;
+	height: min(177.7778vw, 100vh) !important;
+	background-color: #f7e3c4;
+	box-shadow: 0 24px 80px rgba(70, 40, 20, 0.35), 0 0 0 1px rgba(90, 55, 35, 0.18);
 }
 
 #canvas:focus {
@@ -66,8 +79,22 @@ body {
 	image-rendering: pixelated;
 }
 
+#status::before {
+	content: "Potion Sort";
+	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+	font-size: clamp(30px, 5vh, 64px);
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	color: #5b3a2e;
+	margin-bottom: 1.2rem;
+}
+
 #status-progress, #status-notice {
 	display: none;
+}
+
+#status-progress {
+	accent-color: #e8836b;
 }
 
 #status-progress {
