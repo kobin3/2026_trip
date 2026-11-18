@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>เกม · รวม 3 เกมในเครื่อง</title>
+<title>เกม · รวม 4 เกมในเครื่อง</title>
 <style>
   :root{--teal:#0f766e;--ink:#1f2937;--muted:#6b7280}
   *{box-sizing:border-box}
@@ -13,7 +13,7 @@
   h1{font-size:clamp(26px,5vw,38px);margin:0 0 10px;line-height:1.25}
   .head p{margin:0 auto;max-width:620px;opacity:.93;font-size:15px;line-height:1.7}
   .meta{margin-top:18px;font-size:13px;opacity:.88;line-height:1.9}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .card{background:rgba(255,255,255,.97);color:var(--ink);border-radius:18px;padding:22px 22px 20px;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 12px 34px rgba(0,0,0,.22);transition:transform .18s,box-shadow .18s;overflow:hidden}
   .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.28)}
   .card .icon{width:64px;height:64px;border-radius:16px;object-fit:cover;margin-bottom:12px;background:#e6f4f1;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
@@ -32,11 +32,20 @@
   <div class="wrap">
     <div class="head">
       <h1>🎮 รวมเกม</h1>
-      <p>3 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไร 추가</p>
+      <p>4 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไร 추가</p>
       <div class="meta">📱 รองรับมือถือ/แท็บเล็ต · 🔊 มีเสียง · 🖱️ ใช้เมาส์หรือแตะจอ</div>
     </div>
 
     <div class="cards">
+      <a class="card" href="jump-and-jump/index.html">
+        <img class="icon" src="jump-and-jump/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌙'}))">
+        <div class="badge" style="background:#ede9fe;color:#6d28d9">Platformer</div>
+        <h2>Jump &amp; Jump</h2>
+        <div class="sub">Dream Hopper &middot; Retro Chef</div>
+        <p>เกมแพลตฟอร์ม 2D สองบท: พลิกแรงโน้มถ่วงกับฟองฝันในบทที่ 1 แล้วสลับเป็นเชฟกระทะเหล็ก กลิ้งซอส และคอมโบพริก 3 เม็ดในบทที่ 2</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
       <a class="card" href="food-truck/index.html">
         <img class="icon" src="food-truck/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🍞'}))">
         <div class="badge">Merge</div>
