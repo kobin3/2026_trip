@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, viewport-fit=cover">
+		<meta name="theme-color" content="#0a0918">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<title>Flip & Jump</title>
+		<style>
+:root {
+	--ink: #0b0a18;
+	--cream: #fff4d6;
+	--teal: #6ee8da;
+	--gold: #ffcc5c;
+	--violet: #b59cff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	touch-action: none;
+	overscroll-behavior: none;
+	background: #070612;
+	background-image:
+		radial-gradient(80% 90% at 12% 8%, rgba(45, 190, 190, 0.28) 0%, transparent 58%),
+		radial-gradient(70% 80% at 88% 12%, rgba(126, 92, 255, 0.26) 0%, transparent 55%),
+		radial-gradient(100% 90% at 50% 115%, rgba(255, 181, 93, 0.16) 0%, transparent 62%),
+		linear-gradient(150deg, #080716 0%, #10132a 50%, #090817 100%);
+	color: var(--cream);
+	font-family: "Trebuchet MS", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0.55;
+	background-image:
+		radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.8px),
+		radial-gradient(circle at 72% 18%, rgba(160, 242, 255, 0.7) 0 1px, transparent 1.8px),
+		radial-gradient(circle at 84% 64%, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.6px),
+		radial-gradient(circle at 36% 78%, rgba(214, 190, 255, 0.6) 0 1px, transparent 1.8px);
+	background-size: 220px 190px, 310px 240px, 280px 260px, 350px 300px;
+}
+
+#canvas {
+	display: block;
+	width: min(100vw, 177.7778vh) !important;
+	height: min(56.25vw, 100vh) !important;
+	background-color: #0b0a18;
+	box-shadow:
+		0 30px 110px rgba(0, 0, 0, 0.7),
+		0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+#canvas:focus {
+	outline: none;
+}
+
+#status {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 24px;
+	background:
+		radial-gradient(80% 90% at 15% 10%, rgba(34, 170, 175, 0.34) 0%, transparent 60%),
+		radial-gradient(70% 80% at 85% 15%, rgba(124, 92, 255, 0.3) 0%, transparent 58%),
+		linear-gradient(155deg, #080716 0%, #12152e 52%, #080715 100%);
+	transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+#status.ready {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+#status-splash {
+	width: 124px;
+	height: 124px;
+	border-radius: 28px;
+	object-fit: contain;
+	margin-bottom: 22px;
+	box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
+	background: rgba(12, 12, 30, 0.7);
+}
+
+#status-splash.show-image--false {
+	display: none;
+}
+
+#loading-title {
+	font-family: Impact, "Arial Black", "Segoe UI", sans-serif;
+	font-size: clamp(38px, 7vw, 76px);
+	font-weight: 900;
+	letter-spacing: 0.02em;
+	line-height: 0.98;
+	color: var(--cream);
+	text-shadow: 0 4px 0 rgba(0, 0, 0, 0.28), 0 0 42px rgba(110, 232, 218, 0.25);
+}
+
+#loading-sub {
+	margin-top: 12px;
+	font-size: clamp(11px, 1.6vw, 16px);
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	color: var(--teal);
+	text-transform: uppercase;
+}
+
+#loading-note {
+	margin-top: 28px;
+	max-width: 560px;
+	font-size: 13px;
+	line-height: 1.6;
+	color: rgba(255, 244, 214, 0.62);
+}
+
+#status-progress, #status-notice {
+	display: none;
+}
+
+#status-progress {
+	appearance: none;
+	-webkit-appearance: none;
+	width: min(330px, 72vw);
+	height: 10px;
+	margin: 26px auto 0;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.1);
+	overflow: hidden;
+}
+
+#status-progress::-webkit-progress-bar {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 999px;
+}
+
+#status-progress::-webkit-progress-value {
+	background: linear-gradient(90deg, var(--teal), var(--gold));
+	border-radius: 999px;
+	transition: width 0.2s ease;
+}
+
+#status-progress::-moz-progress-bar {
+	background: linear-gradient(90deg, var(--teal), var(--gold));
+	border-radius: 999px;
+}
+
+#status-notice {
+	max-width: 620px;
+	margin: 24px auto 0;
+	padding: 14px 18px;
+	border: 1px solid rgba(255, 127, 143, 0.55);
+	border-radius: 12px;
+	background: rgba(52, 14, 32, 0.85);
+	color: #ffe3e6;
+	font-size: 13px;
+	line-height: 1.55;
+	text-align: left;
+	white-space: pre-wrap;
+}
+
+#rotate-hint {
+	display: none;
+	position: fixed;
+	left: 50%;
+	bottom: max(18px, env(safe-area-inset-bottom));
+	transform: translateX(-50%);
+	z-index: 20;
+	padding: 9px 16px;
+	border-radius: 999px;
+	background: rgba(7, 6, 18, 0.78);
+	border: 1px solid rgba(110, 232, 218, 0.35);
+	color: rgba(255, 244, 214, 0.88);
+	font-size: 12px;
+	letter-spacing: 0.03em;
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+	#rotate-hint {
+		display: block;
+	}
+}
+
+@media (max-width: 520px) {
+	#status-splash {
+		width: 92px;
+		height: 92px;
+		border-radius: 22px;
+		margin-bottom: 16px;
+	}
+
+	#loading-note {
+		display: none;
+	}
+}
+		</style>
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+
+	</head>
+	<body>
+		<canvas id="canvas">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+
+		<noscript>
+			<div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0a18;color:#fff4d6;padding:30px;text-align:center;">
+				JavaScript is required to play Flip &amp; Jump.
+			</div>
+		</noscript>
+
+		<div id="rotate-hint">Rotate your device for the full landscape view</div>
+
+		<div id="status">
+			<img id="status-splash" class="show-image--true fullsize--false use-filter--true" src="index.png" alt="">
+			<div id="loading-title">FLIP &amp; JUMP</div>
+			<div id="loading-sub">Dream Hopper &middot; Retro Chef</div>
+			<progress id="status-progress"></progress>
+			<div id="loading-note">A two-chapter mobile platformer. Gravity is a suggestion; dinner is a weapon.</div>
+			<div id="status-notice"></div>
+		</div>
+
+		<script src="index.js"></script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":1,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":6551704,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_THREADS_ENABLED = false;
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+	const statusOverlay = document.getElementById('status');
+	const statusProgress = document.getElementById('status-progress');
+	const statusNotice = document.getElementById('status-notice');
+	const loadingNote = document.getElementById('loading-note');
+
+	let initializing = true;
+	let statusMode = '';
+
+	function setStatusMode(mode) {
+		if (statusMode === mode || !initializing) {
+			return;
+		}
+		if (mode === 'hidden') {
+			statusOverlay.classList.add('ready');
+			initializing = false;
+			setTimeout(() => statusOverlay.remove(), 400);
+			return;
+		}
+		statusOverlay.style.visibility = 'visible';
+		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+		if (loadingNote) {
+			loadingNote.style.display = mode === 'notice' ? 'none' : 'block';
+		}
+		statusMode = mode;
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		setStatusMode('notice');
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		setStatusMode('progress');
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			setStatusMode('hidden');
+		}, displayFailureNotice);
+	}
+}());
+		</script>
+	</body>
+</html>
+
