@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>เกม · รวม 4 เกมในเครื่อง</title>
+<title>เกม · รวม 10 เกมในเครื่อง</title>
 <style>
   :root{--teal:#0f766e;--ink:#1f2937;--muted:#6b7280}
   *{box-sizing:border-box}
@@ -13,7 +13,7 @@
   h1{font-size:clamp(26px,5vw,38px);margin:0 0 10px;line-height:1.25}
   .head p{margin:0 auto;max-width:620px;opacity:.93;font-size:15px;line-height:1.7}
   .meta{margin-top:18px;font-size:13px;opacity:.88;line-height:1.9}
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
   .card{background:rgba(255,255,255,.97);color:var(--ink);border-radius:18px;padding:22px 22px 20px;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 12px 34px rgba(0,0,0,.22);transition:transform .18s,box-shadow .18s;overflow:hidden}
   .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.28)}
   .card .icon{width:64px;height:64px;border-radius:16px;object-fit:cover;margin-bottom:12px;background:#e6f4f1;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
@@ -32,11 +32,65 @@
   <div class="wrap">
     <div class="head">
       <h1>🎮 รวมเกม</h1>
-      <p>4 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไร 추가</p>
+      <p>10 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไรเพิ่มเติม</p>
       <div class="meta">📱 รองรับมือถือ/แท็บเล็ต · 🔊 มีเสียง · 🖱️ ใช้เมาส์หรือแตะจอ</div>
     </div>
 
     <div class="cards">
+      <a class="card" href="005-senior-detective/index.html">
+        <img class="icon" src="005-senior-detective/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🕵️'}))">
+        <div class="badge" style="background:#f6e7cf;color:#7c4312">Mystery · Senior · New</div>
+        <h2>The Senior Detective</h2>
+        <div class="sub">นักสืบวัยเก๋า &middot; Cozy Point &amp; Click</div>
+        <p>คดีอบอุ่น 3 บท ตามหามะลิแมวสามสีกับลุงสมชายนักสืบวัย 68 ตัวอักษรใหญ่ เสียงบรรยายไทย แตะครั้งเดียว ไม่มีจับเวลา พร้อมแฟ้มคดี โหมดเรื่องเล่า และปริศนาแบบไม่ต้องลากวาง</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="004-ramwong/index.html">
+        <img class="icon" src="004-ramwong/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'💃'}))">
+        <div class="badge" style="background:#ffe4e6;color:#be123c">Rhythm · New</div>
+        <h2>Ramwong Around the World</h2>
+        <div class="sub">รำวงรอบโลก &middot; Seated Rhythm</div>
+        <p>นั่งรำไปกับเพลงไทยสุด nostalgic ขยับแขนตามวงสีทองไปกับจังหวะรำวง ลูกทุ่ง และสุนทราภรณ์ ไม่ต้องยืน ไม่มีแพ้ พร้อมโหมดเมาส์สำหรับเล่นบนคอมพิวเตอร์ และออกแบบมาเพื่อผู้สูงวัยโดยเฉพาะ</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="003-memory-jar/index.html">
+        <img class="icon" src="003-memory-jar/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🫙'}))">
+        <div class="badge" style="background:#fde8d7;color:#9a3412">3D · Nostalgia</div>
+        <h2>Memory Jar</h2>
+        <div class="sub">ความทรงจำในขวดโหล &middot; Cozy Collector</div>
+        <p>เก็บของสะสมวัยเด็กทีละชิ้น เปิดขวดโหล แต่งห้องไทย 5 บรรยากาศ และเล่าเรื่องราวของแต่ละชิ้น ไม่มีเวลากดดัน ไม่มีแพ้ ออกแบบเพื่อผู้สูงวัย พร้อมฟอนต์ใหญ่และโหมดภาพถ่าย</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="002-brainy-bingo/index.html">
+        <img class="icon" src="002-brainy-bingo/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🎱'}))">
+        <div class="badge" style="background:#ffedd5;color:#9a3412">Senior · Bingo + Brain</div>
+        <h2>Brainy Bingo</h2>
+        <div class="sub">บิงโกบำรุงสมอง &middot; Bingo + Brain Training</div>
+        <p>บิงโกคลาสสิกที่ทุกการประทับต้องผ่านมินิเกมฝึกสมอง คิดเลข จับคู่ภาพ และจำสี พร้อมตัวอักษรใหญ่ เสียงอ่านหมายเลข โหมดคอนทราสต์สูง และเล่นกับบอทได้ทันที ออกแบบเพื่อผู้สูงวัย</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="001-word-garden/index.html">
+        <img class="icon" src="001-word-garden/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌻'}))">
+        <div class="badge" style="background:#fef3c7;color:#92400e">Word · Cozy</div>
+        <h2>Word Garden with Friends</h2>
+        <div class="sub">Cozy Word Puzzle &middot; Garden</div>
+        <p>เกมคำศัพท์คู่สวนดอกไม้สุดอบอุ่น แตะตัวอักษรเพื่อหาคำ ปลูกดอกไม้ 4 ระยะ รดน้ำสวนเพื่อน ๆ และช่วยกันปลูกต้นไม้ชุมชน ไม่มีตัวจับเวลา ไม่มีแพ้ ออกแบบมาเพื่อผู้สูงวัย</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
+      <a class="card" href="flip-and-jump/index.html">
+        <img class="icon" src="flip-and-jump/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌟'}))">
+        <div class="badge" style="background:#ccfbf1;color:#0f766e">Platformer · New</div>
+        <h2>Flip &amp; Jump</h2>
+        <div class="sub">Dream Hopper &middot; Retro Chef</div>
+        <p>ผจญภัยสองบทเต็มรูปแบบ: พลิกแรงโน้มถ่วง ใช้ฟองฝันจับศัตรู แล้วสลับเป็นเชฟกระทะเหล็ก กลิ้งตัว และปรุง Spicy Rush จากพริก 3 เม็ด</p>
+        <span class="go">เปิดเกม →</span>
+      </a>
+
       <a class="card" href="jump-and-jump/index.html">
         <img class="icon" src="jump-and-jump/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌙'}))">
         <div class="badge" style="background:#ede9fe;color:#6d28d9">Platformer</div>
@@ -77,7 +131,7 @@
     <div class="mini">
       <a href="../index.html">← กลับหน้าแผนทริป</a>
       <span>·</span>
-      <span>โหลดครั้งแรกอาจใช้เวลาสักครู่ (~40 MB ต่อเกม)</span>
+      <span>โหลดครั้งแรกอาจใช้เวลาสักครู่ (~40–72 MB ต่อเกม)</span>
     </div>
   </div>
 </body>

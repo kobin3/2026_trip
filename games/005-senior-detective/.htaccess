@@ -1,0 +1,9 @@
+# MIME types for the HTML5 build of The Senior Detective.
+# Threads are disabled, so no COOP/COEP headers are required.
+AddType application/wasm .wasm
+AddType application/octet-stream .pck
+AddType application/javascript .js
+AddType audio/mpeg .mp3
+AddType audio/ogg .ogg
+AddType image/png .png
+AddType image/svg+xml .svg
