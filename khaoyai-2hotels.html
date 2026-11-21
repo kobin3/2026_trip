@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทริปเขาใหญ่ 3–5 ธ.ค. 2569 · 2 คืน 2 ที่พัก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#f6f5f9;--card:#fff;--ink:#1f2937;--muted:#6b7280;
+  --accent:#4338ca;--accent-soft:#eef2ff;--line:#e5e7eb;--shadow:0 6px 24px rgba(15,23,42,.08);
+  --green:#15803d;--green-soft:#e8f5ec;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Segoe UI",system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+.hero{background:linear-gradient(135deg,#312e81 0%,#3730a3 45%,#4f46e5 100%);color:#fff;padding:34px 20px 30px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero h1{margin:0 0 6px;font-size:clamp(23px,4vw,34px);line-height:1.28}
+.hero p{margin:0;opacity:.94;max-width:790px;font-size:14.5px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;font-size:13px}
+.date-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:5px 14px;border-radius:999px;font-size:13px;margin-bottom:12px;font-weight:600}
+
+.tabs{position:sticky;top:0;z-index:60;background:rgba(246,245,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabs .inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.tabs .inner::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-size:13.5px;cursor:pointer;white-space:nowrap;font-family:inherit;color:var(--ink);transition:.15s;flex:0 0 auto}
+.tab:hover{border-color:var(--accent);color:var(--accent)}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+
+.panel{display:none;padding-bottom:20px}
+.panel.active{display:block}
+section{margin:26px 0}
+h2{font-size:clamp(20px,2.6vw,25px);margin:0 0 8px}
+h3{font-size:17px;margin:22px 0 8px}
+h4{font-size:15px;margin:16px 0 6px;color:var(--accent)}
+.lead{color:var(--muted);margin:0 0 14px;font-size:14.5px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 20px;margin:14px 0}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f9fafb;font-size:12.5px;color:var(--muted);font-weight:600}
+td.num{text-align:right;white-space:nowrap;font-weight:600}
+tr.total td{background:var(--accent-soft);font-weight:700;color:#3730a3;border-bottom:0}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.table-scroll table{min-width:560px}
+.table-scroll th,.table-scroll td{padding:9px 11px}
+
+/* stay cards */
+.stays{display:grid;gap:18px;margin:16px 0}
+.stay{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:320px minmax(0,1fr)}
+.smedia{position:relative;background:#e8eeec;min-height:210px;overflow:hidden}
+.smedia img{width:100%;height:100%;object-fit:cover;display:block}
+.sbadge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.95);color:#3730a3;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.smedia .ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#312e81,#4f46e5);color:#fff;text-align:center;padding:18px;font-size:13px;line-height:1.6}
+.smedia .ph span{display:block;font-size:34px;margin-bottom:6px}
+.sbody{padding:16px 20px}
+.sbody h3{margin:0 0 4px;font-size:19px}
+.sbody .z{font-size:13px;color:var(--muted)}
+.stags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:11.5px;padding:3px 10px;border-radius:999px;background:#f3f4f6;color:#374151}
+.tag.ok{background:var(--green-soft);color:#15803d}
+.tag.warn{background:#fff2e8;color:#c2410c}
+.tag.best{background:#fef3c7;color:#92400e;font-weight:600}
+.sbody ul{margin:10px 0 0;padding-left:18px;font-size:13.5px}
+.sbody li{margin:3px 0}
+.sphoto{display:flex;gap:6px;margin-top:12px;overflow-x:auto}
+.sphoto img{width:86px;height:62px;object-fit:cover;border-radius:8px;display:block}
+
+/* timeline */
+.day{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin:16px 0;break-inside:avoid}
+.day-head{padding:11px 18px;background:linear-gradient(135deg,#3730a3,#4f46e5);color:#fff;font-weight:700;font-size:14.5px}
+.tl{padding:6px 18px 12px}
+.tl-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tl-item:last-child{border-bottom:0}
+.tl-time{font-weight:700;color:var(--accent);font-size:13.5px;padding-top:2px}
+.tl-body b{display:block;font-size:14.5px;line-height:1.45}
+.tl-body p{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.55}
+.meal{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px;margin-right:6px;vertical-align:1px}
+.meal.b{background:#fef3c7;color:#92400e}
+.meal.l{background:#dbeafe;color:#1d4ed8}
+.meal.d{background:#ede9fe;color:#5b21b6}
+
+/* meal plan */
+.meals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:12px 0}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.mcard h4{margin:0 0 8px;font-size:14px;color:var(--accent)}
+.mcard .row{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:13.2px}
+.mcard .row:last-child{border-bottom:0}
+.mcard .row em{flex:0 0 58px;font-style:normal;font-weight:700;color:var(--muted);font-size:11.5px;padding-top:2px}
+.mcard .row div{flex:1}
+.mcard a{font-size:11.5px;display:inline-block;margin-top:2px}
+
+/* places */
+.places{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:14px 0}
+.place{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.place b{font-size:14.5px}
+.place p{margin:0;font-size:12.8px;color:var(--muted);line-height:1.55;flex:1}
+.place a{font-size:12.5px;font-weight:700}
+
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0;line-height:1.65}
+.note b{color:#92400e}
+.tip{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0}
+.tip b{color:#3730a3}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0}
+.good b{color:#15803d}
+ul.tight{margin:6px 0 0;padding-left:20px}
+ul.tight li{margin:3px 0;font-size:14px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.mini h4{margin:0 0 6px;font-size:14.5px;color:var(--accent)}
+.mini ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+.mini li{margin:3px 0}
+
+.days{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px}
+.pill b{color:var(--accent)}
+
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:8px 0;font-size:14px;cursor:pointer}
+.chk input{margin:4px 0 0;width:17px;height:17px;accent-color:#4338ca;flex:0 0 auto;cursor:pointer}
+.chk.done{background:#f0fdf4;border-color:#bbf7d0}
+.chk.done span{text-decoration:line-through;color:var(--muted)}
+.chk-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px;align-items:center}
+.chk-progress{font-size:13px;color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#3730a3;color:#fff}
+
+footer{background:#0f172a;color:#cbd5e1;padding:26px 20px;margin-top:36px;font-size:13px}
+footer .wrap{display:grid;gap:6px}
+footer a{color:#a5b4fc}
+
+@media(max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  .stay{grid-template-columns:1fr}
+  .smedia{min-height:0;aspect-ratio:16/9}
+  .tl-item{grid-template-columns:56px 1fr;gap:10px}
+  .card{padding:14px 16px}
+  .places{grid-template-columns:1fr}
+}
+@media print{
+  .tabs,.no-print{display:none!important}
+  .panel{display:block!important}
+  body{background:#fff}
+  .hero{background:#3730a3!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.day,.mini,.stay{box-shadow:none;break-inside:avoid}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="date-badge">🗓️ 3–5 ธันวาคม 2569 · 2 คืน · เปลี่ยนโรงแรม</div>
+    <h1>ทริปเขาใหญ่ 2 คืน 2 ที่พัก</h1>
+    <p>คืนแรกนอน <b>Madee Pakchong</b> (พูลวิลล่า + สระสไลเดอร์ + กิจกรรมครบ) คืนที่สองนอน <b>Maryland Khaoyai</b> (พูลวิลล่าส่วนตัว วิวภูเขา) — พร้อมแผนกิจกรรมและร้านอาหารทุกมื้อ</p>
+    <div class="meta">
+      <span>👨‍👩‍👧 6 ผู้ใหญ่ + เด็ก 2 ขวบ</span>
+      <span>🐶 หมา 1 ตัว (ถ้าสะดวก)</span>
+      <span>🚗 รถยนต์ส่วนตัว 2 คัน</span>
+      <span>🏊 2 พูลวิลล่า</span>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap" class="no-print">
+      <a class="btn primary" href="#plan" onclick="document.querySelector('.tab[data-tab=\'plan\']').click()">🗓️ ดูแผน 3 วัน</a>
+      <a class="btn" href="khaoyai-3d2n.html">↔️ เทียบแผน 3 วัน 2 คืน (ที่เดียว)</a>
+      <button class="btn" onclick="window.print()">🖨️ พิมพ์ / PDF</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs no-print">
+  <div class="inner">
+    <button class="tab active" data-tab="sum">📋 ภาพรวม</button>
+    <button class="tab" data-tab="plan">🗓️ แผน 3 วัน</button>
+    <button class="tab" data-tab="stay">🏠 ที่พัก 2 แห่ง</button>
+    <button class="tab" data-tab="eat">🍽️ กิน &amp; เที่ยว</button>
+    <button class="tab" data-tab="budget">💰 งบ &amp; Checklist</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="note">
+  <b>⚠️ วันที่ต้องระวัง:</b> 4–5 ธ.ค. ตรงกับ <b>วันพ่อแห่งชาติ (5 ธ.ค.)</b> ซึ่งปีนี้เป็นวันเสาร์และมีวันหยุดชดเชยจันทร์ 7 ธ.ค. — ช่วงนี้จะกลายเป็น <b>วันหยุดยาว</b> ทำให้ที่พักคิดเรทวันหยุด ถนนเส้นมิตรภาพรถแน่น และสถานที่เที่ยวคนเยอะ ควรจองล่วงหน้าและออกเดินทางเช้ากว่าปกติ
+</div>
+
+<!-- ============ ภาพรวม ============ -->
+<div class="panel active" id="panel-sum">
+  <section>
+    <h2>แผน 2 คืน 2 ที่พัก</h2>
+    <p class="lead">คืนละบรรยากาศ — คืนแรกสายกิจกรรม คืนที่สองสายพักผ่อน</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>คืน</th><th>วันที่</th><th>ที่พัก</th><th>จุดเด่น</th><th style="text-align:right">ราคา/คืน</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>คืนที่ 1</b></td>
+            <td>พฤ. 3 ธ.ค.</td>
+            <td><b>Madee Pakchong</b><br><small>ต.คลองม่วง ปากช่อง</small></td>
+            <td>สระสไลเดอร์ 4 เลน · ATV/โกคาร์ท/จักรยาน · Kid Club · จากุซซี่</td>
+            <td class="num">~5,000–8,000<br><small>แล้วแต่หลัง</small></td>
+          </tr>
+          <tr>
+            <td><b>คืนที่ 2</b></td>
+            <td>ศ. 4 ธ.ค.</td>
+            <td><b>Maryland Khaoyai</b><br><small>ปากช่อง</small></td>
+            <td>พูลวิลล่าส่วนตัว 4 นอน + ห้องใต้หลังคา · วิวภูเขา · ครัวครบ</td>
+            <td class="num">~7,000<br><small>6,500 + เสริม 500</small></td>
+          </tr>
+          <tr class="total"><td colspan="4">รวมค่าที่พัก 2 คืน</td><td class="num">~12,000–15,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="good">
+        <h4 style="margin-top:0">✅ ข้อดีของการเปลี่ยนที่พัก</h4>
+        <ul class="tight">
+          <li>ได้ลอง 2 บรรยากาศ — คืนแรกเล่นกิจกรรมมันส์ คืนที่สองพักผ่อนเงียบ ๆ</li>
+          <li>ไม่ต้องอยู่ที่เดิม 2 คืนจนเบื่อ (เหมาะกับเด็กเล็กที่สมาธิสั้น)</li>
+          <li>คืนที่ 2 ได้พูลวิลล่าส่วนตัว 4 ห้องนอน แยกห้องให้พ่อแม่ได้</li>
+          <li>ถ้าที่แรกไม่ถูกใจ ยังมีโอกาสแก้ตัว</li>
+        </ul>
+      </div>
+      <div class="note" style="margin-top:0">
+        <h4 style="margin-top:0">⚠️ ข้อเสียที่ต้องรับให้ได้</h4>
+        <ul class="tight">
+          <li>ต้อง <b>แพ็ก/ขนกระเป๋า 2 รอบ</b> — ยุ่งกับของเด็ก</li>
+          <li>วันที่ 4 ต้องเช็คเอาท์ 11:00 แล้วรอเช็คอิน 14:00–15:00</li>
+          <li>จ่ายค่าที่พัก 2 ที่ (แต่รวมแล้วพอ ๆ กับพูลวิลล่าใหญ่ 2 คืน)</li>
+          <li>ต้องวางแผนให้กิจกรรมอยู่ระหว่างทาง</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>🧭 ลำดับการเดินทาง</h3>
+    <div class="days">
+      <span class="pill">3 ธ.ค. · กทม → ปากช่อง → <b>Madee</b></span>
+      <span class="pill">4 ธ.ค. · <b>Madee</b> → อุทยาน → <b>Maryland</b></span>
+      <span class="pill">5 ธ.ค. · <b>Maryland</b> → ฟาร์ม → กทม</span>
+    </div>
+
+    <div class="tip">
+      <b>ทำไมจัดแบบนี้:</b> Madee อยู่โซน ต.คลองม่วง ฝั่งปากช่อง จึงเหมาะเป็นคืนแรกหลังขับรถมา — วันรุ่งขึ้นค่อยขับเข้าโซนอุทยาน/ถนนธนะรัชต์ แล้วเข้าพัก Maryland ซึ่งอยู่ใกล้แหล่งกินและทางกลับกรุงเทพฯ
+    </div>
+  </section>
+</div>
+<!-- ============ แผน 3 วัน ============ -->
+<div class="panel" id="panel-plan">
+  <section>
+    <h2>🗓️ แผน 3 วัน 2 คืน + อาหารทุกมื้อ</h2>
+    <p class="lead">3 ธ.ค. (พฤหัส) → 5 ธ.ค. (เสาร์) · เช็คอิน Madee 3 ธ.ค. / ย้ายไป Maryland 4 ธ.ค. / กลับ 5 ธ.ค.</p>
+
+    <div class="days">
+      <span class="pill">🚗 ไป-กลับ ~330 กม.</span>
+      <span class="pill">🍽️ 6 มื้อหลัก + 2 มื้อเช้า</span>
+      <span class="pill">🎢 กิจกรรม 2 โซน</span>
+      <span class="pill">⚠️ 5 ธ.ค. วันหยุดนักขัตฤกษ์</span>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day">
+      <div class="day-head">วันที่ 1 · พฤหัสบดี 3 ธ.ค. — กรุงเทพฯ → ปากช่อง → Madee</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><b>ออกเดินทางจากกรุงเทพฯ 2 คัน</b><p>มอเตอร์เวย์ → ถนนมิตรภาพ · แวะปั๊มทุก 1.5–2 ชม.</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-body"><b>แวะคาเฟ่/ปั๊ม ปากช่อง</b><p>กาแฟ + ของว่างให้เด็ก</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-body"><b>ตลาดปากช่อง — ซื้อของปิ้งย่างคืนนี้</b><p>หมู/ไก่/ผัก/น้ำแข็ง + ของกินเล่นติดรถ</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><span class="meal l">มื้อเที่ยง</span><b>ฟาร์มโชคชัย (Chokchai Farm)</b><p>สเต๊ก/ข้าวหน้าเนื้อ + ไอศกรีมนมสด · มีที่จอดกว้าง</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>เที่ยวฟาร์มโชคชัย</b><p>โชว์รีดนมวัว รถไฟรอบฟาร์ม — เด็ก 2 ขวบชอบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-body"><b>เช็คอิน Madee Pakchong</b><p>สระสไลเดอร์ 4 เลน + สระเด็ก + Kid Club</p></div></div>
+        <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-body"><b>กิจกรรมในรีสอร์ท</b><p>ATV / โกคาร์ท / จักรยาน / ยิงธนู — เลือกตามวัย</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><span class="meal d">มื้อเย็น</span><b>BBQ / หมูกระทะที่ Madee</b><p>ใช้ครัวของที่พัก หรือสั่งชุดหมูกระทะจากร้านในปากช่องมาส่ง</p></div></div>
+        <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-body"><b>เดินเล่นลานไฟ / จากุซซี่</b><p>กลางคืนเย็น 13–18°C เตรียมเสื้อกันหนาวให้เด็ก</p></div></div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day">
+      <div class="day-head">วันที่ 2 · ศุกร์ 4 ธ.ค. — Madee → อุทยาน → Maryland</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><span class="meal b">มื้อเช้า</span><b>อาหารเช้าที่ Madee</b><p>ถ้าไม่รวมในแพ็กเกจ มีคาเฟ่/ร้านใกล้รีสอร์ท</p></div></div>
+        <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-body"><b>ปั่นจักรยาน / เล่นน้ำรอบเช้า</b><p>คนน้อย แดดยังไม่แรง</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-body"><b>เก็บกระเป๋า + เช็คของเด็ก</b><p>แพ็กของให้พร้อมย้ายโรงแรม</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><b>เช็คเอาท์ Madee</b><p>ถ่ายรูปหน้าบ้านก่อนออก</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-body"><span class="meal l">มื้อเที่ยง</span><b>ร้านอาหารแถวปากช่อง / ทางขึ้นเขาใหญ่</b><p>ส้มตำ ไก่ย่าง ก๋วยเตี๋ยว — ใกล้อุทยาน</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>อุทยานแห่งชาติเขาใหญ่</b><p>ประตูด้านปากช่อง · ค่าเข้าแบบชาวไทย</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:45</div><div class="tl-body"><b>น้ำตกเหวสุวัต</b><p>เดินราบสั้น ๆ เหมาะผู้สูงอายุ/เด็ก 2 ขวบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-body"><span class="meal b">ของว่าง</span><b>คาเฟ่ Within Khaoyai</b><p>กาแฟ เค้ก วิวภูเขา — ถ่ายรูปก่อนเช็คอิน</p></div></div>
+        <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-body"><b>เช็คอิน Maryland Khaoyai</b><p>พูลวิลล่า 4 ห้องนอน + ห้องใต้หลังคา · ครัวครบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><span class="meal d">มื้อเย็น</span><b>ปิ้งย่างที่ Maryland หรือสั่งเดลิเวอรี</b><p>ครัวมีเตา/ไมโครเวฟ/ตู้เย็นครบ · มีน้ำแข็งและเครื่องปรุง</p></div></div>
+        <div class="tl-item"><div class="tl-time">20:30</div><div class="tl-body"><b>แช่สระกลางคืน / พักผ่อน</b><p>สระกลางแจ้ง วิวภูเขา</p></div></div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day">
+      <div class="day-head">วันที่ 3 · เสาร์ 5 ธ.ค. — ฟาร์ม → ไร่องุ่น → กรุงเทพฯ</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><span class="meal b">มื้อเช้า</span><b>อาหารเช้าที่ Maryland</b><p>ทำเองในครัว หรือซื้อขนมปัง/นมจากร้านสะดวกซื้อ</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><b>ฟาร์มแกะเขาใหญ่ / พาโนราม่าฟาร์ม</b><p>ให้อาหารแกะ ถ่ายรูป — ไปเช้าคนยังน้อย</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><b>เช็คเอาท์ Maryland</b><p>เช็คของใช้เด็กให้ครบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-body"><span class="meal l">มื้อเที่ยง</span><b>ข้าวมันไก่ / ก๋วยเตี๋ยว ปากช่อง</b><p>มื้อเร็ว ประหยัดเวลา ก่อนรถติด</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-body"><b>ไร่องุ่น GranMonte หรือตลาดปากช่อง</b><p>ซื้อของฝาก: ไวน์ นมสด ผัก/ข้าวโพด</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-body"><b>ออกเดินทางกลับกรุงเทพฯ</b><p>วันหยุดยาว รถจะแน่น — ออกเร็วกว่าปกติ</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><b>ถึงกรุงเทพฯ โดยประมาณ</b><p>อาจช้ากว่านี้ถ้ารถติดหนัก</p></div></div>
+      </div>
+    </div>
+
+    <h3>🍽️ สรุปแหล่งอาหารแต่ละมื้อ</h3>
+    <div class="meals">
+      <div class="mcard">
+        <h4>วันที่ 1 · 3 ธ.ค.</h4>
+        <div class="row"><em>เช้า</em><div>กาแฟ/ขนมที่ปั๊มหรือคาเฟ่ปากช่อง<br><a href="https://www.google.com/maps/search/?api=1&amp;query=คาเฟ่+ปากช่อง" target="_blank" rel="noopener">🗺️ หาคาเฟ่แถวปากช่อง</a></div></div>
+        <div class="row"><em>กลางวัน</em><div><b>ฟาร์มโชคชัย</b> — สเต๊ก/ไอศกรีมนมสด<br><a href="https://www.google.com/maps/search/?api=1&amp;query=ฟาร์มโชคชัย" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div></div>
+        <div class="row"><em>เย็น</em><div>BBQ/หมูกระทะที่ Madee<br><a href="https://www.google.com/maps/search/?api=1&amp;query=หมูกระทะ+ปากช่อง" target="_blank" rel="noopener">🗺️ ร้านหมูกระทะปากช่อง</a></div></div>
+      </div>
+
+      <div class="mcard">
+        <h4>วันที่ 2 · 4 ธ.ค.</h4>
+        <div class="row"><em>เช้า</em><div>อาหารเช้าที่ Madee</div></div>
+        <div class="row"><em>กลางวัน</em><div>ร้านอาหารทางขึ้นเขาใหญ่ (ส้มตำ/ไก่ย่าง)<br><a href="https://www.google.com/maps/search/?api=1&amp;query=ร้านอาหาร+ทางขึ้นเขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div></div>
+        <div class="row"><em>บ่าย</em><div>คาเฟ่ <b>Within Khaoyai</b><br><a href="https://www.google.com/maps/search/?api=1&amp;query=Within+Khaoyai" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div></div>
+        <div class="row"><em>เย็น</em><div>ปิ้งย่างที่ Maryland / เดลิเวอรี</div></div>
+      </div>
+
+      <div class="mcard">
+        <h4>วันที่ 3 · 5 ธ.ค.</h4>
+        <div class="row"><em>เช้า</em><div>อาหารเช้าที่ Maryland</div></div>
+        <div class="row"><em>กลางวัน</em><div>ข้าวมันไก่/ก๋วยเตี๋ยว ปากช่อง<br><a href="https://www.google.com/maps/search/?api=1&amp;query=ข้าวมันไก่+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div></div>
+        <div class="row"><em>บ่าย</em><div>ของฝากที่ <b>ไร่องุ่น GranMonte</b><br><a href="https://www.google.com/maps/search/?api=1&amp;query=GranMonte+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div></div>
+        <div class="row"><em>เย็น</em><div>ของว่างในรถ / แวะปั๊มระหว่างทาง</div></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>แผนสำรอง:</b> ถ้าฝนตกวันที่ 2 ให้สลับเป็น <b>Bonanza Exotic Zoo</b> (ในร่มบางโซน) หรือพักผ่อนที่ Maryland ทั้งบ่าย แล้วเลื่อนอุทยานไปเช้าวันที่ 3 (แต่ต้องออกเช้าและเช็คเอาท์ตามเวลา)
+    </div>
+  </section>
+</div>
+<!-- ============ ที่พัก 2 แห่ง ============ -->
+<div class="panel" id="panel-stay">
+  <section>
+    <h2>🏠 ที่พัก 2 แห่ง</h2>
+    <p class="lead">คืนละบรรยากาศ — ข้อมูลจากเว็บไซต์/เพจของที่พัก ต้องยืนยันราคาและวันว่างอีกครั้ง</p>
+
+    <div class="stays">
+
+      <article class="stay">
+        <div class="smedia">
+          <img src="images/khaoyai/madee/02.jpg" alt="Madee Pakchong" loading="lazy">
+          <span class="sbadge">คืนที่ 1 · 3 ธ.ค.</span>
+        </div>
+        <div class="sbody">
+          <h3>Madee Pakchong (มาดี ปากช่อง)</h3>
+          <div class="z">📍 57/1 หมู่ 18 ต.คลองม่วง อ.ปากช่อง จ.นครราชสีมา 30130</div>
+          <div class="stags">
+            <span class="tag best">🎢 กิจกรรมครบ</span>
+            <span class="tag ok">🛝 สระสไลเดอร์ 4 เลน</span>
+            <span class="tag ok">👶 Kid Club</span>
+            <span class="tag ok">🛁 จากุซซี่</span>
+            <span class="tag">🏕️ มีเต็นท์แอร์</span>
+          </div>
+          <ul>
+            <li><b>ที่พัก:</b> บ้านพัก/พูลวิลล่า 24 หลัง พักได้ 2–12 ท่าน (มีเต็นท์แอร์ด้วย)</li>
+            <li><b>กิจกรรม:</b> ATV · โกคาร์ท · จักรยาน (มีรถเด็ก) · ลานสเก็ต · ยิงธนู · Kid Club</li>
+            <li><b>สระ:</b> สระใหญ่ + สไลเดอร์ 4 เลน + สระเด็ก</li>
+            <li><b>ราคา:</b> เริ่มต้น ~2,500 บาท/คืน (หลังเล็ก) — วิลล่าสำหรับ 7 ท่านต้องสอบถาม</li>
+            <li><b>โทร:</b> 061-393-5679 · madeepakchong.com</li>
+          </ul>
+          <div class="sphoto">
+            <img src="images/khaoyai/madee/01.jpg" alt="" loading="lazy">
+            <img src="images/khaoyai/madee/03.jpg" alt="" loading="lazy">
+            <img src="images/khaoyai/madee/04.jpg" alt="" loading="lazy">
+            <img src="images/khaoyai/madee/05.jpg" alt="" loading="lazy">
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://madeepakchong.com" target="_blank" rel="noopener">🌐 เว็บไซต์ที่พัก</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Madee+Pakchong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+            <a class="btn" href="tel:0613935679">📞 061-393-5679</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay">
+        <div class="smedia">
+          <div class="ph"><div><span>🏊</span>ยังไม่มีรูปที่ยืนยันได้<br><small>ดูรูปจริงได้ที่เพจ Facebook / IG ของที่พัก</small></div></div>
+          <span class="sbadge">คืนที่ 2 · 4 ธ.ค.</span>
+        </div>
+        <div class="sbody">
+          <h3>Maryland Khaoyai (แมรี่แลนด์ เขาใหญ่)</h3>
+          <div class="z">📍 ปากช่อง จ.นครราชสีมา · พูลวิลล่าส่วนตัว วิวภูเขา</div>
+          <div class="stags">
+            <span class="tag best">🛏️ 4 นอน + ห้องใต้หลังคา</span>
+            <span class="tag ok">🏊 สระส่วนตัว</span>
+            <span class="tag ok">🍳 ครัวครบ</span>
+            <span class="tag warn">🐶 ต้องสอบถาม</span>
+          </div>
+          <ul>
+            <li><b>ห้องนอน:</b> 4 ห้อง (เตียง 6 ฟุต) + ห้องใต้หลังคา (เตียง 3 ฟุต 6 เตียง)</li>
+            <li><b>ห้องน้ำ:</b> 2 ห้อง · <b>รองรับ:</b> สูงสุด 14 ท่าน (เสริมได้ 2)</li>
+            <li><b>สิ่งอำนวยความสะดวก:</b> แอร์ทุกห้องนอน · ครัว (ไมโครเวฟ/เตาไฟฟ้า/ตู้เย็น) · น้ำแข็ง · เครื่องปรุง</li>
+            <li><b>ราคา (อา.–พฤ.):</b> 1–2 ท่าน 4,000 / 3–4 ท่าน 5,000 / 5–6 ท่าน 6,500 · เสริม 500/ท่าน/คืน</li>
+            <li><b>หมายเหตุ:</b> 4 ธ.ค. เป็นวันศุกร์ + ช่วงวันหยุดยาว อาจเป็นเรทวันหยุด — ต้องเช็ก</li>
+          </ul>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://www.facebook.com/marylandkhaoyai" target="_blank" rel="noopener">📘 เพจ Facebook</a>
+            <a class="btn" href="https://www.instagram.com/maryland_khaoyai" target="_blank" rel="noopener">📸 Instagram</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Maryland+Khaoyai" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="note">
+      <b>สิ่งที่ต้องถามตอนจองทั้ง 2 ที่:</b> ราคารวมสำหรับ 7 ท่าน (6 ผู้ใหญ่ + เด็ก 2 ขวบ) · เด็กคิดเงินไหม · รับหมาไหม/ค่าเท่าไร · เวลาเช็คอิน–เช็คเอาท์ · ที่จอด 2 คัน · ค่าประกัน
+    </div>
+
+    <div class="tip">
+      <b>เทคนิค:</b> จอง <b>Madee</b> แบบวิลล่าที่มีสระส่วนตัว (ไม่ใช่เต็นท์) เพราะมีเด็กเล็กและผู้สูงอายุ — และแจ้งว่ามีเด็ก 2 ขวบเพื่อขอเตียง/ที่นอนเสริม
+    </div>
+  </section>
+</div>
+
+<!-- ============ กิน & เที่ยว ============ -->
+<div class="panel" id="panel-eat">
+  <section>
+    <h2>🍽️ ที่เที่ยว &amp; แหล่งอาหาร</h2>
+    <p class="lead">กด “เปิดแผนที่” เพื่อนำทาง — เรียงตามวันที่ใช้จริง</p>
+
+    <h3>วันที่ 1 · ปากช่อง</h3>
+    <div class="places">
+      <div class="place"><b>ตลาดปากช่อง</b><p>ตลาดสด ซื้อของปิ้งย่างและของกินเล่น ถูกกว่าร้านในเขาใหญ่</p><a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดปากช่อง+นครราชสีมา" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>ฟาร์มโชคชัย</b><p>ฟาร์มวัวนม + ร้านสเต๊ก + ไอศกรีมนมสด + รถไฟรอบฟาร์ม</p><a href="https://www.google.com/maps/search/?api=1&amp;query=ฟาร์มโชคชัย" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>Madee Pakchong</b><p>สระสไลเดอร์ ATV โกคาร์ท จักรยาน Kid Club — อยู่ได้ทั้งบ่ายถึงเย็น</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Madee+Pakchong" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+    </div>
+
+    <h3>วันที่ 2 · อุทยานและคาเฟ่</h3>
+    <div class="places">
+      <div class="place"><b>อุทยานแห่งชาติเขาใหญ่</b><p>ประตูด้านปากช่อง · ค่าเข้าแบบชาวไทย</p><a href="https://www.google.com/maps/search/?api=1&amp;query=อุทยานแห่งชาติเขาใหญ่+ประตู+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>น้ำตกเหวสุวัต</b><p>เดินราบสั้น เหมาะผู้สูงอายุและเด็กเล็ก</p><a href="https://www.google.com/maps/search/?api=1&amp;query=น้ำตกเหวสุวัต+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>Within Khaoyai</b><p>คาเฟ่/บาร์วิวภูเขา ของหวานและกาแฟ</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Within+Khaoyai" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>Maryland Khaoyai</b><p>พูลวิลล่าวิวภูเขา ครัวครบ — ทำปิ้งย่างเองได้</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Maryland+Khaoyai" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+    </div>
+
+    <h3>วันที่ 3 · ฟาร์มและของฝาก</h3>
+    <div class="places">
+      <div class="place"><b>ฟาร์มแกะเขาใหญ่</b><p>ให้อาหารแกะ ถ่ายรูปทุ่งหญ้า — เด็กชอบ</p><a href="https://www.google.com/maps/search/?api=1&amp;query=ฟาร์มแกะเขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>เขาใหญ่ พาโนราม่า ฟาร์ม</b><p>ฟาร์มวิวภูเขา ให้อาหารสัตว์ ใกล้ฟาร์มแกะ</p><a href="https://www.google.com/maps/search/?api=1&amp;query=เขาใหญ่+พาโนราม่า+ฟาร์ม" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>ไร่องุ่น GranMonte</b><p>เดินชมไร่ ชิมไวน์ ซื้อของฝาก</p><a href="https://www.google.com/maps/search/?api=1&amp;query=GranMonte+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+      <div class="place"><b>Bonanza Exotic Zoo</b><p>สวนสัตว์ — แผนสำรองถ้าฝนตก</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Bonanza+Exotic+Zoo+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a></div>
+    </div>
+
+    <div class="tip">
+      <b>ร้านอาหารที่ควรลอง:</b> ฟาร์มโชคชัย (สเต๊ก) · ร้านอาหารอีสานทางขึ้นเขาใหญ่ · ข้าวมันไก่/ก๋วยเตี๋ยวปากช่อง · หมูกระทะปากช่อง (สำหรับคืนแรกถ้าไม่อยากทำเอง)
+    </div>
+  </section>
+</div>
+<!-- ============ งบ & checklist ============ -->
+<div class="panel" id="panel-budget">
+  <section>
+    <h2>💰 งบประมาณ 3 วัน 2 คืน</h2>
+    <p class="lead">6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าไป) · 3–5 ธ.ค. 2569</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th style="text-align:right">ประมาณการ (บาท)</th></tr></thead>
+        <tbody>
+          <tr><td>Madee Pakchong 1 คืน (วิลล่า 7 ท่าน)</td><td class="num">5,000–8,000</td></tr>
+          <tr><td>Maryland Khaoyai 1 คืน (7 ท่าน)</td><td class="num">7,000–7,500</td></tr>
+          <tr><td>ค่าสัตว์เลี้ยง 2 คืน (ถ้าพาไป)</td><td class="num">0–1,500</td></tr>
+          <tr><td>น้ำมัน + ทางด่วน 2 คัน</td><td class="num">1,600–2,200</td></tr>
+          <tr><td>อาหาร 6 มื้อ + ของว่าง</td><td class="num">4,500–6,500</td></tr>
+          <tr><td>ค่าเข้าฟาร์มโชคชัย / อุทยาน / ฟาร์มแกะ</td><td class="num">2,000–3,000</td></tr>
+          <tr><td>กิจกรรมในรีสอร์ท (ATV/โกคาร์ท)</td><td class="num">0–1,500</td></tr>
+          <tr><td>ของฝาก / สำรอง</td><td class="num">1,000–1,500</td></tr>
+          <tr class="total"><td>รวมทั้งทริป</td><td class="num">21,100–30,200</td></tr>
+          <tr><td>เฉลี่ยต่อผู้ใหญ่ 1 คน</td><td class="num">3,500–5,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px">
+      * ไม่นับค่าประกันบ้าน (ได้คืน) · ราคา Madee เป็นช่วงประมาณจากหลังที่พักหลายขนาด ต้องยืนยันกับที่พัก
+    </p>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="good">
+        <b>💡 ประหยัดได้อย่างไร</b>
+        <ul class="tight">
+          <li>เลือกหลังเล็กที่ Madee (2–6 ท่าน) ถ้าอยากลดงบ</li>
+          <li>ทำปิ้งย่างเองทั้ง 2 คืน แทนการกินร้าน</li>
+          <li>ซื้อของสดที่ตลาดปากช่องครั้งเดียว</li>
+          <li>ข้าม ATV/โกคาร์ท ถ้าเด็กเล็กเกินไป</li>
+        </ul>
+      </div>
+      <div class="note" style="margin-top:0">
+        <b>⚠️ ค่าใช้จ่ายที่มักลืม</b>
+        <ul class="tight">
+          <li>ค่าประกันบ้าน 2,000–5,000 (ได้คืนแต่ต้องเตรียมเงิน)</li>
+          <li>ค่าน้ำแข็ง/ถ่าน/เครื่องปรุง</li>
+          <li>ค่าล้างจานถ้าไม่ล้าง (บางที่คิด 300–600)</li>
+          <li>ค่าเข้าอุทยานคิดตามคนไทย/เด็ก</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>✅ Checklist ก่อนจอง</h3>
+    <div class="chk-tools">
+      <span class="chk-progress" id="chkProgress">0 / 10</span>
+      <button class="btn" id="chkReset" type="button">ล้างทั้งหมด</button>
+    </div>
+    <div id="checklist">
+      <label class="chk"><input type="checkbox" data-k="c1"><span>ยืนยัน <b>Madee 3 ธ.ค.</b> และ <b>Maryland 4 ธ.ค.</b> มีห้องว่าง</span></label>
+      <label class="chk"><input type="checkbox" data-k="c2"><span>ถามราคาสำหรับ <b>7 ท่าน</b> + เด็ก 2 ขวบคิดเงินไหม</span></label>
+      <label class="chk"><input type="checkbox" data-k="c3"><span>ถามเรท <b>วันหยุดยาว 4–5 ธ.ค.</b> (วันพ่อ) ว่าบวกเท่าไร</span></label>
+      <label class="chk"><input type="checkbox" data-k="c4"><span>ขอวิลล่าที่มีสระส่วนตัว (ไม่ใช่เต็นท์) ที่ Madee</span></label>
+      <label class="chk"><input type="checkbox" data-k="c5"><span>ยืนยันจำนวนห้องนอน/เตียงของ Maryland (4 + ห้องใต้หลังคา)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c6"><span>ถามเรื่องสัตว์เลี้ยง + ค่าเพิ่มต่อคืน (ทั้ง 2 ที่)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c7"><span>ยืนยันที่จอดรถ 2 คัน</span></label>
+      <label class="chk"><input type="checkbox" data-k="c8"><span>เวลาเช็คอิน/เช็คเอาท์ + ขอ late check-out วันที่ 4</span></label>
+      <label class="chk"><input type="checkbox" data-k="c9"><span>จองฟาร์มโชคชัย/อุทยานล่วงหน้า + เช็กสภาพอากาศ</span></label>
+      <label class="chk"><input type="checkbox" data-k="c10"><span>เตรียมกระเป๋าแยก 2 ใบ (คืนแรก/คืนสอง) เพื่อง่ายต่อการย้าย</span></label>
+    </div>
+
+    <h3>📞 ข้อมูลติดต่อ</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th>ติดต่อ</th><th>หมายเหตุ</th></tr></thead>
+        <tbody>
+          <tr><td><b>Madee Pakchong</b></td><td>061-393-5679 · madeepakchong.com</td><td>24 หลัง / 2–12 ท่าน</td></tr>
+          <tr><td><b>Maryland Khaoyai</b></td><td>Facebook marylandkhaoyai · IG @maryland_khaoyai</td><td>14 ท่าน / 4 นอน + ใต้หลังคา</td></tr>
+          <tr><td>ฟาร์มโชคชัย</td><td>ผ่านหน้าเว็บ/หน้างาน</td><td>ร้านอาหาร + ไอศกรีมนมสด</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:16px">
+      <b>ก่อนโอน:</b> ขอใบยืนยันการจอง (ชื่อ วันที่ ราคารวม) และถ่ายรูปสภาพบ้าน/สระตอนเช็คอินไว้เป็นหลักฐาน โดยเฉพาะเรื่องค่าประกัน
+    </div>
+  </section>
+</div>
+
+</div><!-- /wrap -->
+<footer>
+  <div class="wrap">
+    <div><b>ทริปเขาใหญ่ 3–5 ธันวาคม 2569 · 2 คืน 2 ที่พัก (Madee Pakchong + Maryland Khaoyai)</b></div>
+    <div>6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าสะดวก) · รถส่วนตัว 2 คัน</div>
+    <div>ข้อมูลที่พักและราคาจากเว็บไซต์/เพจของที่พัก ณ พ.ย. 2569 — ต้องยืนยันวันว่างและราคาจริงก่อนจอง</div>
+    <div class="no-print"><a href="khaoyai.html">ทริป 2 วัน 1 คืน</a> · <a href="khaoyai-3d2n.html">ทริป 3 วัน 2 คืน (ที่เดียว)</a> · <a href="index.html">หน้าแรก</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  function show(id, push){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === id); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + id); });
+    if(push){ try { history.replaceState(null, '', '#' + id); } catch(e){} }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab, true); }); });
+  var initial = (location.hash || '').replace('#', '');
+  if(initial && document.getElementById('panel-' + initial)){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === initial); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + initial); });
+  }
+  window.addEventListener('hashchange', function(){
+    var id = (location.hash || '').replace('#', '');
+    if(id && document.getElementById('panel-' + id)) show(id, false);
+  });
+
+  var KEY = 'khaoyai2hotelsChecklist_v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#checklist input'));
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ state = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+  function render(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var on = !!state[b.dataset.k];
+      b.checked = on;
+      if(on) done++;
+      if(b.closest('.chk')) b.closest('.chk').classList.toggle('done', on);
+    });
+    var p = document.getElementById('chkProgress');
+    if(p) p.textContent = done + ' / ' + boxes.length + (done === boxes.length ? ' · ครบแล้ว 🎉' : '');
+  }
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){ state[b.dataset.k] = b.checked; save(); render(); });
+  });
+  var reset = document.getElementById('chkReset');
+  if(reset) reset.addEventListener('click', function(){ state = {}; save(); render(); });
+  render();
+})();
+</script>
+</body>
+</html>
