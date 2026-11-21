@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทริปเขาใหญ่ 3–4 ธ.ค. 2569 · 2 วัน 1 คืน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#f7f6f1;--card:#fff;--ink:#1f2937;--muted:#6b7280;
+  --teal:#15803d;--teal-soft:#e8f5ec;--coral:#f97316;--coral-soft:#fff2e8;
+  --line:#e5e7eb;--gold:#f59e0b;--shadow:0 6px 24px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans Thai","Sarabun","Leelawadee UI","Segoe UI",system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#14532d 0%,#166534 45%,#15803d 100%);color:#fff;padding:34px 20px 30px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero h1{margin:0 0 6px;font-size:clamp(23px,4vw,34px);line-height:1.28}
+.hero p{margin:0;opacity:.93;max-width:780px;font-size:14.5px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:999px;font-size:13px}
+.date-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:5px 14px;border-radius:999px;font-size:13px;margin-bottom:12px;font-weight:600}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:60;background:rgba(247,246,241,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabs .inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs .inner::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-size:13.5px;cursor:pointer;white-space:nowrap;font-family:inherit;color:var(--ink);transition:.15s;flex:0 0 auto}
+.tab:hover{border-color:var(--teal);color:var(--teal)}
+.tab.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+
+.panel{display:none;padding-bottom:20px}
+.panel.active{display:block}
+section{margin:26px 0}
+h2{font-size:clamp(20px,2.6vw,25px);margin:0 0 8px}
+h3{font-size:17px;margin:22px 0 8px}
+h4{font-size:15px;margin:16px 0 6px;color:var(--teal)}
+.lead{color:var(--muted);margin:0 0 14px;font-size:14.5px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 20px;margin:14px 0}
+
+/* villa list */
+.cards{display:grid;gap:16px}
+.vcard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:300px minmax(0,1fr);cursor:pointer;transition:transform .18s,box-shadow .18s}
+.vcard:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,23,42,.13);border-color:#bbe3c7}
+.vmedia{position:relative;background:#e8eeec;min-height:200px;overflow:hidden}
+.vmedia img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.vcard:hover .vmedia img{transform:scale(1.05)}
+.vbadge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.95);color:#15803d;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.vcta{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.95);color:var(--teal);font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.2s}
+.vcard:hover .vcta{opacity:1;transform:none}
+.vhead{padding:16px 20px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.vhead h3{margin:0;font-size:18.5px;line-height:1.35}
+.vhead .zone{font-size:13px;color:var(--muted)}
+.vtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;background:#f3f4f6;color:#374151}
+.tag.ok{background:var(--teal-soft);color:#15803d}
+.tag.warn{background:var(--coral-soft);color:#c2410c}
+.tag.no{background:#fef2f2;color:#b91c1c}
+.tag.best{background:#fef3c7;color:#92400e;font-weight:600}
+.vprice{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vprice small{font-size:12.5px;color:var(--muted)}
+.vprice b{font-size:15px;color:var(--teal)}
+.vbody{display:none}
+
+/* villa modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;background:rgba(15,23,42,.62)}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-panel{position:relative;background:#fff;width:100%;max-width:900px;height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:760px){.modal-panel{height:92vh;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.4)}}
+.modal-scroll{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;overscroll-behavior:contain}
+.modal-close{position:absolute;top:10px;right:10px;z-index:6;width:38px;height:38px;border-radius:50%;border:0;background:rgba(15,23,42,.55);color:#fff;font-size:17px;cursor:pointer;display:grid;place-items:center;font-family:inherit}
+.modal-close:hover{background:rgba(15,23,42,.82)}
+.gallery{position:relative;background:#0f172a;aspect-ratio:16/9;max-height:52vh;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.g-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#0f172a;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;font-family:inherit;padding-bottom:3px}
+.g-prev{left:10px}.g-next{right:10px}
+.g-nav:disabled{opacity:.22;cursor:default}
+.g-count{position:absolute;right:10px;bottom:10px;background:rgba(15,23,42,.72);color:#fff;font-size:12px;padding:3px 10px;border-radius:999px}
+.g-thumbs{display:flex;gap:8px;padding:10px 14px;overflow-x:auto;background:#0f172a}
+.g-thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;flex:0 0 auto;background:none}
+.g-thumbs img{width:78px;height:56px;object-fit:cover;display:block;opacity:.62}
+.g-thumbs button.active{border-color:#4ade80}
+.g-thumbs button.active img{opacity:1}
+.credit{font-size:12.5px;color:#475569;background:#f1f5f9;border-bottom:1px solid var(--line);padding:9px 16px}
+.modal-content .vbody{display:block;padding:16px 20px 20px}
+body.modal-open{overflow:hidden}
+
+/* specs & blocks */
+.block h4{margin:0 0 6px;font-size:14px;color:var(--teal)}
+.block p{margin:0;font-size:14px}
+.block{margin-bottom:16px}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:16px}
+.spec{background:#f9fafb;border:1px solid #f1f2f4;border-radius:10px;padding:8px 11px;font-size:13px}
+.spec b{display:block;font-size:11px;color:var(--muted);font-weight:600}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f9fafb;font-size:12.5px;color:var(--muted);font-weight:600}
+td.num{text-align:right;white-space:nowrap;font-weight:600}
+tr.total td{background:var(--teal-soft);font-weight:700;color:#15803d;border-bottom:0}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.table-scroll table{min-width:520px}
+.table-scroll th,.table-scroll td{padding:9px 11px}
+
+/* timeline */
+.day{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin:16px 0;break-inside:avoid}
+.day-head{padding:11px 18px;background:linear-gradient(135deg,#166534,#15803d);color:#fff;font-weight:700;font-size:14.5px}
+.tl{padding:6px 18px 12px}
+.tl-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tl-item:last-child{border-bottom:0}
+.tl-time{font-weight:700;color:var(--teal);font-size:13.5px;padding-top:2px}
+.tl-body b{display:block;font-size:14.5px;line-height:1.45}
+.tl-body p{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.55}
+
+/* places */
+.places{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:14px 0}
+.place{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.place b{font-size:14.5px}
+.place p{margin:0;font-size:12.8px;color:var(--muted);line-height:1.55;flex:1}
+.place a{font-size:12.5px;font-weight:700}
+
+/* callouts */
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0;line-height:1.65}
+.note b{color:#92400e}
+.tip{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0}
+.tip b{color:#1d4ed8}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:11px 15px;font-size:13.5px;margin:14px 0}
+.good b{color:#15803d}
+ul.tight{margin:6px 0 0;padding-left:20px}
+ul.tight li{margin:3px 0;font-size:14px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.mini h4{margin:0 0 6px;font-size:14.5px;color:var(--teal)}
+.mini ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}
+.mini li{margin:3px 0}
+
+.days{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px}
+.pill b{color:var(--teal)}
+
+/* checklist */
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:8px 0;font-size:14px;cursor:pointer}
+.chk input{margin:4px 0 0;width:17px;height:17px;accent-color:#15803d;flex:0 0 auto;cursor:pointer}
+.chk.done{background:#f0fdf4;border-color:#bbf7d0}
+.chk.done span{text-decoration:line-through;color:var(--muted)}
+.chk-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px;align-items:center}
+.chk-progress{font-size:13px;color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:8px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{background:#116232;color:#fff}
+
+footer{background:#0f172a;color:#cbd5e1;padding:26px 20px;margin-top:36px;font-size:13px}
+footer .wrap{display:grid;gap:6px}
+footer a{color:#86efac}
+
+@media(max-width:720px){
+  .grid2{grid-template-columns:1fr}
+  .vcard{grid-template-columns:1fr}
+  .vmedia{min-height:0;aspect-ratio:16/9}
+  .vcta{opacity:1;transform:none}
+  .tl-item{grid-template-columns:56px 1fr;gap:10px}
+  .card{padding:14px 16px}
+  .vhead{padding:14px 16px}
+  .places{grid-template-columns:1fr}
+  .gallery{aspect-ratio:4/3;max-height:44vh}
+}
+@media print{
+  .tabs,.no-print{display:none!important}
+  .panel{display:block!important}
+  body{background:#fff}
+  .hero{background:#166534!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.day,.mini,.vcard{box-shadow:none;break-inside:avoid}
+  .vcard{grid-template-columns:1fr}
+  .vcard .vbody{grid-column:1/-1}
+  .vbody{display:block!important}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="date-badge">🗓️ 3–4 ธันวาคม 2569 · พฤหัสบดี–ศุกร์</div>
+    <h1>ทริปเขาใหญ่ 2 วัน 1 คืน</h1>
+    <p>พูลวิลล่าเหมาหลัง 6 ตัวเลือก พร้อมราคาวันธรรมดา แผนเดินทางรายชั่วโมง ร้านอาหาร/คาเฟ่ และงบประมาณทั้งทริป — สำหรับครอบครัว 6 ผู้ใหญ่ + เด็ก 2 ขวบ (+ หมา ถ้าสะดวก)</p>
+    <div class="meta">
+      <span>👨‍👩‍👧 6 ผู้ใหญ่ + เด็ก 2 ขวบ</span>
+      <span>🐶 หมา 1 ตัว (ถ้าสะดวก)</span>
+      <span>🚗 รถยนต์ส่วนตัว 2 คัน</span>
+      <span>⏱️ 2.5–3 ชม. จากกรุงเทพฯ</span>
+      <span>🏊 พูลวิลล่าเหมาหลัง</span>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap" class="no-print">
+      <a class="btn primary" href="#stay" onclick="document.querySelector('.tab[data-tab=\'stay\']').click()">🏠 ดูที่พัก 6 หลัง</a>
+      <button class="btn" onclick="window.print()">🖨️ พิมพ์ / บันทึก PDF</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs no-print">
+  <div class="inner">
+    <button class="tab active" data-tab="sum">📋 ภาพรวม</button>
+    <button class="tab" data-tab="stay">🏠 ที่พัก 6 หลัง</button>
+    <button class="tab" data-tab="plan">🗓️ แผน 2 วัน</button>
+    <button class="tab" data-tab="eat">🍽️ กิน &amp; เที่ยว</button>
+    <button class="tab" data-tab="budget">💰 งบ &amp; Checklist</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="note">
+  <b>ทำไมเลือก 3–4 ธ.ค.:</b> เป็นคืน <b>วันพฤหัสบดี</b> ราคาที่พักคิดเรทวันธรรมดา (ถูกกว่าศุกร์–เสาร์ 1,000–3,000 บาท) และคนน้อย — แต่ต้น ธ.ค. เริ่มเข้าหนาว กลางคืนอาจเย็น 12–18°C ควรเตรียมเสื้อกันหนาวให้เด็กและผู้สูงอายุ
+</div>
+
+<!-- ============ ภาพรวม ============ -->
+<div class="panel active" id="panel-sum">
+  <section>
+    <h2>สรุปแผนที่แนะนำ</h2>
+    <p class="lead">เลือกจาก 6 พูลวิลล่า โดยคัดตาม: 3–4 ห้องนอน · อยู่ในงบ · มีสระส่วนตัว · ใกล้แหล่งกิน/เที่ยว</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>ที่พัก</th><th>นอน/น้ำ</th><th>รับได้</th><th>ราคาวันพฤหัส</th><th>จุดเด่น</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>The Vell Pool Villa</b></td><td>4/5</td><td>11 ท่าน</td><td>~6,990</td>
+            <td>ถูกสุดในกลุ่ม 4 ห้องนอน · สระ + สไลเดอร์ · โต๊ะพูล</td>
+          </tr>
+          <tr>
+            <td><b>Khaoyai Valley 10</b></td><td>3/4</td><td>7–10 ท่าน</td><td>~7,900</td>
+            <td>ราคารวมอาหารเช้า · ใกล้ประตูอุทยาน 4 กม.</td>
+          </tr>
+          <tr>
+            <td><b>La Vallee Khaoyai</b></td><td>3/3</td><td>8 (+4) ท่าน</td><td>~7,900–9,900</td>
+            <td><b>โต๊ะพูล</b> · <b>รับหมา</b> · จากุซซี่</td>
+          </tr>
+          <tr>
+            <td><b>Her Glory Vacation Villa</b></td><td>2/2</td><td>8 ท่าน</td><td>~6,900–7,900</td>
+            <td><b>รับหมาไม่จำกัดน้ำหนัก</b> · สไตล์ทัสคานี</td>
+          </tr>
+          <tr>
+            <td><b>8 Valley KhaoYai</b></td><td>หลายขนาด</td><td>ตามหลัง</td><td>8,900 ขึ้นไป</td>
+            <td>สระซีทรู · จากุซซี่กลางแจ้ง · สนามเด็กเล่น</td>
+          </tr>
+          <tr>
+            <td><b>Vivian Ves Vill</b></td><td>3–4/4–5</td><td>10–20 ท่าน</td><td>~12,990</td>
+            <td><b>โต๊ะพูล</b> · <b>รับหมา</b> · ติดลำธาร · ลานปาร์ตี้</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="mini">
+        <h4>🎯 3 อันดับที่เหมาะกับบ้านเรา</h4>
+        <ul>
+          <li><b>คุ้มที่สุด:</b> The Vell — 4 ห้องนอน 6,990 บาท</li>
+          <li><b>ครบโจทย์ที่สุด:</b> La Vallee — โต๊ะพูล + รับหมา + ใกล้คาเฟ่</li>
+          <li><b>ถ้าอยากได้อาหารเช้า:</b> Khaoyai Valley 10 — 7,900 รวมอาหารเช้า</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>📌 ต้องรู้ก่อนจอง</h4>
+        <ul>
+          <li>ราคาที่แสดงเป็น <b>เรทวันธรรมดา</b> (อา.–พฤ.) จากประกาศของที่พัก</li>
+          <li>ต้องโทร/ทักไลน์เช็ก <b>วันว่าง 3–4 ธ.ค.</b> ก่อนทุกครั้ง</li>
+          <li>ส่วนใหญ่คิด <b>ค่าประกันบ้าน</b> 2,000–5,000 บาท (คืนวันเช็คเอาท์)</li>
+          <li>ที่รับหมามักคิดเพิ่ม 250–1,000 บาท/ตัว</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:16px">
+      <b>ทำไมต้องพูลวิลล่า:</b> 7 คนนอนโรงแรมต้องจอง 3 ห้อง (~4,000–6,000/คืน) แต่ไม่มีที่ให้เด็กเล่นน้ำส่วนตัว และไม่มีครัวทำ BBQ — พูลวิลล่าเหมาหลังจึงคุ้มกว่าเมื่อไปเป็นครอบครัวใหญ่
+    </div>
+  </section>
+</div>
+<!-- ============ ที่พัก ============ -->
+<div class="panel" id="panel-stay">
+  <section>
+    <h2>🏠 พูลวิลล่า 6 ตัวเลือก (ราคาวันพฤหัส 3 ธ.ค.)</h2>
+    <p class="lead">กดที่การ์ดเพื่อเปิดรายละเอียดเต็มพร้อมรูปทุกมุม</p>
+
+    <div class="cards">
+
+      <!-- 1 -->
+      <article class="vcard" id="vell" data-photos="images/khaoyai/vell/01.jpg|images/khaoyai/vell/02.jpg|images/khaoyai/vell/03.jpg|images/khaoyai/vell/04.jpg|images/khaoyai/vell/05.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/vell/01.jpg" alt="The Vell Pool Villa" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>The Vell Pool Villa</h3>
+          <div class="zone">📍 หมูสี ปากช่อง · 4 ห้องนอน 5 ห้องน้ำ · 11 ท่าน</div>
+          <div class="vtags">
+            <span class="tag best">💰 ถูกสุดในกลุ่ม 4 ห้องนอน</span>
+            <span class="tag ok">🛝 สระ + สไลเดอร์</span>
+            <span class="tag ok">🎱 โต๊ะพูล</span>
+            <span class="tag warn">🐶 ไม่ระบุ</span>
+          </div>
+          <div class="vprice"><small>ราคาวันพฤหัส</small><b>~6,990 บาท/คืน</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>เขาใหญ่ ต.หมูสี อ.ปากช่อง — อยู่ในโซนที่พักหลักของเขาใหญ่ เดินทางจากถนนธนะรัชต์สะดวก ขับไปร้านอาหาร/คาเฟ่และประตูอุทยานได้ใน 10–20 นาที</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>4 ห้อง</div>
+            <div class="spec"><b>ห้องน้ำ</b>5 ห้อง</div>
+            <div class="spec"><b>ความจุ</b>11 ท่าน</div>
+            <div class="spec"><b>สระ</b>ส่วนตัว + สไลเดอร์</div>
+            <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+            <div class="spec"><b>ครัว/ปิ้งย่าง</b>✅ ครัว + BBQ</div>
+            <div class="spec"><b>คาราโอเกะ</b>✅</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+            <div class="spec"><b>ที่จอด</b>✅ หลายคัน</div>
+            <div class="spec"><b>ประกัน</b>2,000 บาท</div>
+          </div>
+          <div class="block"><h4>ราคา</h4>
+            <table>
+              <tr><th>ช่วงวัน</th><th>ราคา (11 ท่าน)</th></tr>
+              <tr><td>อาทิตย์–พฤหัสบดี</td><td class="num">6,990</td></tr>
+              <tr><td>ศุกร์–เสาร์</td><td class="num">7,990</td></tr>
+              <tr><td>นักขัตฤกษ์ / หยุดยาว</td><td class="num">9,900–14,000</td></tr>
+              <tr><td>ประกันความเสียหาย</td><td class="num">2,000</td></tr>
+            </table>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li>ถูกที่สุดในกลุ่มที่มี 4 ห้องนอน</li><li>สระมีสไลเดอร์ เด็ก 2 ขวบชอบแน่นอน</li><li>มีโต๊ะพูล + คาราโอเกะ</li><li>รับได้ 11 ท่าน เหลือที่ให้ปู่ย่าตายาย</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li>ประกาศผ่านตัวแทน ต้องถามเจ้าของเรื่องหมา</li><li>ราคานักขัตฤกษ์กระโดดถึง 14,000</li><li>ไม่มีคะแนนรีวิวรวมให้ตรวจ</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> รับหมาไหม · สระลึกเท่าไร/มีโซนเด็กไหม · โต๊ะพูลสภาพสมบูรณ์ไหม · ห้องไหนมีเตียงอะไร · ค่าไฟเพิ่มไหม</div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="vcard" id="valley10" data-photos="images/khaoyai/valley10/01.jpg|images/khaoyai/valley10/02.jpg|images/khaoyai/valley10/03.jpg|images/khaoyai/valley10/04.jpg|images/khaoyai/valley10/05.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/valley10/01.jpg" alt="Khaoyai Valley 10" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>Khaoyai Valley 10 (Cozy Home)</h3>
+          <div class="zone">📍 ห่างอุทยานแห่งชาติเขาใหญ่ 4 กม. · 3 ห้องนอน 4 ห้องน้ำ · 7–10 ท่าน</div>
+          <div class="vtags">
+            <span class="tag best">🍳 ราคารวมอาหารเช้า</span>
+            <span class="tag ok">🌳 วิวธรรมชาติ</span>
+            <span class="tag ok">🛏️ 3 ห้องนอน</span>
+            <span class="tag warn">🎱 ไม่ระบุโต๊ะพูล</span>
+          </div>
+          <div class="vprice"><small>ราคาวันพฤหัส</small><b>~7,900 บาท/คืน</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>บ้านพักเขาใหญ่ วัลเล่ย์ (Khaoyai Valley) เลขที่ 56 ต.หมูสี อ.ปากช่อง — ห่างอุทยานแห่งชาติเขาใหญ่เพียง 4 กม. อยู่ในโซนที่เงียบและมีต้นไม้ล้อมรอบ</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>3 ห้อง (เตียง 3.5 ฟุต ห้องละ 2 เตียง)</div>
+            <div class="spec"><b>ห้องน้ำ</b>4 ห้อง (ในตัวทุกห้องนอน)</div>
+            <div class="spec"><b>ความจุ</b>7–10 ท่าน</div>
+            <div class="spec"><b>สระ</b>ส่วนตัว</div>
+            <div class="spec"><b>โต๊ะพูล</b>❓ ไม่ระบุ</div>
+            <div class="spec"><b>อาหารเช้า</b>✅ รวมในราคา</div>
+            <div class="spec"><b>ครัว/ปิ้งย่าง</b>✅</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+            <div class="spec"><b>ส่วนเกิน</b>+600/ท่าน/คืน</div>
+            <div class="spec"><b>เด็ก</b>≤8 ปี ฟรี 1 ท่าน</div>
+          </div>
+          <div class="block"><h4>ราคา</h4>
+            <table>
+              <tr><th>ช่วงวัน</th><th>ราคา (8 ท่าน)</th></tr>
+              <tr><td>จันทร์–พฤหัสบดี</td><td class="num">7,900 (รวมอาหารเช้า)</td></tr>
+              <tr><td>ศุกร์</td><td class="num">8,900</td></tr>
+              <tr><td>เสาร์</td><td class="num">10,900</td></tr>
+              <tr><td>หยุดยาว</td><td class="num">11,900</td></tr>
+              <tr><td>เสริมคน</td><td class="num">+600/ท่าน</td></tr>
+            </table>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li>ราคารวมอาหารเช้า — ประหยัดและไม่ต้องเตรียมเอง</li><li>ใกล้ประตูอุทยานมาก (4 กม.)</li><li>ห้องนอนมีห้องน้ำในตัวทุกห้อง เหมาะผู้สูงอายุ</li><li>เด็กเล็กฟรี 1 ท่าน</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li>มีแค่ 3 ห้องนอน — 7 คนพอดี แต่ถ้าเสริมคนจะแน่น</li><li>ไม่ระบุว่ามีโต๊ะพูล ต้องถาม</li><li>บ้านยกพื้น/บันได ต้องดูเรื่องผู้สูงอายุ</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> มีโต๊ะพูลไหม · อาหารเช้าเป็นอะไร/กี่คน · บันไดสูงไหม · รับหมาไหม · ที่จอด 2 คัน</div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="vcard" id="lavallee" data-photos="images/khaoyai/lavallee/05.jpg|images/khaoyai/lavallee/04.jpg|images/khaoyai/lavallee/03.jpg|images/khaoyai/lavallee/02.jpg|images/khaoyai/lavallee/01.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/lavallee/05.jpg" alt="La Vallee Khaoyai" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>La Vallee Khaoyai</h3>
+          <div class="zone">📍 ถนนธนะรัชต์ ซอยน้ำผุด · 3 ห้องนอน 3 ห้องน้ำ · 8–12 ท่าน</div>
+          <div class="vtags">
+            <span class="tag best">🎱 โต๊ะพูล</span>
+            <span class="tag ok">🐶 รับสัตว์เลี้ยง</span>
+            <span class="tag ok">🛁 จากุซซี่</span>
+            <span class="tag ok">☕ ใกล้คาเฟ่</span>
+          </div>
+          <div class="vprice"><small>ราคาวันพฤหัส (ต.ค.–ก.พ.)</small><b>~7,900–9,900 บาท/คืน</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>จากถนนธนะรัชต์ เลี้ยวเข้าซอยน้ำผุดธรรมชาติ ผ่านวัดท่าช้างแล้วเลี้ยวขวาเข้าซอยเทศบาลท่าช้างใต้ 12 เยื้องกับ Within-Khaoyai Mixology Café ไป 2 กม. — เป็นบ้านแฝด 2 หลัง ตกแต่งโมเดิร์น มีประตูสวนเชื่อมถึงกัน</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>3 ห้อง</div>
+            <div class="spec"><b>ห้องน้ำ</b>3 ห้อง</div>
+            <div class="spec"><b>ความจุ</b>8 ท่าน (เสริมได้ถึง 12)</div>
+            <div class="spec"><b>สระ</b>ส่วนตัว + จากุซซี่ + แพยาง</div>
+            <div class="spec"><b>โต๊ะพูล</b>✅ มี + เคาน์เตอร์บาร์</div>
+            <div class="spec"><b>ครัว</b>✅ ครบ (ไมโครเวฟ เตาไฟฟ้า หม้อหุงข้าว)</div>
+            <div class="spec"><b>ปิ้งย่าง</b>✅ เตาบาร์บีคิว + กระติกน้ำแข็ง</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>✅ เข้าพักได้</div>
+            <div class="spec"><b>เช็คอิน/เอาท์</b>15:00 / 12:00</div>
+            <div class="spec"><b>ประกัน</b>3,000 บาท</div>
+          </div>
+          <div class="block"><h4>ราคา</h4>
+            <table>
+              <tr><th>ช่วง</th><th>ราคา (8 ท่าน)</th></tr>
+              <tr><td>วันธรรมดา (อา.–พฤ.)</td><td class="num">7,900–9,900*</td></tr>
+              <tr><td>ศุกร์–เสาร์</td><td class="num">8,900–10,900*</td></tr>
+              <tr><td>เสริมเตียง</td><td class="num">+800/ท่าน</td></tr>
+              <tr><td>เด็ก 0–4 ปี</td><td class="num">ฟรี (ไม่มีเตียง)</td></tr>
+              <tr><td>เด็ก 5–12 ปี</td><td class="num">+400/ท่าน</td></tr>
+            </table>
+            <p style="font-size:12.5px;color:var(--muted);margin-top:6px">* ราคา มี.ค.–ก.ย. อยู่ที่ 7,900/8,900 — ช่วง ต.ค.–ก.พ. เป็นไฮซีซัน ราคาอาจขึ้นถึง 12,900 ต้องเช็กกับที่พัก</p>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li><b>มีโต๊ะพูล</b>ตามโจทย์หลัก</li><li><b>รับสัตว์เลี้ยง</b> — พาหมาไปได้</li><li>จากุซซี่ + แพยางในสระ</li><li>ใกล้อาหาร/คาเฟ่ (มีฟู้ดทรัคตรงข้าม)</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li>เช็คอิน 15:00 ช้ากว่าที่อื่น</li><li>เช็คเอาท์เกินเวลาปรับชั่วโมงละ 2,000</li><li>เป็นบ้านแฝด อาจได้ยินเสียงอีกหลัง</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> ราคาจริงวันที่ 3 ธ.ค. · รับหมากี่ตัว/ค่าธรรมเนียม · โต๊ะพูลอยู่ในร่มหรือกลางแจ้ง · สระมีไฟ/รั้วกั้นไหม</div>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="vcard" id="herglory" data-photos="images/khaoyai/herglory/01.jpg|images/khaoyai/herglory/02.jpg|images/khaoyai/herglory/03.jpg|images/khaoyai/herglory/04.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/herglory/01.jpg" alt="Her Glory Vacation Villa" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>Her Glory Vacation Villa</h3>
+          <div class="zone">📍 หนองน้ำแดง ปากช่อง · 2 ห้องนอน 2 ห้องน้ำ · 8 ท่าน</div>
+          <div class="vtags">
+            <span class="tag best">🐶 รับหมาไม่จำกัดน้ำหนัก</span>
+            <span class="tag ok">🏛️ สไตล์ทัสคานี</span>
+            <span class="tag ok">🏊 สระส่วนตัว</span>
+            <span class="tag no">🛏️ 2 ห้องนอน</span>
+          </div>
+          <div class="vprice"><small>ราคาวันพฤหัส</small><b>~6,900–7,900 บาท/คืน</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>บ้านพักตากอากาศสไตล์ทัสคานีหลังเดียว ตั้งอยู่เขาใหญ่ หนองน้ำแดง อ.ปากช่อง — ใกล้ฟาร์มแกะเขาใหญ่, เขาใหญ่ พาโนราม่า ฟาร์ม และ Bonanza Exotic Zoo</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>2 ห้อง</div>
+            <div class="spec"><b>ห้องน้ำ</b>2 ห้อง</div>
+            <div class="spec"><b>ความจุ</b>สูงสุด 8 ท่าน</div>
+            <div class="spec"><b>สระ</b>ส่วนตัว</div>
+            <div class="spec"><b>ครัว</b>✅ มี</div>
+            <div class="spec"><b>ปิ้งย่าง</b>✅ อุปกรณ์ BBQ</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>✅ หมา/แมว ไม่จำกัดน้ำหนัก</div>
+            <div class="spec"><b>ค่าเลี้ยง</b>ใหญ่ 500 / เล็ก 250 บาท</div>
+            <div class="spec"><b>จำนวนสัตว์</b>สูงสุด 6 ตัว</div>
+            <div class="spec"><b>ที่จอด</b>✅</div>
+          </div>
+          <div class="block"><h4>ราคา</h4>
+            <table>
+              <tr><th>รายการ</th><th>ราคา</th></tr>
+              <tr><td>วันธรรมดา</td><td class="num">~6,900–7,900</td></tr>
+              <tr><td>วันหยุด / ไฮซีซัน</td><td class="num">สูงสุด ~12,900</td></tr>
+              <tr><td>ค่าสัตว์เลี้ยง</td><td class="num">250–500/ตัว/คืน</td></tr>
+            </table>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li><b>รับหมาแบบไม่จำกัดน้ำหนัก</b> — หายากมาก</li><li>รับสัตว์ได้ถึง 6 ตัว</li><li>ถูกที่สุดในลิสต์</li><li>สไตล์ทัสคานี ถ่ายรูปสวย ใกล้ฟาร์มแกะ</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li><b>มีแค่ 2 ห้องนอน</b> — 7 คนต้องใช้เตียงเสริม/โซฟา</li><li>ไม่มีโต๊ะพูล</li><li>ไม่เหมาะถ้าอยากแยกห้องให้พ่อแม่</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> 7 คนนอนยังไง (เตียงเสริมกี่เตียง) · สระลึกเท่าไร · หมาเข้าบ้านได้ไหม/ห้ามขึ้นเตียงไหม · ค่าประกัน</div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="vcard" id="valley8" data-photos="images/khaoyai/valley8/01.jpg|images/khaoyai/valley8/02.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/valley8/01.jpg" alt="8 Valley KhaoYai" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>8 Valley KhaoYai</h3>
+          <div class="zone">📍 ถนนธนะรัชต์ ใกล้ Within Khaoyai Café · หลายขนาด</div>
+          <div class="vtags">
+            <span class="tag best">🏊 สระซีทรู + จากุซซี่</span>
+            <span class="tag ok">🎠 สนามเด็กเล่น</span>
+            <span class="tag ok">⛳ สนามกอล์ฟ/ฟุตบอล</span>
+            <span class="tag warn">💰 8,900 ขึ้นไป</span>
+          </div>
+          <div class="vprice"><small>ราคาเริ่มต้น</small><b>8,900–18,900 บาท/คืน</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>111/1 หมู่ 12 บ้านท่าช้าง ถ.ธนะรัชต์ ต.หมูสี — เลี้ยวเข้าซอยน้ำผุดธรรมชาติ ผ่านวัดท่าช้าง เลี้ยวขวาซอยเทศบาลท่าช้างใต้ 12 เยื้อง Within-Khaoyai Café ไป 1 กม. เป็นโครงการพูลวิลล่าหลายหลังสไตล์นอร์ดิก</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>หลายขนาด (แล้วแต่หลัง)</div>
+            <div class="spec"><b>สระ</b>ซีทรู + จากุซซี่กลางแจ้ง</div>
+            <div class="spec"><b>ดาดฟ้า</b>✅ Rooftop ปาร์ตี้</div>
+            <div class="spec"><b>ส่วนกลาง</b>สนามกอล์ฟ · ฟุตบอล · แบต · ยิงธนู · สนามเด็กเล่น</div>
+            <div class="spec"><b>ครัว/ปิ้งย่าง</b>✅</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>❓ ต้องสอบถาม</div>
+            <div class="spec"><b>ที่จอด</b>✅</div>
+            <div class="spec"><b>ราคา</b>8,900–18,900</div>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li>สระซีทรูสวย เหมาะถ่ายรูป</li><li>กิจกรรมในโครงการเยอะ เด็ก 2 ขวบมีที่เล่น</li><li>ดาดฟ้าปาร์ตี้ตอนเย็น</li><li>ใกล้คาเฟ่ชื่อดัง</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li>ราคาเริ่ม 8,900 — สูงกว่าตัวเลือกอื่น</li><li>ต้องเลือกหลังให้ตรงจำนวนคน</li><li>ไม่ระบุโต๊ะพูล</li><li>เป็นโครงการใหญ่ อาจไม่ส่วนตัวเท่าบ้านเดี่ยว</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> หลังไหนเหมาะ 7 คน/ราคาเท่าไร · มีโต๊ะพูลไหม · รับหมาไหม · สระมีโซนตื้นไหม</div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="vcard" id="vivian" data-photos="images/khaoyai/vivian/01.jpg|images/khaoyai/vivian/02.jpg|images/khaoyai/vivian/03.jpg|images/khaoyai/vivian/04.jpg|images/khaoyai/vivian/05.jpg">
+        <div class="vmedia">
+          <img src="images/khaoyai/vivian/01.jpg" alt="Vivian Ves Vill Pool Villa" loading="lazy">
+          <span class="vbadge">🏠 พูลวิลล่า</span>
+          <span class="vcta">ดูรายละเอียด →</span>
+        </div>
+        <div class="vhead">
+          <h3>Vivian Ves Vill Pool Villa</h3>
+          <div class="zone">📍 หมูสี ปากช่อง · 3–4 ห้องนอน 4–5 ห้องน้ำ · 10–20 ท่าน</div>
+          <div class="vtags">
+            <span class="tag best">🎱 โต๊ะพูล</span>
+            <span class="tag ok">🐶 รับหมา</span>
+            <span class="tag ok">🌊 ติดลำธาร</span>
+            <span class="tag warn">💰 ราคาสูงสุด</span>
+          </div>
+          <div class="vprice"><small>ราคาวันพฤหัส</small><b>~12,990 บาท/คืน (2–10 ท่าน)</b></div>
+        </div>
+        <div class="vbody">
+          <div class="block"><h4>ทำเล &amp; ที่ตั้ง</h4><p>425 หมู่ 16 ต.หมูสี อ.ปากช่อง — พื้นที่กว่า 3 ไร่ มีคลองลำตะคองไหลผ่าน ห่างสระน้ำผุด 1 กม. และอุทยานแห่งชาติเขาใหญ่ 10 นาที ใกล้ตลาดและร้านสะดวกซื้อ</p></div>
+          <div class="spec-grid">
+            <div class="spec"><b>ห้องนอน</b>3–4 ห้อง</div>
+            <div class="spec"><b>ห้องน้ำ</b>4–5 ห้อง (น้ำอุ่นทุกห้อง)</div>
+            <div class="spec"><b>ความจุ</b>10–20 ท่าน</div>
+            <div class="spec"><b>สระ</b>ระบบเกลือ + จากุซซี่</div>
+            <div class="spec"><b>โต๊ะพูล</b>✅ มี</div>
+            <div class="spec"><b>ครัว</b>✅ ครัวไทย + BBQ</div>
+            <div class="spec"><b>คาราโอเกะ</b>✅</div>
+            <div class="spec"><b>สัตว์เลี้ยง</b>✅ +500–1,000/ตัว</div>
+            <div class="spec"><b>เช็คอิน/เอาท์</b>13:00 / 11:00</div>
+            <div class="spec"><b>ประกัน</b>บ้าน 5,000 / สัตว์ 2,000</div>
+          </div>
+          <div class="block"><h4>ราคา</h4>
+            <table>
+              <tr><th>ช่วง</th><th>ราคา</th></tr>
+              <tr><td>จันทร์–พฤหัสบดี (2–10 ท่าน)</td><td class="num">12,990</td></tr>
+              <tr><td>ศุกร์ / อาทิตย์</td><td class="num">14,990</td></tr>
+              <tr><td>เสาร์ / หยุดยาว</td><td class="num">20,000</td></tr>
+              <tr><td>เกิน 10 ท่าน</td><td class="num">+1,000/ท่าน</td></tr>
+              <tr><td>ค่าล้างจาน (ถ้าไม่ล้าง)</td><td class="num">600</td></tr>
+            </table>
+          </div>
+          <div class="pros-cons grid2">
+            <div class="good"><b>✅ ข้อดี</b><ul class="tight"><li><b>โต๊ะพูล + รับหมา</b> ครบทั้ง 2 เงื่อนไข</li><li>ติดลำธาร เดินเล่นได้ เด็กชอบ</li><li>ลานปาร์ตี้หน้าสระ + โต๊ะปาร์ตี้</li><li>จองได้ถึง 20 ท่านถ้าญาติมาเพิ่ม</li></ul></div>
+            <div class="note" style="margin:0"><b>⚠️ ข้อควรรู้</b><ul class="tight"><li>แพงที่สุดในลิสต์ (12,990)</li><li>ประกันบ้าน 5,000 + ประกันสัตว์ 2,000</li><li>ไม่รวมอาหารเช้า</li><li>หน้าฝนอาจมีกลิ่นอับ/แมลง (รีวิวระบุ)</li></ul></div>
+          </div>
+          <div class="tip"><b>ต้องถามก่อนจอง:</b> ราคา 3 ธ.ค. · รับหมากี่ตัว/ค่าเพิ่ม · โต๊ะพูล+คาราโอเกะใช้งานได้ไหม · สระมีโซนเด็กไหม · ที่จอด 2 คัน</div>
+        </div>
+      </article>
+
+    </div>
+
+    <h3>📋 ตัวเลือกสำรอง (ยังไม่คัดเข้า 6 อันดับแรก)</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ที่พัก</th><th>จุดเด่น</th><th>ราคาอ้างอิง</th><th>ติดต่อ</th></tr></thead>
+        <tbody>
+          <tr><td><b>The Scandic Khao Yai</b></td><td>พูลวิลล่า 3 นอน 3 น้ำ · <b>อาหารเช้าฟรี</b> · ปิ้งย่างฟรี</td><td class="num">2,200–13,500</td><td>088-822-5965</td></tr>
+          <tr><td><b>The X10 Private Pool Villa</b></td><td>สระเกลือ 5×10 ม. ทุกหลัง · 4 โซน (Nordic/Italian/Tuscany/Japan)</td><td class="num">เริ่ม 2,690–4,000</td><td>082-542-5432</td></tr>
+          <tr><td><b>พร้อมพูลวิลล่า เขาใหญ่</b></td><td>12 ท่าน · ราคาวันธรรมดา 10,500</td><td class="num">10,500–17,000</td><td>086-375-3216</td></tr>
+          <tr><td><b>Bruma Pool Villa</b></td><td>16 ท่าน · อาทิตย์–พฤหัส 19,900</td><td class="num">19,900</td><td>095-559-9598</td></tr>
+          <tr><td><b>Sheriff Pool Villa</b></td><td>เลยโลตัสปากช่อง 11 กม.</td><td class="num">สอบถาม</td><td>Line @Sheriff.official</td></tr>
+          <tr><td><b>Best Way Resort</b></td><td>ตัวเลือกถูก · 1,300–8,000</td><td class="num">1,300–8,000</td><td>063-224-7435</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>หมายเหตุ:</b> ราคาทั้งหมดรวบรวมจากประกาศ/หน้าเว็บของที่พักและบทความรวมที่พัก (chillpainai, cozyhomeforrent, baanpoolvillapattaya) ณ พ.ย. 2569 — <b>ต้องโทรยืนยันวันว่าง 3–4 ธ.ค. และราคารวมสุทธิ</b>ก่อนโอนทุกครั้ง
+    </div>
+  </section>
+</div>
+<!-- ============ แผน 2 วัน ============ -->
+<div class="panel" id="panel-plan">
+  <section>
+    <h2>🗓️ แผนเดินทาง 2 วัน 1 คืน</h2>
+    <p class="lead">3 ธ.ค. (พฤหัส) → 4 ธ.ค. (ศุกร์) · ออกจากกรุงเทพฯ เช้า กลับถึงเย็น</p>
+
+    <div class="days">
+      <span class="pill">🚗 ไป-กลับ ~330 กม.</span>
+      <span class="pill">⏱️ ขับ ~2.5–3 ชม./เที่ยว</span>
+      <span class="pill">🌡️ กลางคืน 12–18°C</span>
+      <span class="pill">🍖 BBQ ที่วิลล่า 1 มื้อ</span>
+    </div>
+
+    <div class="day">
+      <div class="day-head">วันที่ 1 · พฤหัสบดี 3 ธ.ค. — กรุงเทพฯ → ปากช่อง → เขาใหญ่</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-body"><b>ออกเดินทางจากกรุงเทพฯ 2 คัน</b><p>มอเตอร์เวย์ → ถนนมิตรภาพ (ทางหลวง 2) แวะปั๊มทุก 1.5–2 ชม.</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-body"><b>ถึงปากช่อง แวะคาเฟ่/ปั๊ม</b><p>ให้เด็กได้เปลี่ยนอิริยาบถ ก่อนเข้าที่พัก</p></div></div>
+        <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-body"><b>ตลาดปากช่อง — ซื้อของทำ BBQ</b><p>หมู/ไก่/ผัก/ข้าวเหนียว/น้ำแข็ง · ซื้อเผื่อมื้อเย็นเลย</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-body"><b>มื้อเที่ยงในปากช่อง</b><p>ร้านอาหารตามสั่ง/ก๋วยเตี๋ยว/ข้าวมันไก่ — ประหยัดเวลา</p></div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-body"><b>ฟาร์มแกะเขาใหญ่ หรือจุดชมวิว</b><p>กิจกรรมเบา ๆ ให้เด็กได้เดินเล่นก่อนเช็คอิน</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><b>เช็คอินพูลวิลล่า</b><p>บางที่เช็คอิน 13:00 บางที่ 15:00 — เช็กกับที่พักก่อน</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-body"><b>เล่นสระ + โต๊ะพูล</b><p>ผู้ใหญ่เตรียมของ BBQ / ปู่ย่าพักผ่อน</p></div></div>
+        <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-body"><b>คาเฟ่หรือเดินเล่นรับลมหนาว</b><p>ธ.ค.อากาศเย็นสบาย เหมาะถ่ายรูปก่อนพระอาทิตย์ตก</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-body"><b>ปิ้งย่าง BBQ ที่วิลล่า</b><p>หมูกระทะ/ซีฟู้ด + เครื่องดื่ม · เปิดไฟรอบสระ</p></div></div>
+        <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-body"><b>พักผ่อน / คาราโอเกะเบา ๆ</b><p>กลางคืนอากาศเย็น เตรียมผ้าห่มให้เด็กและผู้สูงอายุ</p></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">วันที่ 2 · ศุกร์ 4 ธ.ค. — เขาใหญ่ → กรุงเทพฯ</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">06:30</div><div class="tl-body"><b>ตื่นเช้าชมหมอก</b><p>ธ.ค. เขาใหญ่มีหมอกเช้าเกือบทุกวัน — ถ่ายรูปหน้าบ้านได้เลย</p></div></div>
+        <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-body"><b>อาหารเช้า</b><p>ถ้าพัก Khaoyai Valley 10 รวมอาหารเช้าแล้ว / ที่อื่นเตรียมขนมปัง-ไข่-กาแฟ</p></div></div>
+        <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-body"><b>อุทยานแห่งชาติเขาใหญ่ — น้ำตกเหวสุวัต</b><p>เดินทางราบสั้น ๆ เหมาะผู้สูงอายุและเด็ก · เสียค่าเข้า</p></div></div>
+        <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-body"><b>กลับที่พัก เก็บของ</b><p>เช็คของใช้เด็กให้ครบ</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-body"><b>เช็คเอาท์</b><p>ส่วนใหญ่ 11:00–12:00 — เกินเวลาอาจมีค่าปรับ</p></div></div>
+        <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-body"><b>มื้อเที่ยง</b><p>ร้านอาหารเขาใหญ่/ปากช่อง ก่อนเดินทางกลับ</p></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-body"><b>ซื้อของฝาก</b><p>ไร่องุ่น / ตลาดปากช่อง / ร้านของฝากริมถนน</p></div></div>
+        <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-body"><b>ออกเดินทางกลับกรุงเทพฯ</b><p>เผื่อรถติดช่วงเย็นวันศุกร์</p></div></div>
+        <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-body"><b>ถึงกรุงเทพฯ โดยประมาณ</b></div></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>แผนสำรอง:</b> ถ้าฝนตก/อากาศไม่ดี สลับอุทยานเป็น <b>Bonanza Exotic Zoo</b> หรือคาเฟ่ในร่ม — และถ้าเด็กงอแง ตัดฟาร์มแกะออก เหลือแค่ตลาด + ที่พักก็เพียงพอสำหรับ 2 วัน 1 คืน
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="mini">
+        <h4>🧥 เตรียมอะไรเป็นพิเศษ</h4>
+        <ul>
+          <li>เสื้อกันหนาวเด็ก + ผ้าห่ม (กลางคืน 12–18°C)</li>
+          <li>ยากันยุง / โลชั่น</li>
+          <li>รองเท้าผ้าใบสำหรับเดินอุทยาน</li>
+          <li>ถุงมือ/หมวกไหมพรมสำหรับผู้สูงอายุ</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>🚗 การเดินทาง</h4>
+        <ul>
+          <li>ไป: มอเตอร์เวย์ → ถนนมิตรภาพ → ปากช่อง → ถนนธนะรัชต์</li>
+          <li>รถ 2 คัน จอดที่วิลล่าได้ตามประกาศ</li>
+          <li>น้ำมัน + ทางด่วน 2 คัน ~1,600–2,200 บาท</li>
+          <li>ปั๊มน้ำมันหนาแน่นช่วงปากช่อง ไม่ต้องกังวล</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- ============ กิน & เที่ยว ============ -->
+<div class="panel" id="panel-eat">
+  <section>
+    <h2>🍽️ กิน &amp; เที่ยวเขาใหญ่</h2>
+    <p class="lead">กดปุ่ม “เปิดแผนที่” เพื่อนำทางได้เลย — จัดกลุ่มตามวันที่ใช้</p>
+
+    <h3>🛒 วันที่ 1 · ก่อนเข้าที่พัก</h3>
+    <div class="places">
+      <div class="place">
+        <b>ตลาดปากช่อง</b>
+        <p>ตลาดสดใหญ่ของปากช่อง ซื้อหมู/ไก่/ผัก/น้ำแข็งสำหรับ BBQ และของกินเล่น — ถูกกว่าร้านในเขาใหญ่</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=ตลาดปากช่อง+นครราชสีมา" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>ฟาร์มแกะเขาใหญ่</b>
+        <p>ให้อาหารแกะ ถ่ายรูปกับทุ่งหญ้า — เด็ก 2 ขวบชอบ แต่ระวังแดดและกลิ่น</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=ฟาร์มแกะเขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>เขาใหญ่ พาโนราม่า ฟาร์ม</b>
+        <p>ฟาร์มวิวภูเขา มีกิจกรรมให้อาหารสัตว์และจุดถ่ายรูป อยู่ใกล้ฟาร์มแกะ</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=เขาใหญ่+พาโนราม่า+ฟาร์ม" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+    </div>
+
+    <h3>🌳 วันที่ 2 · ธรรมชาติและของฝาก</h3>
+    <div class="places">
+      <div class="place">
+        <b>อุทยานแห่งชาติเขาใหญ่</b>
+        <p>ประตูด้านปากช่อง · ค่าเข้าแบบชาวไทย · เปิดเช้าถึงเย็น</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=อุทยานแห่งชาติเขาใหญ่+ประตู+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>น้ำตกเหวสุวัต</b>
+        <p>เดินทางราบประมาณ 100–200 ม. จากลานจอด เหมาะผู้สูงอายุและเด็กเล็ก</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=น้ำตกเหวสุวัต+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>Bonanza Exotic Zoo</b>
+        <p>สวนสัตว์เอกชน มีโชว์และสัตว์ให้ดู — แผนสำรองถ้าฝนตก</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Bonanza+Exotic+Zoo+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>ไร่องุ่น (GranMonte / ไร่ใกล้เคียง)</b>
+        <p>เดินชมไร่ ชิมไวน์ ถ่ายรูป ซื้อของฝาก — ธ.ค. บรรยากาศดี</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=GranMonte+เขาใหญ่" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+    </div>
+
+    <h3>☕ คาเฟ่ &amp; ร้านอาหาร</h3>
+    <div class="places">
+      <div class="place">
+        <b>Within Khaoyai</b>
+        <p>คาเฟ่/บาร์ชื่อดังใกล้ La Vallee และ 8 Valley — บรรยากาศดี ถ่ายรูปสวย</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Within+Khaoyai" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>ร้านอาหารอีสาน/ครัวเขาใหญ่</b>
+        <p>ส้มตำ ไก่ย่าง ปลาเผา ราคาคนท้องถิ่น — เหมาะมื้อเที่ยงวันแรก</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=ร้านอาหาร+เขาใหญ่+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>หมูกระทะ / บุฟเฟต์ปิ้งย่าง</b>
+        <p>ทางเลือกถ้าไม่อยากทำ BBQ เองที่วิลล่า — มีหลายร้านในปากช่อง</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=หมูกระทะ+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+      <div class="place">
+        <b>ข้าวมันไก่/ก๋วยเตี๋ยวปากช่อง</b>
+        <p>มื้อเร็วประหยัดเวลา เหมาะวันที่ต้องเดินทางกลับ</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=ข้าวมันไก่+ปากช่อง" target="_blank" rel="noopener">🗺️ เปิดแผนที่</a>
+      </div>
+    </div>
+
+    <div class="tip">
+      <b>ของฝากที่ควรซื้อ:</b> ไวน์ไร่องุ่น · นมสด/โยเกิร์ตฟาร์ม · ผักสด/ข้าวโพดจากตลาดปากช่อง · ของกินเล่นจากร้านริมถนนธนะรัชต์
+    </div>
+
+    <div class="note">
+      <b>หมายเหตุ:</b> รายการสถานที่นี้เป็นลิงก์แผนที่ให้กดนำทาง ไม่ได้แนบรูป — เน้นรูปที่พักเป็นหลัก ถ้าอยากได้รูปสถานที่ประกอบ บอกได้ครับ
+    </div>
+  </section>
+</div>
+<!-- ============ งบ & checklist ============ -->
+<div class="panel" id="panel-budget">
+  <section>
+    <h2>💰 งบประมาณทั้งทริป</h2>
+    <p class="lead">6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าไป) · 2 วัน 1 คืน · 3–4 ธ.ค. 2569</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th style="text-align:right">ประมาณการ (บาท)</th></tr></thead>
+        <tbody>
+          <tr><td>พูลวิลล่า 1 คืน (6,990–12,990)</td><td class="num">6,990–12,990</td></tr>
+          <tr><td>ค่าสัตว์เลี้ยง (ถ้าพาไป)</td><td class="num">0–1,000</td></tr>
+          <tr><td>น้ำมัน + ทางด่วน 2 คัน</td><td class="num">1,600–2,200</td></tr>
+          <tr><td>วัตถุดิบ BBQ + เครื่องดื่ม</td><td class="num">2,500–3,500</td></tr>
+          <tr><td>มื้อเที่ยง 2 วัน + อาหารเช้า</td><td class="num">2,000–3,000</td></tr>
+          <tr><td>ค่าเข้าอุทยาน / ฟาร์ม / กิจกรรม</td><td class="num">800–1,500</td></tr>
+          <tr><td>ของฝาก / สำรอง</td><td class="num">1,000–1,500</td></tr>
+          <tr class="total"><td>รวมทั้งทริป</td><td class="num">14,890–25,690</td></tr>
+          <tr><td>เฉลี่ยต่อผู้ใหญ่ 1 คน</td><td class="num">2,500–4,300</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px">
+      * ค่าประกันบ้าน (2,000–5,000) ไม่นับเป็นค่าใช้จ่าย เพราะได้คืนวันเช็คเอาท์ · เด็ก 2 ขวบพักฟรีเกือบทุกที่
+    </p>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="good">
+        <b>💡 ถ้าอยากคุมงบให้ต่ำสุด</b>
+        <ul class="tight">
+          <li>เลือก <b>The Vell</b> (6,990) หรือ <b>Her Glory</b> (6,900)</li>
+          <li>ทำ BBQ เองที่วิลล่าแทนกินร้าน</li>
+          <li>ตัดฟาร์มสัตว์ออก เหลือแค่ตลาด + อุทยาน</li>
+          <li>รวมแล้วจบที่ ~15,000 บาท (~2,500/คน)</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>📊 เทียบกับทริปทะเล</h4>
+        <ul>
+          <li>ทะเลระยอง 2 วัน 1 คืน: 18,800–24,400</li>
+          <li>เขาใหญ่ 2 วัน 1 คืน: <b>14,890–25,690</b></li>
+          <li>เขาใหญ่ถูกกว่าเพราะที่พักถูกกว่า และไม่ต้องซื้อซีฟู้ดเยอะ</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>✅ Checklist ก่อนจอง</h3>
+    <p class="lead">ติ๊กแล้วระบบจะจำไว้ในเครื่องนี้</p>
+    <div class="chk-tools">
+      <span class="chk-progress" id="chkProgress">0 / 10</span>
+      <button class="btn" id="chkReset" type="button">ล้างทั้งหมด</button>
+    </div>
+    <div id="checklist">
+      <label class="chk"><input type="checkbox" data-k="c1"><span>ยืนยัน <b>วันว่าง 3–4 ธ.ค.</b> กับที่พัก</span></label>
+      <label class="chk"><input type="checkbox" data-k="c2"><span>ถามราคารวมสุทธิ (ค่าบริการ/ค่าไฟ/ค่าล้างจาน/ค่าประกัน)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c3"><span>ยืนยันจำนวนห้องนอนและเตียง (ใครนอนห้องไหน)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c4"><span>ยืนยันความลึกสระ + มีโซนเด็ก/สระสไลเดอร์ไหม</span></label>
+      <label class="chk"><input type="checkbox" data-k="c5"><span>ยืนยัน <b>โต๊ะพูล</b> สภาพใช้งานได้และอยู่ในร่ม</span></label>
+      <label class="chk"><input type="checkbox" data-k="c6"><span>ถามเรื่องสัตว์เลี้ยง (ถ้าพาไป) + ค่าเพิ่ม + กฎในบ้าน</span></label>
+      <label class="chk"><input type="checkbox" data-k="c7"><span>ยืนยันที่จอดรถ 2 คันในบ้าน</span></label>
+      <label class="chk"><input type="checkbox" data-k="c8"><span>เวลาเช็คอิน/เช็คเอาท์ และค่าปรับถ้าเกินเวลา</span></label>
+      <label class="chk"><input type="checkbox" data-k="c9"><span>ถามเรื่องเครื่องนอน/ผ้าห่มเพิ่ม (กลางคืนหนาว 12–18°C)</span></label>
+      <label class="chk"><input type="checkbox" data-k="c10"><span>จองล่วงหน้า 2–3 สัปดาห์ (ต้น ธ.ค. เริ่มไฮซีซัน)</span></label>
+    </div>
+
+    <h3>📞 ข้อมูลติดต่อ</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>ที่พัก</th><th>โทร / Line</th><th style="text-align:right">ราคาอ้างอิง</th></tr></thead>
+        <tbody>
+          <tr><td>The Vell Pool Villa</td><td>ผ่านหน้า listing (baanpoolvillapattaya)</td><td class="num">6,990–14,000</td></tr>
+          <tr><td>Khaoyai Valley 10</td><td>095-659-5615 · Line <code>@khaoyaivalley</code></td><td class="num">7,900–11,900</td></tr>
+          <tr><td>La Vallee Khaoyai</td><td>081-663-6388 · Line <code>@lavalleekhaoyai</code></td><td class="num">7,900–12,900</td></tr>
+          <tr><td>Her Glory Vacation Villa</td><td>081-802-4864</td><td class="num">6,900–12,900</td></tr>
+          <tr><td>8 Valley KhaoYai</td><td>086-832-8888 · 061-853-9999</td><td class="num">8,900–18,900</td></tr>
+          <tr><td>Vivian Ves Vill</td><td>061-237-3888 · Line <code>@vivian888</code></td><td class="num">12,990–20,000</td></tr>
+          <tr><td>The Scandic Khao Yai</td><td>088-822-5965</td><td class="num">2,200–13,500</td></tr>
+          <tr><td>The X10 Private Pool Villa</td><td>082-542-5432</td><td class="num">2,690–4,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:16px">
+      <b>ข้อควรระวัง:</b> ต้นเดือนธันวาคมเป็นช่วงที่คนเริ่มจองเข้าหนาว ราคาอาจไม่ตรงกับที่ลงประกาศไว้ และหลายที่คิดเรท “ไฮซีซัน” ตั้งแต่ พ.ย. — <b>ควรโทรยืนยันก่อนโอนทุกครั้ง</b> และขอใบยืนยันการจองเป็นลายลักษณ์อักษร
+    </div>
+  </section>
+</div>
+
+</div><!-- /wrap -->
+<footer>
+  <div class="wrap">
+    <div><b>ทริปเขาใหญ่ 3–4 ธันวาคม 2569 · 2 วัน 1 คืน</b></div>
+    <div>6 ผู้ใหญ่ + เด็ก 2 ขวบ + หมา (ถ้าสะดวก) · รถส่วนตัว 2 คัน</div>
+    <div>ราคาที่พักรวบรวมจากประกาศ/หน้าเว็บของที่พักและบทความรวมที่พัก ณ พ.ย. 2569 — ต้องยืนยันวันว่างและราคาจริงก่อนจอง</div>
+    <div class="no-print"><a href="index.html">← กลับหน้าแรก</a> · <a href="travel-plan.html">แผนทริปทะเล</a> · <a href="accommodation-comparison.html">ตัวเลือกที่พักทะเล</a></div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="ปิด">✕</button>
+    <div class="modal-scroll" id="modalScroll">
+      <div class="gallery" id="gallery">
+        <img id="gMain" src="" alt="">
+        <button class="g-nav g-prev" id="gPrev" type="button" aria-label="รูปก่อนหน้า">‹</button>
+        <button class="g-nav g-next" id="gNext" type="button" aria-label="รูปถัดไป">›</button>
+        <span class="g-count" id="gCount"></span>
+      </div>
+      <div class="g-thumbs" id="gThumbs"></div>
+      <div class="credit" id="gCredit"></div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ---------- tabs ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  function show(id, push){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === id); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + id); });
+    if(push){ try { history.replaceState(null, '', '#' + id); } catch(e){} }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab, true); }); });
+  var initial = (location.hash || '').replace('#', '');
+  if(initial && document.getElementById('panel-' + initial)){
+    tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === initial); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + initial); });
+  }
+  window.addEventListener('hashchange', function(){
+    var id = (location.hash || '').replace('#', '');
+    if(id && document.getElementById('panel-' + id)) show(id, false);
+  });
+
+  /* ---------- villa modal ---------- */
+  var modal = document.getElementById('modal');
+  var modalContent = document.getElementById('modalContent');
+  var modalScroll = document.getElementById('modalScroll');
+  var gallery = document.getElementById('gallery');
+  var gMain = document.getElementById('gMain');
+  var gCount = document.getElementById('gCount');
+  var gThumbs = document.getElementById('gThumbs');
+  var gPrev = document.getElementById('gPrev');
+  var gNext = document.getElementById('gNext');
+  var gCredit = document.getElementById('gCredit');
+  var photos = [], idx = 0, lastFocus = null;
+
+  function renderGallery(){
+    gMain.src = photos[idx];
+    gCount.textContent = (idx + 1) + ' / ' + photos.length;
+    var btns = gThumbs.querySelectorAll('button');
+    Array.prototype.forEach.call(btns, function(b, i){ b.classList.toggle('active', i === idx); });
+    gPrev.disabled = idx === 0;
+    gNext.disabled = idx === photos.length - 1;
+  }
+  function step(d){
+    var n = idx + d;
+    if(n < 0 || n >= photos.length) return;
+    idx = n; renderGallery();
+  }
+  gPrev.addEventListener('click', function(e){ e.stopPropagation(); step(-1); });
+  gNext.addEventListener('click', function(e){ e.stopPropagation(); step(1); });
+  gThumbs.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('button[data-i]') : null;
+    if(!b) return;
+    idx = Number(b.dataset.i); renderGallery();
+  });
+
+  function openCard(card){
+    if(!card) return;
+    photos = (card.dataset.photos || '').split('|').filter(Boolean);
+    idx = 0;
+    gThumbs.innerHTML = photos.map(function(src, i){
+      return '<button type="button" data-i="' + i + '"' + (i === 0 ? ' class="active"' : '') +
+        '><img src="' + src + '" alt="" loading="lazy"></button>';
+    }).join('');
+    if(photos.length > 1){ gThumbs.style.display = ''; } else { gThumbs.style.display = 'none'; }
+    renderGallery();
+    var head = card.querySelector('.vhead').cloneNode(true);
+    var body = card.querySelector('.vbody').cloneNode(true);
+    modalContent.innerHTML = '';
+    modalContent.appendChild(head);
+    modalContent.appendChild(body);
+    gCredit.textContent = '📷 รูปภาพจากประกาศ/หน้าเว็บของที่พัก';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modalScroll.scrollTop = 0;
+    lastFocus = document.activeElement;
+    document.getElementById('modalClose').focus();
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if(lastFocus && lastFocus.focus){ try { lastFocus.focus(); } catch(e){} }
+  }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if(!modal.classList.contains('open')) return;
+    if(e.key === 'Escape') closeModal();
+    else if(e.key === 'ArrowLeft') step(-1);
+    else if(e.key === 'ArrowRight') step(1);
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.vcard'), function(c){
+    c.setAttribute('tabindex', '0');
+    c.addEventListener('click', function(e){
+      if(e.target.closest('a,button')) return;
+      openCard(c);
+    });
+    c.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openCard(c); }
+    });
+  });
+
+  /* ---------- checklist ---------- */
+  var KEY = 'khaoyaiChecklist_v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#checklist input'));
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ state = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+  function render(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var on = !!state[b.dataset.k];
+      b.checked = on;
+      if(on) done++;
+      if(b.closest('.chk')) b.closest('.chk').classList.toggle('done', on);
+    });
+    var p = document.getElementById('chkProgress');
+    if(p) p.textContent = done + ' / ' + boxes.length + (done === boxes.length ? ' · ครบแล้ว 🎉' : '');
+  }
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){ state[b.dataset.k] = b.checked; save(); render(); });
+  });
+  var reset = document.getElementById('chkReset');
+  if(reset) reset.addEventListener('click', function(){ state = {}; save(); render(); });
+  render();
+})();
+</script>
+</body>
+</html>
