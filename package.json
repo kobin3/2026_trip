@@ -1,0 +1,15 @@
+{
+  "name": "travel-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local static web server for the travel plan site and the games collection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js --open",
+    "start:lan": "node server.js",
+    "serve": "node server.js --host 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
