@@ -3,172 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>เกม · รวม 14 เกมในเครื่อง</title>
+<title>รวมเกม (15) · Travel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>">
 <style>
-  :root{--teal:#0f766e;--ink:#1f2937;--muted:#6b7280}
+  :root{--teal:#0f766e;--teal-dark:#115e59;--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--bg:#f4f7f7}
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;background:linear-gradient(135deg,#0f766e,#0891b2);font-family:"Noto Sans Thai","Segoe UI",system-ui,sans-serif;color:#fff;padding:34px 20px 44px}
-  .wrap{max-width:1000px;margin:0 auto}
-  .head{text-align:center;margin-bottom:26px}
-  h1{font-size:clamp(26px,5vw,38px);margin:0 0 10px;line-height:1.25}
-  .head p{margin:0 auto;max-width:620px;opacity:.93;font-size:15px;line-height:1.7}
-  .meta{margin-top:18px;font-size:13px;opacity:.88;line-height:1.9}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-  .card{background:rgba(255,255,255,.97);color:var(--ink);border-radius:18px;padding:22px 22px 20px;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 12px 34px rgba(0,0,0,.22);transition:transform .18s,box-shadow .18s;overflow:hidden}
-  .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.28)}
-  .card .icon{width:64px;height:64px;border-radius:16px;object-fit:cover;margin-bottom:12px;background:#e6f4f1;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
-  .card h2{margin:0 0 6px;font-size:18px;line-height:1.35}
-  .card .sub{margin:0 0 10px;font-size:12.5px;color:var(--teal);font-weight:700}
-  .card p{margin:0 0 14px;color:var(--muted);font-size:13.5px;line-height:1.65;flex:1}
-  .card .go{font-weight:700;color:var(--teal);font-size:14.5px}
-  .badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:8px;width:fit-content}
-  .mini{margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:12.5px;opacity:.9}
-  .mini a{color:#fff;text-decoration:underline}
-  @media(max-width:840px){.cards{grid-template-columns:1fr 1fr}}
-  @media(max-width:620px){.cards{grid-template-columns:1fr}}
+  body{margin:0;min-height:100vh;background:var(--bg);font-family:"Noto Sans Thai","Segoe UI",system-ui,sans-serif;color:var(--ink)}
+  a{color:var(--teal)}
+  .topbar{background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;padding:22px 20px 26px}
+  .topbar .inner{max-width:1120px;margin:0 auto}
+  .nav{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;opacity:.92;margin-bottom:14px}
+  .nav a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:1px}
+  .nav a:hover{border-bottom-color:#fff}
+  h1{margin:0;font-size:clamp(22px,3.6vw,30px);line-height:1.3;word-break:break-word}
+  .sub{margin:7px 0 0;font-size:13.5px;opacity:.92;line-height:1.6}
+  .crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13.5px;margin-top:12px}
+  .crumbs a{color:#fff;text-decoration:none;opacity:.9}
+  .crumbs a:hover{text-decoration:underline}
+  .crumbs span.sep{opacity:.55}
+  .crumbs span.here{font-weight:700}
+  main{max-width:1120px;margin:0 auto;padding:24px 20px 56px}
+  .toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+  .toolbar input{flex:1 1 240px;min-width:180px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font:inherit;font-size:14px;background:#fff;color:var(--ink);outline:none}
+  .toolbar input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.12)}
+  .count{font-size:13px;color:var(--muted);white-space:nowrap}
+  .panel{background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(15,60,60,.07);overflow:hidden}
+  .empty{padding:40px 20px;text-align:center;color:var(--muted);font-size:14px}
+  .footer{margin-top:18px;font-size:12.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .footer code{background:#e8efee;padding:1px 6px;border-radius:6px;font-size:12px;color:#0f5f59}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:12px 18px;border-bottom:1px solid var(--line);background:#fafcfc}
+  thead th.size,thead th.date{text-align:right}
+  tbody td{padding:11px 18px;border-bottom:1px solid #f0f3f3;vertical-align:middle}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#f3faf8}
+  td.name{width:100%}
+  td.name a,td.name span.nolink{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);min-width:0}
+  td.name a:hover{color:var(--teal)}
+  td.name .txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  td.name .ico{width:20px;text-align:center;flex:none}
+  td.size,td.date{text-align:right;color:var(--muted);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .open{display:inline-block;font-size:11.5px;font-weight:700;color:var(--teal);border:1px solid rgba(15,118,110,.35);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:1px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:#fff;color:var(--ink);border-radius:18px;padding:20px;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 8px 26px rgba(15,60,60,.09);transition:transform .18s,box-shadow .18s;min-width:0}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(15,60,60,.16)}
+  .card .icon{width:64px;height:64px;border-radius:16px;object-fit:cover;margin-bottom:12px;background:#e6f4f1;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1;flex:none}
+  .card h2{margin:0 0 6px;font-size:17px;line-height:1.35;word-break:break-word}
+  .card .folder{margin:0 0 12px;font-size:12px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-all}
+  .card .updated{margin:0 0 12px;font-size:12px;color:#0f766e;font-weight:600}
+  .card .go{font-weight:700;color:var(--teal);font-size:14px;margin-top:auto}
+  .badge{display:inline-block;background:#e6f4f1;color:var(--teal-dark);font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:9px;width:fit-content}
+  .notice{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.7;margin-bottom:16px}
+  .notice strong{color:#78350f}
+  .notice.ok{background:#ecfdf5;border-color:#6ee7b7;color:#065f46}
+  .notice.ok strong{color:#064e3b}
+  .clear-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:13px;color:var(--teal-dark);text-decoration:none;font-weight:600;white-space:nowrap;line-height:1.2}
+  .clear-btn:hover{border-color:var(--teal);background:#f1faf7}
+  @media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}td.date,thead th.date{display:none}tbody td,tbody th{padding-left:14px;padding-right:14px}}
 </style>
+
 </head>
 <body>
-  <div class="wrap">
-    <div class="head">
-      <h1>🎮 รวมเกม</h1>
-      <p>14 เกม HTML5 (Godot Web export) เล่นได้เลยในเบราว์เซอร์ ไม่ต้องติดตั้งอะไรเพิ่มเติม</p>
-      <div class="meta">📱 รองรับมือถือ/แท็บเล็ต · 🔊 มีเสียง · 🖱️ ใช้เมาส์หรือแตะจอ</div>
-    </div>
 
-    <div class="cards">
-      <a class="card" href="009-nut-and-bolt/index.html">
-        <img class="icon" src="009-nut-and-bolt/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🔩'}))">
-        <div class="badge" style="background:#fef3c7;color:#92400e">Physics &middot; Puzzle &middot; New</div>
-        <h2>Nuts &amp; Bolts</h2>
-        <div class="sub">น็อตแอนด์โบลต์ &middot; 11 บอร์ด</div>
-        <p>เกมปริศนาฟิสิกส์ ไขน็อตแล้วย้ายไปรูว่างเพื่อปลดแผ่นไม้ให้ร่วง มี 11 ด่านให้เลือกเล่น บันทึกความคืบหน้า รองรับจอสัมผัส พร้อมเลเยอร์ไม้สูงสุด 4 ชั้น</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="008-cubeaway-3d/index.html">
-        <img class="icon" src="008-cubeaway-3d/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🧊'}))">
-        <div class="badge" style="background:#ccfbf1;color:#0f766e">3D · Block Puzzle · New</div>
-        <h2>Cube Cascade</h2>
-        <div class="sub">ปริศนาบล็อก 3D &middot; Tap Away</div>
-        <p>เกมปริศนาบล็อก 3D สุดอบอุ่น แตะบล็อกให้บินออกตามทิศทางลูกศร ระวังหัวใจ หมุนกล้องได้รอบทิศ พร้อม 50 ด่านสารพัดรูปทรง ตั้งแต่โดนัท บันได พีระมิด ประตูทางผ่าน โครงเหล็ก ไปจนถึงมหาวิหารและห้องนิรภัย ที่การันตีว่าแก้ได้ทุกด่าน</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="007-screwdom-3d/index.html">
-        <img class="icon" src="007-screwdom-3d/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🔩'}))">
-        <div class="badge" style="background:#e0f2fe;color:#075985">3D · Puzzle · New</div>
-        <h2>Screwdom 3D</h2>
-        <div class="sub">ไขน็อต 3D &middot; Color Sorting</div>
-        <p>ไขน็อตหลากสีเพื่อปลดแผ่นบ้านของเล่นทีละชั้น รวม 20 ด่านธีมต่าง ๆ เช่น เฟือง จรวด แมว นาฬิกา และปราสาท แล้วจัดน็อตเข้าช่องสีให้ครบ มีช่องพัก 5 ช่อง บูสเตอร์ช่วยตอนตัน หมุนกล้องได้ 360° และด่านยากมีน็อตด้านใต้ให้หมุนลงไปไข</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="006-colorever/index.html">
-        <img class="icon" src="006-colorever/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'💎'}))">
-        <div class="badge" style="background:#fce7f3;color:#9d174d">Puzzle &middot; Gem Art &middot; New</div>
-        <h2>Colorever</h2>
-        <div class="sub">ศิลปะพิกเซล &middot; Relaxing Gem Puzzle</div>
-        <p>แตะกลุ่มเพชรสีเดียวกันให้บินไปเติมภาพพิกเซลอาร์ตทีละชิ้น มีถาดพัก 7 ช่องที่ระบายตัวเองได้ ไม่มีแพ้ ไม่มีจับเวลา และกด Undo ได้ตลอด เพชรเรนดอร์จาก Blender พร้อม normal map ที่วิบวับตามแสง</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="water-sort/index.html">
-        <img class="icon" src="water-sort/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🧪'}))">
-        <div class="badge" style="background:#ede9fe;color:#6d28d9">Puzzle</div>
-        <h2>Potion Sort</h2>
-        <div class="sub">Cozy Liquid Puzzle</div>
-        <p>เรียงของเหลวสีในขวดให้แยกชั้นถูกต้อง เกมแนว water sort ที่ต้องคิดทีละก้าวให้ครบทุกขวด</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="005-senior-detective/index.html">
-        <img class="icon" src="005-senior-detective/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🕵️'}))">
-        <div class="badge" style="background:#f6e7cf;color:#7c4312">Mystery · Senior · New</div>
-        <h2>The Senior Detective</h2>
-        <div class="sub">นักสืบวัยเก๋า &middot; Cozy Point &amp; Click</div>
-        <p>คดีอบอุ่น 3 บท ตามหามะลิแมวสามสีกับลุงสมชายนักสืบวัย 68 ตัวอักษรใหญ่ เสียงบรรยายไทย แตะครั้งเดียว ไม่มีจับเวลา พร้อมแฟ้มคดี โหมดเรื่องเล่า และปริศนาแบบไม่ต้องลากวาง</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="004-ramwong/index.html">
-        <img class="icon" src="004-ramwong/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'💃'}))">
-        <div class="badge" style="background:#ffe4e6;color:#be123c">Rhythm · New</div>
-        <h2>Ramwong Around the World</h2>
-        <div class="sub">รำวงรอบโลก &middot; Seated Rhythm</div>
-        <p>นั่งรำไปกับเพลงไทยสุด nostalgic ขยับแขนตามวงสีทองไปกับจังหวะรำวง ลูกทุ่ง และสุนทราภรณ์ ไม่ต้องยืน ไม่มีแพ้ พร้อมโหมดเมาส์สำหรับเล่นบนคอมพิวเตอร์ และออกแบบมาเพื่อผู้สูงวัยโดยเฉพาะ</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="003-memory-jar/index.html">
-        <img class="icon" src="003-memory-jar/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🫙'}))">
-        <div class="badge" style="background:#fde8d7;color:#9a3412">3D · Nostalgia</div>
-        <h2>Memory Jar</h2>
-        <div class="sub">ความทรงจำในขวดโหล &middot; Cozy Collector</div>
-        <p>เก็บของสะสมวัยเด็กทีละชิ้น เปิดขวดโหล แต่งห้องไทย 5 บรรยากาศ และเล่าเรื่องราวของแต่ละชิ้น ไม่มีเวลากดดัน ไม่มีแพ้ ออกแบบเพื่อผู้สูงวัย พร้อมฟอนต์ใหญ่และโหมดภาพถ่าย</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="002-brainy-bingo/index.html">
-        <img class="icon" src="002-brainy-bingo/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🎱'}))">
-        <div class="badge" style="background:#ffedd5;color:#9a3412">Senior · Bingo + Brain</div>
-        <h2>Brainy Bingo</h2>
-        <div class="sub">บิงโกบำรุงสมอง &middot; Bingo + Brain Training</div>
-        <p>บิงโกคลาสสิกที่ทุกการประทับต้องผ่านมินิเกมฝึกสมอง คิดเลข จับคู่ภาพ และจำสี พร้อมตัวอักษรใหญ่ เสียงอ่านหมายเลข โหมดคอนทราสต์สูง และเล่นกับบอทได้ทันที ออกแบบเพื่อผู้สูงวัย</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="001-word-garden/index.html">
-        <img class="icon" src="001-word-garden/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌻'}))">
-        <div class="badge" style="background:#fef3c7;color:#92400e">Word · Cozy</div>
-        <h2>Word Garden with Friends</h2>
-        <div class="sub">Cozy Word Puzzle &middot; Garden</div>
-        <p>เกมคำศัพท์คู่สวนดอกไม้สุดอบอุ่น แตะตัวอักษรเพื่อหาคำ ปลูกดอกไม้ 4 ระยะ รดน้ำสวนเพื่อน ๆ และช่วยกันปลูกต้นไม้ชุมชน ไม่มีตัวจับเวลา ไม่มีแพ้ ออกแบบมาเพื่อผู้สูงวัย</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="flip-and-jump/index.html">
-        <img class="icon" src="flip-and-jump/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌟'}))">
-        <div class="badge" style="background:#ccfbf1;color:#0f766e">Platformer · New</div>
-        <h2>Flip &amp; Jump</h2>
-        <div class="sub">Dream Hopper &middot; Retro Chef</div>
-        <p>ผจญภัยสองบทเต็มรูปแบบ: พลิกแรงโน้มถ่วง ใช้ฟองฝันจับศัตรู แล้วสลับเป็นเชฟกระทะเหล็ก กลิ้งตัว และปรุง Spicy Rush จากพริก 3 เม็ด</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="jump-and-jump/index.html">
-        <img class="icon" src="jump-and-jump/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🌙'}))">
-        <div class="badge" style="background:#ede9fe;color:#6d28d9">Platformer</div>
-        <h2>Jump &amp; Jump</h2>
-        <div class="sub">Dream Hopper &middot; Retro Chef</div>
-        <p>เกมแพลตฟอร์ม 2D สองบท: พลิกแรงโน้มถ่วงกับฟองฝันในบทที่ 1 แล้วสลับเป็นเชฟกระทะเหล็ก กลิ้งซอส และคอมโบพริก 3 เม็ดในบทที่ 2</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="food-truck/index.html">
-        <img class="icon" src="food-truck/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'🍞'}))">
-        <div class="badge">Merge</div>
-        <h2>Magic Bites</h2>
-        <div class="sub">Cozy Alchemy Merge</div>
-        <p>รวมไอเท็มในร้านอาหารแฟนตาซี ผสมสูตรอาหารและอัปเกรดเคาน์เตอร์ไปเรื่อย ๆ เกมแนว merge สายชิล</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-
-      <a class="card" href="sort/index.html">
-        <img class="icon" src="sort/index.icon.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'icon',textContent:'📦'}))">
-        <div class="badge" style="background:#e6f4f1;color:#0f766e">Sorting</div>
-        <h2>Cozy Pack</h2>
-        <div class="sub">Sorting Puzzle</div>
-        <p>จัดของเข้าช่องให้ถูกที่ ทีละชิ้น ทีละลัง เป็นเกมเรียงลำดับของที่เล่นเพลิน ๆ ได้ทุกวัย</p>
-        <span class="go">เปิดเกม →</span>
-      </a>
-    </div>
-
-    <div class="mini">
-      <a href="../index.html">← กลับหน้าแผนทริป</a>
-      <span>·</span>
-      <span>โหลดครั้งแรกอาจใช้เวลาสักครู่ (~40–72 MB ต่อเกม)</span>
-    </div>
+<header class="topbar">
+  <div class="inner">
+    <div class="nav"><a href="/">🏠 หน้าแรก</a><a href="/games/">🎮 รวมเกม</a></div>
+    <h1>🎮 รวมเกมทั้งหมด</h1>
+    <p class="sub">สแกนอัตโนมัติจากโฟลเดอร์ <code>games/</code> — พบ 15 เกม · เรียงตามอัปเดตล่าสุด</p>
   </div>
+</header>
+<main>
+  <div class="notice" id="secure-warning" hidden>
+    <strong>⚠️ หน้านี้เปิดแบบ HTTP — เกม Godot จะไม่ยอมรัน</strong><br>
+    เบราว์เซอร์ถือว่า <code>localhost</code> ปลอดภัย แต่ IP ในวง LAN ไม่ใช่ จึงต้องเปิดผ่าน HTTPS<br>
+    หยุดเซิร์ฟเวอร์แล้วรันใหม่ด้วย <code>.start-server.ps1 -Https</code> (หรือ <code>node server.js --https</code>) แล้วเปิด URL ที่ขึ้นต้นด้วย <code>https://</code>
+  </div>
+  <div class="notice ok" id="cleared-notice" hidden>
+    <strong>✅ ล้างแคชของเบราว์เซอร์แล้ว</strong> — กำลังแสดงข้อมูลล่าสุด
+  </div>
+  <div class="toolbar">
+    <input type="search" id="filter" placeholder="ค้นหาเกม…" autocomplete="off" aria-label="ค้นหาเกม">
+    <span class="count" id="count">15 เกม</span>
+    <a class="clear-btn" href="/__clear-cache?to=/games/" title="ล้าง cache ของเว็บนี้ในเบราว์เซอร์ แล้วโหลดหน้านี้ใหม่">🧹 ล้างแคช</a>
+  </div>
+  <div class="cards" id="cards">
+    <a class="card" href="petanque/?v=1795849885901" data-search="p&#39;tit boule petanque" style="animation-delay:0ms">
+        <img class="icon" src="petanque/index.icon.png" alt="" loading="lazy" data-fallback="P">
+        <div class="badge">Godot Web</div>
+        <h2>P&#39;tit Boule</h2>
+        <p class="folder">petanque</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 28 พ.ย. 2569 14:11:25</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="006-colorever/?v=1795808427028" data-search="colorever — gem art puzzle 006-colorever" style="animation-delay:20ms">
+        <img class="icon" src="006-colorever/index.icon.png" alt="" loading="lazy" data-fallback="C">
+        <div class="badge">Godot Web</div>
+        <h2>Colorever — Gem Art Puzzle</h2>
+        <p class="folder">006-colorever</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 28 พ.ย. 2569 02:40:27</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="water-sort/?v=1795803288052" data-search="potion sort: cozy liquid puzzle water-sort" style="animation-delay:40ms">
+        <img class="icon" src="water-sort/index.icon.png" alt="" loading="lazy" data-fallback="P">
+        <div class="badge">Godot Web</div>
+        <h2>Potion Sort: Cozy Liquid Puzzle</h2>
+        <p class="folder">water-sort</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 28 พ.ย. 2569 01:14:48</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="009-nut-and-bolt/?v=1795802369997" data-search="nuts &amp; bolts 009-nut-and-bolt" style="animation-delay:60ms">
+        <img class="icon" src="009-nut-and-bolt/index.icon.png" alt="" loading="lazy" data-fallback="N">
+        <div class="badge">Godot Web</div>
+        <h2>Nuts &amp; Bolts</h2>
+        <p class="folder">009-nut-and-bolt</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 28 พ.ย. 2569 00:59:29</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="food-truck/?v=1795793438127" data-search="magic bites: cozy alchemy merge food-truck" style="animation-delay:80ms">
+        <img class="icon" src="food-truck/index.icon.png" alt="" loading="lazy" data-fallback="M">
+        <div class="badge">Godot Web</div>
+        <h2>Magic Bites: Cozy Alchemy Merge</h2>
+        <p class="folder">food-truck</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 27 พ.ย. 2569 22:30:38</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="sort/?v=1795793434515" data-search="cozy pack: sorting puzzle sort" style="animation-delay:100ms">
+        <img class="icon" src="sort/index.icon.png" alt="" loading="lazy" data-fallback="C">
+        <div class="badge">Godot Web</div>
+        <h2>Cozy Pack: Sorting Puzzle</h2>
+        <p class="folder">sort</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 27 พ.ย. 2569 22:30:34</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="008-cubeaway-3d/?v=1795793380155" data-search="cube cascade 008-cubeaway-3d" style="animation-delay:120ms">
+        <img class="icon" src="008-cubeaway-3d/index.icon.png" alt="" loading="lazy" data-fallback="C">
+        <div class="badge">Godot Web</div>
+        <h2>Cube Cascade</h2>
+        <p class="folder">008-cubeaway-3d</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 27 พ.ย. 2569 22:29:40</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="005-senior-detective/?v=1795332976872" data-search="the senior detective — นักสืบวัยเก๋า 005-senior-detective" style="animation-delay:140ms">
+        <img class="icon" src="005-senior-detective/index.icon.png" alt="" loading="lazy" data-fallback="T">
+        <div class="badge">Godot Web</div>
+        <h2>The Senior Detective — นักสืบวัยเก๋า</h2>
+        <p class="folder">005-senior-detective</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 22 พ.ย. 2569 14:36:16</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="002-brainy-bingo/?v=1795330095657" data-search="brainy bingo (บิงโกบำรุงสมอง) 002-brainy-bingo" style="animation-delay:160ms">
+        <img class="icon" src="002-brainy-bingo/index.icon.png" alt="" loading="lazy" data-fallback="B">
+        <div class="badge">Godot Web</div>
+        <h2>Brainy Bingo (บิงโกบำรุงสมอง)</h2>
+        <p class="folder">002-brainy-bingo</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 22 พ.ย. 2569 13:48:15</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="007-screwdom-3d/?v=1795282720994" data-search="screwdom 3d 007-screwdom-3d" style="animation-delay:180ms">
+        <img class="icon" src="007-screwdom-3d/index.icon.png" alt="" loading="lazy" data-fallback="S">
+        <div class="badge">Godot Web</div>
+        <h2>Screwdom 3D</h2>
+        <p class="folder">007-screwdom-3d</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 22 พ.ย. 2569 00:38:40</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="001-word-garden/?v=1795107480437" data-search="word garden with friends 001-word-garden" style="animation-delay:200ms">
+        <img class="icon" src="001-word-garden/index.icon.png" alt="" loading="lazy" data-fallback="W">
+        <div class="badge">Godot Web</div>
+        <h2>Word Garden with Friends</h2>
+        <p class="folder">001-word-garden</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 19 พ.ย. 2569 23:58:00</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="003-memory-jar/?v=1795107291796" data-search="memory jar 003-memory-jar" style="animation-delay:220ms">
+        <img class="icon" src="003-memory-jar/index.icon.png" alt="" loading="lazy" data-fallback="M">
+        <div class="badge">Godot Web</div>
+        <h2>Memory Jar</h2>
+        <p class="folder">003-memory-jar</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 19 พ.ย. 2569 23:54:51</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="004-ramwong/?v=1795106544531" data-search="ramwong around the world 004-ramwong" style="animation-delay:240ms">
+        <img class="icon" src="004-ramwong/index.icon.png" alt="" loading="lazy" data-fallback="R">
+        <div class="badge">Godot Web</div>
+        <h2>Ramwong Around the World</h2>
+        <p class="folder">004-ramwong</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 19 พ.ย. 2569 23:42:24</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="flip-and-jump/?v=1795019913277" data-search="flip &amp; jump flip-and-jump" style="animation-delay:260ms">
+        <img class="icon" src="flip-and-jump/index.icon.png" alt="" loading="lazy" data-fallback="F">
+        <div class="badge">Godot Web</div>
+        <h2>Flip &amp; Jump</h2>
+        <p class="folder">flip-and-jump</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 18 พ.ย. 2569 23:38:33</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+<a class="card" href="jump-and-jump/?v=1795019530257" data-search="jump &amp; jump jump-and-jump" style="animation-delay:280ms">
+        <img class="icon" src="jump-and-jump/index.icon.png" alt="" loading="lazy" data-fallback="J">
+        <div class="badge">Godot Web</div>
+        <h2>Jump &amp; Jump</h2>
+        <p class="folder">jump-and-jump</p>
+        <p class="updated">🕒 อัปเดตล่าสุด 18 พ.ย. 2569 23:32:10</p>
+        <span class="go">เล่นเลย →</span>
+      </a>
+  </div>
+  <p class="footer">หน้านี้สร้างสดจากรายชื่อโฟลเดอร์ทุกครั้งที่โหลด · เกมใหม่ที่วางใน <code>games/</code> จะขึ้นที่นี่อัตโนมัติ<br>ถ้าเกมยังเป็นเวอร์ชันเก่าบนมือถือ ให้กด <strong>🧹 ล้างแคช</strong> แล้วเข้าเกมใหม่</p>
+</main>
+<script>
+  const input = document.getElementById('filter');
+  const cards = [...document.querySelectorAll('#cards .card')];
+  const count = document.getElementById('count');
+  if (!window.isSecureContext) document.getElementById('secure-warning').hidden = false;
+  if (new URLSearchParams(location.search).has('cleared')) {
+    document.getElementById('cleared-notice').hidden = false;
+  }
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const card of cards) {
+      const hit = !q || card.dataset.search.includes(q);
+      card.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    }
+    count.textContent = q ? shown + ' / ' + cards.length + ' เกม' : cards.length + ' เกม';
+  });
+  for (const img of document.querySelectorAll('img.icon[data-fallback]')) {
+    img.addEventListener('error', () => {
+      const div = document.createElement('div');
+      div.className = 'icon';
+      div.textContent = img.dataset.fallback;
+      img.replaceWith(div);
+    });
+  }
+</script>
 </body>
 </html>
